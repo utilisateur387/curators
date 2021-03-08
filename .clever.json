@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "app_id": "app_2f3e0625-196e-4a16-8b91-340ab371eb85",
+      "org_id": "user_78da5087-510c-4770-a59f-a0dad6c91e7a",
+      "deploy_url": "https://push-par-clevercloud-customers.services.clever-cloud.com/app_2f3e0625-196e-4a16-8b91-340ab371eb85.git",
+      "name": "curators",
+      "alias": "curators"
+    }
+  ]
+}
