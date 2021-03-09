@@ -1,3 +1,6 @@
+$line-height: 1.3em;
+$font-weight: 300;
+
 h1 {
   font-size: 38px;
 }
@@ -20,11 +23,25 @@ h5 {
 
 .body-large {
   font-size: 26px;
-  font-weight: 300;
+  font-weight: $font-weight;
 }
 
 .body-medium {
   font-size: 22px;
   font-weight: 300;
-  line-height: 1.3em;
+  line-height: $line-height;
+}
+
+.body-small {
+  font-size: 14px;
+  font-weight: $font-weight;
+}
+
+.body-xs {
+  font-size: 12px;
+  font-weight: $font-weight;
+}
+
+.subtitle {
+  font-size: 16px;
 }
