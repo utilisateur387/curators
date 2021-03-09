@@ -1,7 +1,7 @@
 class Artwork < ApplicationRecord
   belongs_to :artist, optional: true
   belongs_to :collection
-  # belongs_to :user, through: :collections
+  has_one :user, through: :collection
 
   has_one_attached :photo
 

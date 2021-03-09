@@ -1,0 +1,41 @@
+.button {
+  font-size: 14px;
+  font-weight: $font-weight;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  background-color: $light-gray;
+  padding: 4.3% 26px;
+  display: inline-block;
+  border-radius: 30px;
+  color: black;
+  text-align: center;
+  height: 52px;
+}
+
+.button-stroke-white {
+  background-color: rgba(0,0,0,0);
+  border: solid 1px white;
+  color: white;
+}
+
+.button-block {
+  display: block;
+}
+
+.button-dark {
+  background-color: $off-black;
+  border: none;
+  color: white;
+}
+
+.button-plus {
+  width: 52px;
+}
+
+.button-camera-light-gray {
+  width: 52px;
+}
+
+.button-camera-main-dark {
+  width: 70px;
+}

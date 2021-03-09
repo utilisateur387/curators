@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :collections, only: [ :show, :new, :create, :edit, :update, :destroy ] # Collections du user
@@ -14,4 +15,7 @@ Rails.application.routes.draw do
     resources :collections, only: [ :index ]
     resources :artworks, only: [ :index ]
   end
+
+  # Test file, to hide later!!!
+  get '/components', to: 'test#components'
 end

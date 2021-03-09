@@ -1,16 +1,13 @@
-<div class="container-landing">
-  <div>
+<%= render 'shared/navbar' %>
+
+<div class="landing">
+
+  <div class="container">
+    <h1>Curators</h1>
     <div>
-      <h1>Curators</h1>
+      <p class="body-medium mt-3">Share and discover artworks with Curators, the social network for art enthusiasts.</p>
     </div>
-    <div>
-      <p>Share and discover artworks with Curators, the social network for art enthusiasts.</p>
-    </div>
-    <div class="container-btn">
-      <%= link_to "Log in", new_user_session_path, class: "button"  %>
-    </div>
-    <div>
-      <p> No account yet? <%= link_to "Sign up", new_user_registration_path %> </p>
-    </div>
+    <%= link_to "Log in", new_user_session_path, class: "button button-stroke-white mt-3" %>
+    <p class="body-small mt-4"> No account yet? <%= link_to "Sign up", new_user_registration_path, class: "underline" %> </p>
   </div>
 </div>

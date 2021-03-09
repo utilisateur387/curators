@@ -1,0 +1,54 @@
+h1 {
+  font-size: 38px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 13px;
+}
+
+$body-large: 26px;
+$body-medium: 20px;
+$body-small: 16px;
+$body-xs: 12px;
+
+.body-large {
+  font-size: $body-large;
+  font-weight: $font-weight;
+}
+
+.body-medium {
+  font-size: $body-medium;
+  font-weight: 300;
+  line-height: $line-height;
+}
+
+.body-small {
+  font-size: $body-small;
+  font-weight: $font-weight;
+}
+
+.body-xs {
+  font-size: $body-small;
+  font-weight: $font-weight;
+}
+
+.subtitle {
+  font-size: $body-small;
+}
+

@@ -1,8 +1,10 @@
 // Specific CSS for your home-page
-.container-landing {
+
+.landing {
   display: flex;
   align-items: center;
-  background-image: asset-url('image_landing.png');
+  justify-content: center;
+  background-image: $gradient-filter, asset-url('image_landing.png');
   background-size: cover;
   height: 100vh;
   background-position: center;

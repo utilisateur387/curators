@@ -1,0 +1,32 @@
+.input-field {
+  background-color: blue;
+}
+
+.form-control {
+  background-color: $transparent;
+  border: 0;
+  padding: 0;
+  font-size: $body-large !important;
+  font-weight: $font-weight;
+  height: auto;
+  line-height: 1.2em;
+
+  &:focus {
+    background-color: $transparent;
+    color: $off-black;
+    box-shadow: 0;
+    outline: none !important;
+    box-shadow: 0px 0px 0px green;
+    // border: solid 1px white;
+  }
+
+  &::placeholder {
+  color: gray;
+}
+}
+
+.string.optional {
+  font-size: $body-small;
+  font-weight: $font-weight;
+  margin: 0;
+}
