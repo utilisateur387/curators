@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: asset-url('image_landing.png');
+  background-image: $gradient-filter, asset-url('image_landing.png');
   background-size: cover;
   height: 100vh;
   background-position: center;

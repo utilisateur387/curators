@@ -1,6 +1,17 @@
 .button {
   font-size: 14px;
+  font-weight: $font-weight;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  background-color: blue;
+  letter-spacing: 0.1em;
+  background-color: $light-gray;
+  padding: 17px 27px;
+  display: inline-block;
+  border-radius: 30px;
+  color: black;
+}
+
+.button-stroke-white {
+  background-color: rgba(0,0,0,0);
+  border: solid 1px white;
+  color: white;
 }
