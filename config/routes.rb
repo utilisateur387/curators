@@ -14,6 +14,4 @@ Rails.application.routes.draw do
     resources :collections, only: [ :index ], controller: 'users/collections'
     resources :artworks, only: [ :index ], controller: 'users/artworks'
   end
-
-
 end
