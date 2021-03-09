@@ -1,9 +1,84 @@
 <body class="body-test container pt-5">
 
-  <!-- Buttons -->
-  <%= link_to "Button", "#", class: "button" %>
-  <hr class="mt-4">
-  <%= link_to "Button", "#", class: "button button-stroke-white" %>
+  <!-- _____________________________________________________________ -->
+
+  <!-- BUTTONS -->
+  <h1 class="text-center mb-5">Buttons</h1>
+
+    <!-- Button default -->
+    <%= link_to "Button", "#", class: "button" %>
+
+    <hr class="mt-4">
+
+    <!-- Button stroke white -->
+    <%= link_to "Button stroke", "#", class: "button button-stroke-white" %>
+
+    <hr class="mt-4">
+
+    <!-- Button block (full width) -->
+    <%= link_to "Button block", "#", class: "button button-block" %>
+
+    <hr class="mt-4">
+
+    <!-- Button dark (full width) -->
+    <%= link_to "Button dark", "#", class: "button button-dark" %>
+
+    <hr class="mt-4">
+
+    <!-- Button plus icon -->
+    <%= image_tag "icons/button_plus.png", alt: "alttext", class: "button-plus" %>
+
+    <hr class="mt-4">
+
+    <!-- Button camera light gray -->
+    <%= image_tag "icons/button_camera_light_gray.png", alt: "alttext", class: "button-camera-light-gray" %>
+
+    <hr class="mt-4">
+
+    <!-- Button camera main dark -->
+    <%= image_tag "icons/button_camera_main_dark.png", alt: "alttext", class: "button-camera-main-dark" %>
+
+    <hr class="mt-4">
+
+
+  <!-- _____________________________________________________________ -->
+
+  <!-- CARDS -->
+
+
+
+
+  <!-- _____________________________________________________________ -->
+
+  <!-- ELEMENTS -->
+  <h1 class="text-center mt-5 mb-5">ELEMENTS</h1>
+
+    <!-- Form / Input field -->
+    <%= simple_form_for @artwork do |f| %>
+      <%= f.input :title, placeholder: 'Placeholder' %>
+    <% end %>
+
+    <hr class="mt-4">
+
+    <!-- Notification -->
+    <div class="notification">
+      <h4>Notification message</h4>
+    </div>
+
+    <hr class="mt-4">
+
+    <!-- Select collection -->
+    <div class="select-collection">
+      <%= image_tag "img_collection_thumbnail.png", alt: "alttext", class: "collection-thumbnail" %>
+      <p class="body-medium">Collection name</p>
+    </div>
+
+    <hr class="mt-4">
+
+
+
+
+  <!-- _____________________________________________________________ -->
 
 
 </body>

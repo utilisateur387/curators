@@ -1,4 +1,8 @@
 .body-test {
-  background-color: gray;
-  height: 100vh;
+  background-color: rgba(0,0,0,0.3);
+  padding-bottom: 64px;
+
+  h1 {
+    font-family: "Helvetica"
+  }
 }

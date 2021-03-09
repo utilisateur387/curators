@@ -18,27 +18,33 @@ h5 {
   font-size: 16px;
 }
 
+$body-large: 26px;
+$body-medium: 20px;
+$body-small: 16px;
+$body-xs: 12px;
+
 .body-large {
-  font-size: 26px;
+  font-size: $body-large;
   font-weight: $font-weight;
 }
 
 .body-medium {
-  font-size: 20px;
+  font-size: $body-medium;
   font-weight: 300;
   line-height: $line-height;
 }
 
 .body-small {
-  font-size: 16px;
+  font-size: $body-small;
   font-weight: $font-weight;
 }
 
 .body-xs {
-  font-size: 12px;
+  font-size: $body-small;
   font-weight: $font-weight;
 }
 
 .subtitle {
-  font-size: 16px;
+  font-size: $body-small;
 }
+
