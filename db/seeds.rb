@@ -79,7 +79,7 @@ others = Collection.create(name: "Others")
 puts "Collection Created"
 
 puts "Creating Artworks"
-interchange = Artwork.create(name: "Interchange", completion_year: 1955, description: "", location:"", collection: others, artist: kooning)
+interchange = Artwork.create(title: "Interchange", completion_year: 1955, description: "", location:"", collection: others, artist: kooning)
 file = File.open(Rails.root.join('db/seeds/artworks/« Interchange »(1955), Willem de Kooning.jpg'))
 interchange.photo.attach(io: file, filename: '« Interchange »(1955), Willem de Kooning.jpg', content_type: 'image/jpeg')
 
