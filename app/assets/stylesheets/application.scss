@@ -11,3 +11,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// Custom settings
+@import "config/font_settings";
+
+.container {
+  padding-left: 24px;
+  padding-right: 24px;
+}

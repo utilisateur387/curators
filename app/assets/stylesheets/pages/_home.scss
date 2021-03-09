@@ -1,7 +1,8 @@
 // Specific CSS for your home-page
-.container-landing {
+.landing {
   display: flex;
   align-items: center;
+  justify-content: center;
   background-image: asset-url('image_landing.png');
   background-size: cover;
   height: 100vh;

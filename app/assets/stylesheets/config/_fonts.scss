@@ -1,9 +1,11 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Helvetica", "Helvetica", "sans-serif";
-$headers-font: "Libre Caslon Text", "Helvetica", "sans-serif";
+$body-font: "Helvetica Neue", "Helvetica", "sans-serif";
+$headers-font: "Cormorant Garamond", "Helvetica", "sans-serif";
+// $headers-font: "Libre Caslon Text", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
