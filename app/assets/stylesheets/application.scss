@@ -8,10 +8,11 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-// Your CSS partials
-@import "components/index";
-@import "pages/index";
 
 // Custom settings
 @import "config/font_settings";
 @import "config/normalize";
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
