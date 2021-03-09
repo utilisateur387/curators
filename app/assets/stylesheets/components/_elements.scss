@@ -1,3 +1,10 @@
+.notification {
+  background-color: $light-gray;
+  text-align: center;
+  padding: 27px;
+  border-radius: 60px;
+}
+
 .select-collection {
   display: flex;
   justify-content: flex-start;
@@ -13,4 +20,15 @@
   height: 42px;
   margin-right: 16px;
   border-radius: 4px;
+}
+
+.collection-tag {
+  background-color: #C0D9D4;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+
+  h5 {
+    margin-bottom: 0;
+  }
 }

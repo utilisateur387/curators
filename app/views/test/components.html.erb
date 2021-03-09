@@ -55,7 +55,7 @@
 
     <!-- Form / Input field -->
     <%= simple_form_for @artwork do |f| %>
-      <%= f.input :title, placeholder: 'Placeholder' %>
+      <%= f.input :title, placeholder: 'Input field (Placeholder)' %>
     <% end %>
 
     <hr class="mt-4">
@@ -70,7 +70,14 @@
     <!-- Select collection -->
     <div class="select-collection">
       <%= image_tag "img_collection_thumbnail.png", alt: "alttext", class: "collection-thumbnail" %>
-      <p class="body-medium">Collection name</p>
+      <span class="body-medium">Select collection</span>
+    </div>
+
+    <hr class="mt-4">
+
+    <!-- Collection tag -->
+    <div class="collection-tag">
+      <h5>Collecion tag</h5>
     </div>
 
     <hr class="mt-4">
