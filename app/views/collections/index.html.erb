@@ -1,2 +1,15 @@
 <h1>Collections#index</h1>
 <p>Find me in app/views/collections/index.html.erb</p>
+
+<div>
+  <% @collections.each do |collection| %>
+    <%= link_to collection_path(collection) do %>
+      <div>
+        <%# <%= cl_image_tag collection.photo.key%> %>
+        <div>
+          <h3><%= collection.name.titleize %></h3>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
