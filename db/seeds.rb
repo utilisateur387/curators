@@ -69,13 +69,13 @@ puts "cleaning 4"
 
  puts "Creating collections"
 portrait = Collection.create(name: "Portrait" , user: pierre)
-landscapes = Collection.create(name: "Landscapes")
-french_artists = Collection.create(name: "French Artists")
-street_art = Collection.create(name: "Street Art")
-still_life = Collection.create(name: "Still Life")
-scultures = Collection.create(name: "Scultures")
-monuments = Collection.create(name: "Monuments")
-others = Collection.create(name: "Others")
+landscapes = Collection.create(name: "Landscapes" , user: pierre)
+french_artists = Collection.create(name: "French Artists" , user: pierre)
+street_art = Collection.create(name: "Street Art" , user: pierre)
+still_life = Collection.create(name: "Still Life" , user: pierre)
+scultures = Collection.create(name: "Scultures" , user: pierre)
+monuments = Collection.create(name: "Monuments" , user: pierre)
+others = Collection.create(name: "Others" , user: pierre)
 puts "Collection Created"
 
 puts "Creating Artworks"
