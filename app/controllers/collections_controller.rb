@@ -8,9 +8,17 @@ class CollectionsController < ApplicationController
   end
 
   def new
+    @collection = Collection.new
   end
 
   def create
+    collection = Collection.new(collection_params)
+  	collection.owner = current_user
+  	if collection.save!
+  		redirect_to collections_path
+  	else
+  		render :new
+  	end
   end
 
   def edit
@@ -20,5 +28,11 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def collection_params
+    params.require(:collection).permit(:name)
   end
 end
