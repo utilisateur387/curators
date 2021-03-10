@@ -1,2 +1,13 @@
 <h1>Collections#show</h1>
 <p>Find me in app/views/collections/show.html.erb</p>
+
+<% @artworks.each do |artwork| %>
+  <%= link_to artwork_path(artwork) do %>
+    <%= cl_image_tag artwork.photo.key, class: "card-img-top"%>
+    <% if artwork.artist%>
+      <%= artwork.artist.name.titleize %>
+    <% end %>
+    <%= artwork.title.titleize %>
+    <%= artwork.completion_year %>
+  <% end %>
+<% end %>
