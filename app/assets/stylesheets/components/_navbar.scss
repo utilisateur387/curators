@@ -1,22 +1,43 @@
-.navbar {
-  // padding: 2px $body-padding 0 $body-padding;
-  padding: 0;
-  height: 52px;
-}
+// .navbar {
+//   // padding: 2px $body-padding 0 $body-padding;
+//   padding: 0;
+//   height: 52px;
+// }
 
-.navbar-lewagon {
-  width: 100%;
-  position: fixed;
-  justify-content: space-between;
-}
+// .navbar-lewagon {
+//   width: 100%;
+//   position: fixed;
+//   justify-content: space-between;
+// }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-  position: fixed;
-}
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+//   position: fixed;
+// }
 
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
+// .navbar-toggler {
+//   border: 0px $transparent;
+//   padding: 0;
+//   // z-index: 100;
+// }
+
+// .nav-item {
+//   display: inline-block;
+//   width: 70%;
+// }
+
+// .nav-link {
+//   color: $off-black !important;
+//   margin-left: 40px;
+// }
+
+// .show {
+//   background-color: $light-gray;
+
+//   top: 0;
+//   height: 100vh;
+//   width: 100%;
+//   z-index: 0;
 // }
 
 .back-arrow {
@@ -36,33 +57,6 @@
 .cross {
   width: 16px;
 }
-
-.navbar-toggler {
-  border: 0px $transparent;
-  padding: 0;
-  // z-index: 100;
-}
-
-.nav-item {
-  display: inline-block;
-  width: 70%;
-}
-
-.nav-link {
-  color: $off-black !important;
-  margin-left: 40px;
-}
-
-.show {
-  background-color: $light-gray;
-
-  top: 0;
-  height: 100vh;
-  width: 100%;
-  z-index: 0;
-}
-
-// -----------------------
 
 
 .overlay {
