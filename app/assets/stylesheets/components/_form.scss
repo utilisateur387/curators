@@ -30,3 +30,38 @@
   font-weight: $font-weight;
   margin: 0;
 }
+
+.artwork_input {
+  border: 1px solid #1EDD88;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background-color: white;
+}
+
+
+// A METTRE AILLEURS
+.step1, .step2, .step3 {
+  height: 100vh;
+}
+.step1 {
+  background-color: gray;
+}
+.step2 {
+  background-color: coral;
+}
+.step3 {
+  background-color: blue;
+}
+.nav_form {
+  padding: 0 5%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  p {
+     margin: 10px 0
+  }
+}
