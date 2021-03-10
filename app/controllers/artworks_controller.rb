@@ -1,6 +1,10 @@
 class ArtworksController < ApplicationController
-
   def index
+    # raise
+    @user = User.find(params[:user_id])
+    @number_of_collections = @user.collections.count
+    @artworks = @user.artworks
+    # raise
   end
 
   def show
@@ -31,5 +35,4 @@ class ArtworksController < ApplicationController
   def artwork_params
     params.require(:artwork).permit(:title, :photo, :artist_id, :completion_year, :description, :notes, :collection_id)
   end
-
 end
