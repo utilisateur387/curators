@@ -30,3 +30,9 @@
   font-weight: $font-weight;
   margin: 0;
 }
+
+.container .input {
+  border: 1px solid #1EDD88;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background-color: white;
+}

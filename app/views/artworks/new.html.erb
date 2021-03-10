@@ -1,2 +1,28 @@
-<h1>Artworks#new</h1>
-<p>Find me in app/views/artworks/new.html.erb</p>
+<h1>New Artwork</h1>
+
+
+<div class= "container">
+  <%= simple_form_for(@artwork) do |f| %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :title, placeholder: "What's the artwork's title?"%>
+    <%= f.association :artist, collection: @artists, placeholder: "Who's the artist?" %>
+    <%= f.input :completion_year, placeholder: "Add year of completion" %>
+    <%= f.input :description, placeholder: "Add artwork description" %>
+    <%= f.input :notes, placeholder: "Add personal notes" %>
+    <%= f.association :collection, collection: @collections, placeholder: "Choose a colection" %>
+    <%= f.submit class: "button" %>
+  <% end %>
+</div>
+
+<h1>Save to collection</h1>
+<%# Display image %>
+  <%# <%= cl_image_tag artwork.photo.key %>
+
+  <%# Display list of collection with pictures %>
+<div>
+  <% current_user.collections.each do |collection| %>
+    <%= collection.name.titleize %>
+    <%# <%= cl_image_tag collection.photo.key%> %>
+  <% end %>
+</div>
+
