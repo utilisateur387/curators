@@ -5,6 +5,8 @@ class CollectionsController < ApplicationController
   end
 
   def show
+    set_collection
+    @artworks = @collection.artworks
   end
 
   def new
@@ -31,6 +33,10 @@ class CollectionsController < ApplicationController
   end
 
   private
+
+  def set_collection
+    @collection = Collection.find(params[:id])
+  end
 
   def collection_params
     params.require(:collection).permit(:name)
