@@ -1,3 +1,8 @@
+.navbar {
+  padding: 0 24px;
+  height: 52px;
+}
+
 .navbar-lewagon {
   width: 100%;
   position: fixed;
@@ -8,6 +13,19 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
+
+.back-arrow {
+  width: 8px;
+}
+
+.burger {
+  width: 24px;
+}
+
+.navbar-toggler {
+  border: 0px $transparent;
+  padding: 0;
 }
