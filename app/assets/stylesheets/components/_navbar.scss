@@ -1,17 +1,14 @@
 .navbar {
   padding: 0;
   height: 52px;
+  width: 100%;
+  position: fixed;
+  justify-content: space-between;
 }
 
 .navbar-toggler {
   border: 0px $transparent;
   padding: 0;
-}
-
-.navbar-lewagon {
-  width: 100%;
-  position: fixed;
-  justify-content: space-between;
 }
 
 // .navbar-lewagon .navbar-collapse {

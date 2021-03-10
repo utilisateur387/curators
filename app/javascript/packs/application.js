@@ -24,6 +24,9 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { toggleMenu } from '../components/navbar';
+import { openNav } from '../components/navbar';
+import { closeNav } from '../components/navbar';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -31,4 +34,6 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  toggleMenu();
+
 });
