@@ -1,6 +1,8 @@
+$body-padding: 24px;
+
 .container {
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 28px;
+  padding-right: 28px;
 }
 
 a {
@@ -18,7 +20,6 @@ a {
   }
 }
 
-
 .underline {
   text-decoration: underline;
 }
@@ -27,6 +28,7 @@ a {
   align-items: center;
 }
 
-.container-sign-in{
+.container-sign-in {
   text-align: center;
 }
+
