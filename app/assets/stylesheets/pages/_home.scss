@@ -2,6 +2,7 @@
 .body-landing {
   background-image: $gradient-filter, asset-url('image_landing.png');
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
 
 }
