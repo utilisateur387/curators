@@ -4,7 +4,8 @@
 }
 
 a {
-  color: white;
+  color: $off-black;
+}
 
   &:hover {
     text-decoration: none;
@@ -20,4 +21,12 @@ a {
 
 .underline {
   text-decoration: underline;
+}
+
+.form {
+  align-items: center;
+}
+
+.container-sign-in{
+  text-align: center;
 }
