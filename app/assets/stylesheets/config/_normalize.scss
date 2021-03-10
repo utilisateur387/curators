@@ -7,11 +7,17 @@ a {
   color: $off-black;
 }
 
-a:active {
-  background-color: $light-gray;
-  color: $off-black;
-  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: $light-gray;
+    color: $off-black;
+    text-decoration: none;
+  }
 }
+
 
 .underline {
   text-decoration: underline;
