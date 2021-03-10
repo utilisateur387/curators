@@ -1,57 +1,64 @@
-// .navbar {
-//   // padding: 2px $body-padding 0 $body-padding;
-//   padding: 0;
-//   height: 52px;
-// }
+.my-navbar {
+  padding: 0;
+  height: 52px;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  justify-content: center;
 
-// .navbar-lewagon {
-//   width: 100%;
-//   position: fixed;
-//   justify-content: space-between;
-// }
+  h5 {
+    margin-top: 16px;
+  }
+}
 
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-//   position: fixed;
-// }
+.bg-white {
+  background-color: white;
+}
 
-// .navbar-toggler {
-//   border: 0px $transparent;
-//   padding: 0;
-//   // z-index: 100;
-// }
+.navbar-right-side {
+  position: fixed;
+  right: 0;
+  top: 20px;
+}
 
-// .nav-item {
-//   display: inline-block;
-//   width: 70%;
-// }
+.navbar-left-side {
+  position: fixed;
+  left: 0;
+}
 
-// .nav-link {
-//   color: $off-black !important;
-//   margin-left: 40px;
-// }
+.navbar-center-element {
+  position: fixed;
+}
 
-// .show {
-//   background-color: $light-gray;
-
-//   top: 0;
-//   height: 100vh;
-//   width: 100%;
-//   z-index: 0;
-// }
+.empty {
+  width: 8px;
+  display: inline-block;
+  height: 2px;
+  margin-left: $body-padding;
+}
 
 .back-arrow {
   width: 8px;
+  margin-top: 6px;
   margin-left: $body-padding;
+}
+
+.heart {
+  width: 18px;
+  margin-top: 6px;
+  margin-left: $body-padding;
+}
+
+.icon-right {
+  margin-right: $body-padding;
 }
 
 .burger {
   width: $body-padding;
-  background-image: asset-url('icons/icon_burger_white.png');
+  background-image: asset-url('icons/icon_burger_black.png');
   background-size: contain;
   background-repeat: no-repeat;
   height: 8px;
-  margin-right: $body-padding;
 }
 
 .cross {
@@ -94,6 +101,21 @@
   right: 13px;
 }
 
+.title-username {
+  text-align: center;
+
+  h5 {
+    margin-bottom: -2px;
+  }
+
+  h6 {
+    color: gray;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
 // @media screen and (max-height: 450px) {
 //   .overlay a {font-size: 20px}
 //   .overlay .closebtn {
