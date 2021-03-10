@@ -1,5 +1,6 @@
 .navbar {
-  padding: 0 24px;
+  // padding: 2px $body-padding 0 $body-padding;
+  padding: 0;
   height: 52px;
 }
 
@@ -11,6 +12,7 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  position: fixed;
 }
 
 // .navbar-lewagon .navbar-brand img {
@@ -19,13 +21,35 @@
 
 .back-arrow {
   width: 8px;
+  margin-left: $body-padding;
 }
 
 .burger {
-  width: 24px;
+  width: $body-padding;
+  background-image: asset-url('icons/icon_burger_white.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 8px;
+  margin-right: $body-padding;
 }
 
 .navbar-toggler {
   border: 0px $transparent;
   padding: 0;
+  z-index: 100;
+}
+
+.nav-item {
+  display: inline-block;
+  margin: 24px;
+  width: 70%;
+  background-color: blue;
+}
+
+.show {
+  background-color: red;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 0;
 }
