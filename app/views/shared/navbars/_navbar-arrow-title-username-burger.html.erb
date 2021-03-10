@@ -1,21 +1,25 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="my-navbar bg-white">
 
     <!-- Icon on the left -->
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow" %>
-    <% end %>
+    <div class="navbar-left-side">
+      <%= link_to "#", class: "navbar-brand" do %>
+        <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow" %>
+      <% end %>
+    </div>
 
     <!-- Page Title -->
-    <div class="title-username">
-      <h5>Title</h5>
-      <h6>username</h6>
+    <div class="navbar-center-element">
+      <div class="title-username">
+        <h5>Title</h5>
+        <h6>username</h6>
+      </div>
     </div>
 
     <!-- Icon on the right -->
-    <button class="navbar-toggler" type="button">
+    <div class="navbar-right-side">
       <div class="burger icon-right" id="burger" >
       </div>
-    </button>
+    </div>
 
     <!-- Menu overlay fullscreen -->
     <div id="myNav" class="overlay">

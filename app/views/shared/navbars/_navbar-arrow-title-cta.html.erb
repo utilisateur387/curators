@@ -1,17 +1,23 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="my-navbar bg-white">
 
     <!-- Icon on the left -->
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow" %>
-    <% end %>
+    <div class="navbar-left-side">
+      <%= link_to "#", class: "navbar-brand" do %>
+        <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow" %>
+      <% end %>
+    </div>
 
     <!-- Page Title -->
-    <h5>Title</h5>
+    <div class="navbar-center-element">
+      <h5>Title</h5>
+    </div>
 
     <!-- Icon on the right -->
-    <%= link_to "CTA", "#", class: "icon-right"  %>
+     <div class="navbar-right-side">
+        <%= link_to "CTA", "#", class: "icon-right"  %>
+     </div>
 
-    <!-- Menu overlay fullscreen -->
+       <!-- Menu overlay fullscreen -->
     <div id="myNav" class="overlay">
     <%= link_to "javascript:void(0)", class: "closebtn" do %>
       <%= image_tag "icons/icon_cross.png", class: "closebtn cross", id: "cross" %>

@@ -1,27 +1,55 @@
-.navbar {
+.my-navbar {
   padding: 0;
   height: 52px;
   width: 100%;
+  display: flex;
   position: fixed;
-  justify-content: space-between;
+  justify-content: center;
 
   h5 {
-    margin-top: 12px;
+    margin-top: 16px;
   }
 }
 
-.navbar-toggler {
-  border: 0px $transparent;
-  padding: 0;
+.bg-white {
+  background-color: white;
+}
+
+.navbar-right-side {
+  position: fixed;
+  right: 0;
+  top: 20px;
+}
+
+.navbar-left-side {
+  position: fixed;
+  left: 0;
+}
+
+.navbar-center-element {
+  position: fixed;
+}
+
+.empty {
+  width: 8px;
+  display: inline-block;
+  height: 2px;
+  margin-left: $body-padding;
 }
 
 .back-arrow {
   width: 8px;
+  margin-top: 6px;
+  margin-left: $body-padding;
+}
+
+.heart {
+  width: 18px;
+  margin-top: 6px;
   margin-left: $body-padding;
 }
 
 .icon-right {
-
   margin-right: $body-padding;
 }
 
@@ -83,6 +111,10 @@
   h6 {
     color: gray;
   }
+}
+
+.hidden {
+  visibility: hidden;
 }
 // @media screen and (max-height: 450px) {
 //   .overlay a {font-size: 20px}
