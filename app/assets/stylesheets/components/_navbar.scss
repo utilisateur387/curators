@@ -20,13 +20,17 @@
   margin-left: $body-padding;
 }
 
+.icon-right {
+
+  margin-right: $body-padding;
+}
+
 .burger {
   width: $body-padding;
   background-image: asset-url('icons/icon_burger_black.png');
   background-size: contain;
   background-repeat: no-repeat;
   height: 8px;
-  margin-right: $body-padding;
 }
 
 .cross {
@@ -69,6 +73,17 @@
   right: 13px;
 }
 
+.title-username {
+  text-align: center;
+
+  h5 {
+    margin-bottom: -2px;
+  }
+
+  h6 {
+    color: gray;
+  }
+}
 // @media screen and (max-height: 450px) {
 //   .overlay a {font-size: 20px}
 //   .overlay .closebtn {
