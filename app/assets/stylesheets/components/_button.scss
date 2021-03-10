@@ -38,4 +38,8 @@
 
 .button-camera-main-dark {
   width: 70px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 100;
 }

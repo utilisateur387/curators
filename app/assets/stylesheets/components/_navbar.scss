@@ -4,7 +4,9 @@
   width: 100%;
   display: flex;
   position: fixed;
+  top: 0;
   justify-content: center;
+  z-index: 50;
 
   h5 {
     margin-top: 16px;
@@ -70,21 +72,27 @@
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
   top: 0;
   left: 0;
   // background-color: rgb(0,0,0);
   background-color: rgba(255,255,255, 0.95);
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .overlay-content {
-  margin-left: 40px;
   position: relative;
   width: 100%;
   margin-top: 94px;
   white-space: nowrap;
+
+  h1 {
+    margin-left: 40px;
+  }
+
+  hr {
+    margin: 24px 40px 20px 40px;
+  }
 }
 
 .overlay a {

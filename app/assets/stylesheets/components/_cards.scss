@@ -1,0 +1,39 @@
+.card-text-over-img {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+
+  img {
+    width: 100%;
+    border-radius: 2px;
+    min-height: 276px;
+    object-fit: cover;
+  }
+
+  .artwork-infos {
+    padding: 24px;
+    position: absolute;
+    color: white;
+    z-index: 1;
+
+    h3 {
+      margin-bottom: 0;
+    }
+  }
+
+  .collection-tag {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+  }
+
+  .image-gradient {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8));
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    border-radius: 2px;
+  }
+}
+
