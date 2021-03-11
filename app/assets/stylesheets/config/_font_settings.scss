@@ -28,6 +28,10 @@ $body-medium: 20px;
 $body-small: 15px;
 $body-xs: 12px;
 
+p {
+  line-height: 1.2em;
+}
+
 .body-large {
   font-size: $body-large;
   font-weight: $font-weight;
@@ -57,3 +61,4 @@ $body-xs: 12px;
   font-weight: 400;
   margin-bottom: 0;
 }
+
