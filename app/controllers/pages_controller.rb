@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     if current_user
       user = current_user
-      @artwork_archive = user.artworks.sample
+      @artwork_archive = user.artworks.where.not(artist_id: nil).sample
     end
   end
 end

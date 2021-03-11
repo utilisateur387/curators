@@ -2,9 +2,7 @@
 
     <!-- Icon on the left -->
     <div class="navbar-left-side">
-      <%= link_to "#", class: "navbar-brand" do %>
-        <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow" %>
-      <% end %>
+      <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow" %>
     </div>
 
     <!-- Page Title -->
@@ -39,7 +37,7 @@
 
 
 
-<div class="container mt-5">
+<div class="container container-mt">
     <% @artworks.each_slice(2) do |artwork| %>
       <div class="cards-duo">
         <div class="cards-duo-imgs">

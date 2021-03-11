@@ -23,9 +23,15 @@
       <div class="cards-triple-imgs">
         <%= link_to collection_path(collection) do %>
           <div class="img-triple">
-            <div class="image img-one" style="background-image: url('<%= cl_image_path collection.artworks[0].photo.key %>');"></div>
-            <div class="image img-two" style="background-image: url('<%= cl_image_path collection.artworks[1].photo.key %>');"></div>
-            <div class="image img-three" style="background-image: url('<%= cl_image_path collection.artworks[2].photo.key %>');"></div>
+            <% if collection.artworks[0] %>
+              <div class="image img-one" style="background-image: url('<%= cl_image_path collection.artworks[0].photo.key %>');"></div>
+            <% end %>
+            <% if collection.artworks[1] %>
+              <div class="image img-two" style="background-image: url('<%= cl_image_path collection.artworks[1].photo.key %>');"></div>
+            <% end %>
+            <% if collection.artworks[2] %>
+              <div class="image img-three" style="background-image: url('<%= cl_image_path collection.artworks[2].photo.key %>');"></div>
+            <% end %>
           </div>
         <% end %>
       </div>

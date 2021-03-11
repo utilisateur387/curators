@@ -40,7 +40,7 @@
   <div class="body-large mb-4 text-center">
     Latest posts from the community
   </div>
-  <% @artworks.first(8).each do |artwork| %>
+  <% @artworks.first(25).each do |artwork| %>
 
 
     <div class="card-explore">
@@ -53,7 +53,7 @@
         </div>
 
         <div class="body-xs">
-          Location
+          <i class="fas fa-map-marker-alt mr-1" style="font-size: 12px"></i> Location
         </div>
       </div>
 
@@ -61,7 +61,11 @@
 
         <div class="card-text-over-img mt-3">
           <div class="artwork-infos">
-            <span class="subtitle"><%= artwork.artist.name.titleize %></span>
+            <% if artwork.artist %>
+              <span class="subtitle"><%= artwork.artist.name.titleize %></span>
+            <% else %>
+              <span class="subtitle">Unknown artist</span>
+            <% end %>
             <h3><%= artwork.title.titleize %></h3>
             <span class="subtitle"><%= artwork.completion_year %></span>
           </div>
