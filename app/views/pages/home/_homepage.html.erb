@@ -5,7 +5,9 @@
 <div class="container container-mt">
   <div class="body-large">
     <% if @artwork_archive.artist %>
-      Revisit <i><%= @artwork_archive.title.titleize %></i> by <%= @artwork_archive.artist.name.titleize %>
+      <div class="text-center">
+        Revisit <i><%= @artwork_archive.title.titleize %></i> by <%= @artwork_archive.artist.name.titleize %>
+      </div>
 
       <%= link_to artwork_path(@artwork_archive) do %>
         <div class="card-text-over-img mt-3">

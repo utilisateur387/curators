@@ -58,7 +58,7 @@
       <% else %>
         <p class="subtitle mb-1">Unknown artist</p>
       <% end %>
-      <h2> <%= @artwork.title %></h2>
+      <h2> <%= @artwork.title.titleize %></h2>
       <% if @artwork.completion_year %>
         <p class="subtitle"> <%= @artwork.completion_year %></p>
       <% end %>
