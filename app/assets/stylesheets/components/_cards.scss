@@ -68,12 +68,15 @@
     }
   }
 }
+.collection-container {
+  align-items: center;
+  justify-content: space-between;
+}
 
 .cards-triple {
   height: 144px;
-  width: 50%;
+  width: calc(50% - 8px);
   margin-bottom: 24px;
-  
 
   .cards-triple-imgs {
     align-items: center;
