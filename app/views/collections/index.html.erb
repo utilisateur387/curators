@@ -1,17 +1,20 @@
 <%= render 'shared/navbars/navbar-burger-title' %>
 
-<div class="container container-mt mb-5">
-  <div class="profile">
+<%= render 'shared/profile' %>
 
-    <%= cl_image_tag @user.photo.key, alt: "alttext", class: "avatar" %>
-    <h3 class="mt-3"><%= @user.name %></h3>
-    <p class="body-small mid-gray"><%= @number_of_collections %> collections</p>
-    <p class="body-small"><%= @user.description %></p>
 
+<div class="tabs body-small">
+  <div class="tab">
+    <%= link_to user_collections_path(@user) do  %>
+      My collections
+    <% end %>
+  </div>
+  <div class="tab opacity-low">
+    <%= link_to user_artworks_path(@user) do  %>
+      All artworks
+    <% end %>
   </div>
 </div>
-
-<hr>
 
 
 <div class="container d-flex flex-wrap mt-5">
