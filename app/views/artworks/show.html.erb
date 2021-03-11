@@ -8,7 +8,7 @@
     <!-- Icon on the left -->
     <div class="navbar-left-side">
       <%= link_to "#", class: "navbar-brand" do %>
-        <%= image_tag "icons/icon_back_arrow_white.png", class: "back-arrow" %>
+        <%= image_tag "icons/icon_back_arrow_white.png", class: "back-arrow", id: "my_arrow" %>
       <% end %>
     </div>
 
@@ -55,9 +55,15 @@
     </div>
 
     <div class="artwork-infos-show text-center mb-5">
-      <p class="subtitle mb-1"> <%= @artwork.artist.name %></p>
+      <% if @artwork.artist %>
+        <p class="subtitle mb-1"> <%= @artwork.artist.name %></p>
+      <% else %>
+        <p class="subtitle mb-1">Unknown artist</p>
+      <% end %>
       <h2> <%= @artwork.title %></h2>
-      <p class="subtitle"> <%= @artwork.completion_year %></p>
+      <% if @artwork.completion_year %>
+        <p class="subtitle"> <%= @artwork.completion_year %></p>
+      <% end %>
     </div>
 
     <div class="collection-tag">
@@ -71,6 +77,21 @@
       <p class="body-medium">Enim urna sagittis, at varius. Sed tristique in proin rutrum mauris nunc dui. At nec est massa consectetur nec. Blandit lacinia lorem enim ut. Ipsum, justo eu facilisis ac dui elit. Dui porttitor viverra scelerisque suspendisse amet. Fames elementum ut consequat amet. Lobortis scelerisque ornare ut faucibus. Ut nulla odio gravida nibh. </p>
     </div>
 
+    <!-- <button onclick="goBack()">Go Back</button> -->
+
+<!--     <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script> -->
+
+<!--     <script>
+      const my_arrow = document.getElementById("my_arrow");
+      my_arrow.addEventListener('click', (event) => {
+        window.history.back();
+        // my_arrow.style.display = 'none';
+      });
+    </script> -->
   </div>
 </body>
 
