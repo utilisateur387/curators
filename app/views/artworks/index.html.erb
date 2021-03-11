@@ -9,8 +9,13 @@
       My collections
     <% end %>
   </div>
-  <div class="tab">All artworks</div>
+  <div class="tab">
+    <%= link_to user_artworks_path(@user) do  %>
+      All artworks
+    <% end %>
+  </div>
 </div>
+
 
 <div class="container mt-5">
     <% @artworks.each_slice(2) do |artwork| %>
