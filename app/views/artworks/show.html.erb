@@ -1,5 +1,7 @@
-<%= link_to new_artwork_path do %>
-  <%= image_tag "icons/button_camera_main_gray.png", alt: "alttext", class: "button-camera-main-dark" %>
+<% if @artwork.user == current_user %>
+  <%= link_to new_artwork_path do %>
+    <%= image_tag "icons/button_camera_main_gray.png", alt: "alttext", class: "button-camera-main-dark" %>
+  <% end %>
 <% end %>
 
 <div class="my-navbar bg-dark white">
@@ -12,7 +14,11 @@
 
     <!-- Page Title -->
     <div class="navbar-center-element">
-      <h5><%= @artwork.user.username %></h5>
+      <%= link_to user_collections_path(@artwork.user) do %>
+        <h5 class="white">
+          <%= @artwork.user.username %>
+        </h5>
+      <% end %>
     </div>
 
     <!-- Icon on the right -->
@@ -28,11 +34,11 @@
     <% end %>
 
     <div class="overlay-content">
-      <h1 class="mb-3"><a href="#">Home</a></h1>
-      <h1 class="mb-3"><a href="#">Explore</a></h1>
-      <h1><a href="#">My profile</a></h1>
+      <h1 class="mb-3"> <%= link_to "Home", root_path %> </h1>
+      <h1 class="mb-3"> <%= link_to "Explore", explore_artworks_path %> </h1>
+      <h1> <%= link_to "My profile", user_collections_path(current_user) %> </h1>
       <hr>
-      <h1><a href="#">Sign out</a></h1>
+      <h1> <%= link_to "Sign out", destroy_user_session_path, method: :delete %> </h1>
     </div>
   </div>
 </div>
