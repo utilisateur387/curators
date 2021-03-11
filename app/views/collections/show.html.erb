@@ -42,14 +42,14 @@
       <div class="cards-duo">
         <div class="cards-duo-imgs">
           <div class="single-img">
-            <%= link_to "#" do %>
+            <%= link_to artwork_path(artwork) do %>
               <%= cl_image_tag artwork[0].photo.key %>
             <% end %>
           </div>
 
           <% if artwork[1] %>
             <div class="single-img">
-              <%= link_to "#" do %>
+              <%= link_to artwork_path(artwork) do %>
                 <%= cl_image_tag artwork[1].photo.key %>
               <% end %>
             </div>
