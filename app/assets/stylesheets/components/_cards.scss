@@ -37,3 +37,35 @@
   }
 }
 
+
+.cards-duo {
+  width: 100%;
+  margin-bottom: 24px;
+
+  .cards-duo-imgs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .single-img {
+      // width: calc(50% - 8px);
+      width: calc(50% - 8px);
+      object-fit: cover;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .cards-duo-infos {
+    display: flex;
+    justify-content: space-between;
+
+    .single-artwork-infos {
+      margin-top: 16px;
+      width: calc(50% - 8px);
+    }
+
+  }
+}
