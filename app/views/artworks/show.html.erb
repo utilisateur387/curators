@@ -61,7 +61,7 @@
     </div>
 
     <div class="collection-tag">
-      <%= link_to user_collections_path(@artwork.collection) do %>
+      <%= link_to collection_path(@artwork.collection) do %>
       <h5><%= @artwork.collection.name %></h5>
       <% end %>
     </div>

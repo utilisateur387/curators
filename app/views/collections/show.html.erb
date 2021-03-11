@@ -1,4 +1,40 @@
-<%= render 'shared/navbars/navbar-burger-title' %>
+<div class="my-navbar bg-white">
+
+    <!-- Icon on the left -->
+    <div class="navbar-left-side">
+      <%= link_to "#", class: "navbar-brand" do %>
+        <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow" %>
+      <% end %>
+    </div>
+
+    <!-- Page Title -->
+    <div class="navbar-center-element">
+      <div class="title-username">
+        <h5><%= @collection.name %> </h5>
+        <h6><%= @collection.user.username %> </h6>
+      </div>
+    </div>
+
+    <!-- Icon on the right -->
+    <div class="navbar-right-side">
+      <div class="burger icon-right" id="burger" >
+      </div>
+    </div>
+
+    <!-- Menu overlay fullscreen -->
+    <div id="myNav" class="overlay">
+    <%= link_to "javascript:void(0)", class: "closebtn" do %>
+      <%= image_tag "icons/icon_cross.png", class: "closebtn cross", id: "cross" %>
+    <% end %>
+
+    <div class="overlay-content">
+      <h1 class="mb-3"><a href="#">Home</a></h1>
+      <h1 class="mb-3"><a href="#">Explore</a></h1>
+      <h1><a href="#">My profile</a></h1>
+    </div>
+  </div>
+</div>
+
 
 
 <div class="container mt-5">
