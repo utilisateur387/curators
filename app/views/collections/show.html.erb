@@ -1,13 +1,51 @@
-<h1>Collections#show</h1>
-<p>Find me in app/views/collections/show.html.erb</p>
+<%= render 'shared/navbars/navbar-burger-title' %>
 
-<% @artworks.each do |artwork| %>
-  <%= link_to artwork_path(artwork) do %>
-    <%= cl_image_tag artwork.photo.key, class: "card-img-top"%>
-    <% if artwork.artist%>
-      <%= artwork.artist.name.titleize %>
-    <% end %>
-    <%= artwork.title.titleize %>
-    <%= artwork.completion_year %>
-  <% end %>
-<% end %>
+
+<div class="container mt-5">
+    <% @artworks.each_slice(2) do |artwork| %>
+      <div class="cards-duo">
+        <div class="cards-duo-imgs">
+          <div class="single-img">
+            <%= link_to "#" do %>
+              <%= cl_image_tag artwork[0].photo.key %>
+            <% end %>
+          </div>
+
+          <% if artwork[1] %>
+            <div class="single-img">
+              <%= link_to "#" do %>
+                <%= cl_image_tag artwork[1].photo.key %>
+              <% end %>
+            </div>
+         <% end %>
+        </div>
+
+        <div class="cards-duo-infos">
+          <div class="single-artwork-infos">
+            <% if artwork[0].artist %>
+              <p class="subtitle"><%= artwork[0].artist.name %></p>
+            <% else %>
+              <p class="subtitle">Unknown artist</p>
+            <% end %>
+            <h4><%= artwork[0].title %></h4>
+            <p class="subtitle"><%= artwork[0].completion_year %></p>
+          </div>
+
+          <% if artwork[1] %>
+            <div class="single-artwork-infos">
+              <% if artwork[1].artist %>
+                <p class="subtitle"><%= artwork[1].artist.name %></p>
+              <% else %>
+                <p class="subtitle">Unknown artist</p>
+              <% end %>
+              <h4><%= artwork[1].title %></h4>
+              <p class="subtitle"><%= artwork[1].completion_year %></p>
+            </div>
+          <% end %>
+
+          </div>
+        </div>
+      <% end %>
+
+</div>
+
