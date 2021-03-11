@@ -5,8 +5,6 @@
   <p>next</p>
 </div>
 
-</div>
-
 <%# NAVBAR SPECIALE %>
 
 <div class= "container">
@@ -18,30 +16,29 @@
       </div>
 
       <%# STEP 2 INFO %>
-      <div class="step2">
+      <div>
         <%# DISPLAY IMG %>
-        <%= f.input :title, placeholder: "What's the artwork's title?", input_html: {class: "artwork_input"}%>
-        <%= f.association :artist, collection: @artists, placeholder: "Who's the artist?", input_html: {class: "artwork_input"} %>
-        <%= f.input :completion_year, placeholder: "Add year of completion", input_html: {class: "artwork_input"} %>
-        <%= f.input :description, placeholder: "Add artwork description", input_html: {class: "artwork_input"} %>
-        <%= f.input :notes, placeholder: "Add personal notes", input_html: {class: "artwork_input"} %>
-        <%= f.association :collection, collection: @collections, placeholder: "Choose a colection" %>
+
+      <div class="step2">
+        <hr><%= f.input :title, placeholder: "What's the artwork's title?", input_html: {class: "artwork_input"}%>
+        <hr><%= f.association :artist, collection: @artists, placeholder: "Who's the artist?", input_html: {class: "artwork_input"} %>
+        <hr><%= f.input :completion_year, placeholder: "Add year of completion", input_html: {class: "artwork_input"} %>
+        <hr><%= f.input :description, placeholder: "Add artwork description", input_html: {class: "artwork_input"} %>
+        <hr><%= f.input :notes, placeholder: "Add personal notes", input_html: {class: "artwork_input"} %>
       </div>
 
       <%# STEP 3 COLLECTION %>
       <div class="step3">
-        <h1>Save to collection</h1>
-
-        <%# <%= cl_image_tag artwork.photo.key %>
-        <%# Display list of collection with pictures %>
-        <div>
+        <hr><%= f.association :collection, collection: @collections,
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper',
+          item_wrapper_class: 'category-item',
+          label_method: lambda { |collection| render "collections/collection_label", collection: collection },
+          input_html: {class: 'select-collection'} %>
       </div>
-      <%= f.submit class: "button" %>
-    <% end %>
 
-    <% current_user.collections.each do |collection| %>
-      <%= collection.name.titleize %>
-      <%# <%= cl_image_tag collection.photo.key%>
+     <%= f.submit class: "button" %>
     <% end %>
   </div>
 </div>
