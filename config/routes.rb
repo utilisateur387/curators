@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :collections, only: [ :show, :new, :create, :edit, :update, :destroy ] # Collections du user
-  resources :artworks, only: [ :show, :new, :create, :edit, :update, :destroy ] # Artworks du user
+  resources :artworks, only: [ :show, :new, :create, :edit, :update, :destroy ] do
+    collection do
+      get :search
+    end
+  end # Artworks du user
 
   namespace :explore do # Explore all artworks from all users
     resources :artworks, only: [ :index ]
