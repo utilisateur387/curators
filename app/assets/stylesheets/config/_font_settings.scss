@@ -11,8 +11,8 @@ h3 {
 }
 
 h4 {
-  font-size: 18px;
-  margin-bottom: 4px;
+  font-size: 19px;
+  margin-bottom: 6px;
 }
 
 h5 {
@@ -25,7 +25,7 @@ h6 {
 
 $body-large: 26px;
 $body-medium: 20px;
-$body-small: 15px;
+$body-small: 14px;
 $body-xs: 12px;
 
 p {
@@ -57,8 +57,8 @@ p {
 .subtitle {
   font-size: $body-small;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
   font-weight: 400;
-  margin-bottom: 0;
+  margin-bottom: 2px;
 }
 
