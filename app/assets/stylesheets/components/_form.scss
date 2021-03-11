@@ -21,8 +21,8 @@
   }
 
   &::placeholder {
-  color: $mid-gray;
-}
+    color: $mid-gray;
+  }
 }
 
 .string.optional {
@@ -34,13 +34,19 @@
 .container {
   display: grid;
 }
-
+.carousel-control-prev, .carousel-control-next {
+  position: absolute;
+  top: -50px;
+  bottom: unset;
+  z-index: 51;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-color: black;
+}
 .artwork_input {
   background-color: white;
   width: 100%;
 }
-
-
 
 label {
   display: inline-block;
