@@ -14,37 +14,24 @@
 <hr>
 
 
-<div class="container mt-5">
-  <% @collections.each_slice(2) do |collection| %>
-    <div class="cards-duo">
-      <div class="cards-duo-imgs">
-        <div class="single-img">
-          <%= link_to collection_path(collection) do %>
-            <%= cl_image_tag collection[0].artworks.first.photo.key %>
-          <% end %>
-        </div>
-
-        <% if collection[1] %>
-          <div class="single-img">
-            <%= link_to collection_path(collection) do %>
-              <%= cl_image_tag collection[1].artworks.first.photo.key %>
-            <% end %>
+<div class="container d-flex flex-wrap mt-5">
+  <% @collections.each do |collection| %>
+    <div class="cards-triple">
+      <div class="cards-triple-imgs">
+        <%= link_to collection_path(collection) do %>
+          <div class="img-triple">
+            <div class="image img-one" style="background-image: url('<%= cl_image_path collection.artworks[0].photo.key %>');"></div>
+            <div class="image img-two" style="background-image: url('<%= cl_image_path collection.artworks[1].photo.key %>');"></div>
+            <div class="image img-three" style="background-image: url('<%= cl_image_path collection.artworks[2].photo.key %>');"></div>
           </div>
         <% end %>
       </div>
 
-      <div class="cards-duo-infos">
-        <div class="single-artwork-infos">
-          <p class="subtitle"><%= collection[0].name %></p>
-          <p style="color:#B1B1B1"><%= collection[0].artworks.count %> artworks</p>
+      <div class="cards-triple-infos">
+        <div class="single-collection-infos">
+          <p class="subtitle"><%= collection.name %></p>
+          <p style="color:#B1B1B1"><%= collection.artworks.count %> artworks</p>
         </div>
-
-        <% if collection[1] %>
-          <div class="single-artwork-infos">
-            <p class="subtitle"><%= collection[1].name %></p>
-            <p style="color:#B1B1B1"><%= collection[1].artworks.count %> artworks</p>
-          </div>
-        <% end %>
       </div>
     </div>
   <% end %>

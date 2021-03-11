@@ -66,6 +66,64 @@
       margin-top: 16px;
       width: calc(50% - 8px);
     }
+  }
+}
 
+.cards-triple {
+  height: 144px;
+  width: 50%;
+  margin-bottom: 24px;
+  
+
+  .cards-triple-imgs {
+    align-items: center;
+    justify-content: space-between;
+
+    .img-triple {
+      // width: calc(50% - 8px);
+      width: calc(100% - 32px);
+      
+      object-fit: cover;
+      position: relative;
+
+      .image {
+        position: absolute;
+        width:150px;
+        height: 150px;
+        border-radius:4px;
+      }
+
+      .img-one {
+        z-index: 1;
+        background-size: cover;
+      }
+      
+      .img-two {
+        z-index: -1;
+        left: 10px;
+        top: 10px;
+        height: 130px;
+        background-size: cover;
+      }
+  
+      .img-three {
+        z-index: -2;
+        left: 20px;
+        top:20px;
+        height:110px;
+        background-size: cover;
+      }
+    }
+  }
+
+  .cards-triple-infos {
+    display: flex;
+    z-index:999;
+    justify-content: space-between;
+    margin-top:92px;
+
+    .single-collection-infos {
+      margin-top: 72px;
+    }
   }
 }
