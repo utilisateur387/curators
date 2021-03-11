@@ -14,7 +14,7 @@
 <hr>
 
 <div class="container mt-5">
-    <% @artworks.first(13).each_slice(2) do |artwork| %>
+    <% @artworks.each_slice(2) do |artwork| %>
       <div class="cards-duo">
         <div class="cards-duo-imgs">
           <div class="single-img">
