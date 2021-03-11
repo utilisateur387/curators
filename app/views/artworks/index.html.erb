@@ -44,7 +44,7 @@
             <% else %>
               <p class="subtitle">Unknown artist</p>
             <% end %>
-            <h4><%= artwork[0].title %></h4>
+            <h4><%= artwork[0].title.titleize %></h4>
             <p class="subtitle"><%= artwork[0].completion_year %></p>
           </div>
 
@@ -55,7 +55,7 @@
               <% else %>
                 <p class="subtitle">Unknown artist</p>
               <% end %>
-              <h4><%= artwork[1].title %></h4>
+              <h4><%= artwork[1].title.titleize %></h4>
               <p class="subtitle"><%= artwork[1].completion_year %></p>
             </div>
           <% end %>

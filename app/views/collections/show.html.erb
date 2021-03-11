@@ -28,9 +28,11 @@
     <% end %>
 
     <div class="overlay-content">
-      <h1 class="mb-3"><a href="#">Home</a></h1>
-      <h1 class="mb-3"><a href="#">Explore</a></h1>
-      <h1><a href="#">My profile</a></h1>
+      <h1 class="mb-3"> <%= link_to "Home", root_path %> </h1>
+      <h1 class="mb-3"> <%= link_to "Explore", explore_artworks_path %> </h1>
+      <h1> <%= link_to "My profile", user_collections_path(current_user) %> </h1>
+      <hr>
+      <h1> <%= link_to "Sign out", destroy_user_session_path, method: :delete %> </h1>
     </div>
   </div>
 </div>
@@ -63,7 +65,7 @@
             <% else %>
               <p class="subtitle">Unknown artist</p>
             <% end %>
-            <h4><%= artwork[0].title %></h4>
+            <h4><%= artwork[0].title.titleize %></h4>
             <p class="subtitle"><%= artwork[0].completion_year %></p>
           </div>
 
@@ -74,7 +76,7 @@
               <% else %>
                 <p class="subtitle">Unknown artist</p>
               <% end %>
-              <h4><%= artwork[1].title %></h4>
+              <h4><%= artwork[1].title.titleize %></h4>
               <p class="subtitle"><%= artwork[1].completion_year %></p>
             </div>
           <% end %>
