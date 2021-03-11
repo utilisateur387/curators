@@ -1,6 +1,10 @@
+<%= render 'shared/navbars/navbar-burger-title' %>
+
 <%= link_to new_artwork_path do %>
   <%= image_tag "icons/button_camera_main_dark.png", alt: "alttext", class: "button-camera-main-dark" %>
 <% end %>
+
+<!-- ARTWORK FROM ARCHIVE -->
 
 <div class="container container-mt">
   <div class="body-large">
@@ -27,12 +31,62 @@
           </div>
         </div>
       <% end %>
-
-    <% else %>
-      SKIP FOR NOW
-      Revisit <i><%= @artwork_archive.title.titleize %></i>
     <% end %>
     </div>
 </div>
 
-<%= render 'shared/navbars/navbar-burger-title' %>
+
+
+<!-- LATEST POSTS FROM THE COMMUNITY -->
+
+<div class="container container-mt pb-5">
+
+  <div class="body-large mb-4 text-center">
+    Latest posts from the community
+  </div>
+
+  <% @artworks.first(3).each do |artwork| %>
+    <div class="card-explore">
+      <div class="explore-top-infos">
+        <div class="d-flex">
+          <%= cl_image_tag artwork.user.photo.key, alt: "alttext" %>
+          <%= link_to user_collections_path(artwork.user) do %>
+            <h5><%= artwork.user.username %></h5>
+          <% end %>
+        </div>
+
+        <div class="body-xs">
+          <i class="fas fa-map-marker-alt mr-1" style="font-size: 12px"></i> Location
+        </div>
+      </div>
+
+      <%= link_to artwork_path(artwork) do %>
+
+        <div class="card-text-over-img mt-3">
+          <div class="artwork-infos">
+            <% if artwork.artist %>
+              <span class="subtitle"><%= artwork.artist.name.titleize %></span>
+            <% else %>
+              <span class="subtitle">Unknown artist</span>
+            <% end %>
+            <h3><%= artwork.title.titleize %></h3>
+            <span class="subtitle"><%= artwork.completion_year %></span>
+          </div>
+
+          <div class="image-gradient">
+          </div>
+
+          <%= cl_image_tag artwork.photo.key  %>
+
+          <div class="collection-tag">
+            <h5><%= artwork.collection.name %></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="text-center mb-5">
+    <%= link_to "View more posts", explore_artworks_path, class: "button" %>
+  </div>
+</div>
