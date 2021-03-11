@@ -17,6 +17,10 @@
   background-color: white;
 }
 
+.bg-dark {
+  background-color: $off-black !important;
+}
+
 .navbar-right-side {
   position: fixed;
   right: 0;
@@ -58,6 +62,14 @@
 .burger {
   width: $body-padding;
   background-image: asset-url('icons/icon_burger_black.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 8px;
+}
+
+.burger-white {
+  width: $body-padding;
+  background-image: asset-url('icons/icon_burger_white.png');
   background-size: contain;
   background-repeat: no-repeat;
   height: 8px;
@@ -124,11 +136,5 @@
 .hidden {
   visibility: hidden;
 }
-// @media screen and (max-height: 450px) {
-//   .overlay a {font-size: 20px}
-//   .overlay .closebtn {
-//   font-size: 40px;
-//   top: 15px;
-//   right: 35px;
-//   }
-// }
+
+

@@ -1,4 +1,5 @@
 class ArtworksController < ApplicationController
+  before_action :set_artwork, only: [ :show ]
   def index
     # raise
     @user = User.find(params[:user_id])
@@ -34,5 +35,9 @@ class ArtworksController < ApplicationController
 
   def artwork_params
     params.require(:artwork).permit(:title, :photo, :artist_id, :completion_year, :description, :notes, :collection_id)
+  end
+
+  def set_artwork
+    @artwork = Artwork.find(params[:id])
   end
 end
