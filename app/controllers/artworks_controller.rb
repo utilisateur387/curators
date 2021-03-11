@@ -32,6 +32,11 @@ class ArtworksController < ApplicationController
   def destroy
   end
 
+  def search
+    
+  end
+  
+
   private
 
   def artwork_params
