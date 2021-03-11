@@ -3,6 +3,7 @@ class ArtworksController < ApplicationController
     # raise
     @user = User.find(params[:user_id])
     @number_of_collections = @user.collections.count
+    @number_of_artworks = @collection.artworks.count
     @artworks = @user.artworks
     # raise
   end
