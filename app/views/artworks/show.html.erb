@@ -1,2 +1,76 @@
-<h1>Artworks#show</h1>
-<p>Find me in app/views/artworks/show.html.erb</p>
+<% if @artwork.user == current_user %>
+  <%= link_to new_artwork_path do %>
+    <%= image_tag "icons/button_camera_main_gray.png", alt: "alttext", class: "button-camera-main-dark" %>
+  <% end %>
+<% end %>
+
+<div class="my-navbar bg-dark white">
+    <!-- Icon on the left -->
+    <div class="navbar-left-side">
+      <%= link_to "#", class: "navbar-brand" do %>
+        <%= image_tag "icons/icon_back_arrow_white.png", class: "back-arrow" %>
+      <% end %>
+    </div>
+
+    <!-- Page Title -->
+    <div class="navbar-center-element">
+      <%= link_to user_collections_path(@artwork.user) do %>
+        <h5 class="white">
+          <%= @artwork.user.username %>
+        </h5>
+      <% end %>
+    </div>
+
+    <!-- Icon on the right -->
+   <div class="navbar-right-side">
+      <div class="icon-right burger-white" id="burger" >
+      </div>
+   </div>
+
+    <!-- Menu overlay fullscreen -->
+    <div id="myNav" class="overlay">
+    <%= link_to "javascript:void(0)", class: "closebtn" do %>
+      <%= image_tag "icons/icon_cross.png", class: "closebtn cross", id: "cross" %>
+    <% end %>
+
+    <div class="overlay-content">
+      <h1 class="mb-3"> <%= link_to "Home", root_path %> </h1>
+      <h1 class="mb-3"> <%= link_to "Explore", explore_artworks_path %> </h1>
+      <h1> <%= link_to "My profile", user_collections_path(current_user) %> </h1>
+      <hr>
+      <h1> <%= link_to "Sign out", destroy_user_session_path, method: :delete %> </h1>
+    </div>
+  </div>
+</div>
+
+
+<body class="body-artwork-show white">
+  <div class="container">
+    <% if @artwork.location == true %>
+      <span class="body-xs"><i class="fas fa-map-marker-alt mr-1"></i> Location <%= @artwork.location %></span>
+    <% end %>
+
+    <div class="img-show">
+      <%= cl_image_tag @artwork.photo.key, alt: "alttext" %>
+    </div>
+
+    <div class="artwork-infos-show text-center mb-5">
+      <p class="subtitle mb-1"> <%= @artwork.artist.name %></p>
+      <h2> <%= @artwork.title %></h2>
+      <p class="subtitle"> <%= @artwork.completion_year %></p>
+    </div>
+
+    <div class="collection-tag">
+      <%= link_to user_collections_path(@artwork.collection) do %>
+      <h5><%= @artwork.collection.name %></h5>
+      <% end %>
+    </div>
+
+    <div class="text-block">
+      <h4>About the artist</h4>
+      <p class="body-medium">Enim urna sagittis, at varius. Sed tristique in proin rutrum mauris nunc dui. At nec est massa consectetur nec. Blandit lacinia lorem enim ut. Ipsum, justo eu facilisis ac dui elit. Dui porttitor viverra scelerisque suspendisse amet. Fames elementum ut consequat amet. Lobortis scelerisque ornare ut faucibus. Ut nulla odio gravida nibh. </p>
+    </div>
+
+  </div>
+</body>
+

@@ -1,12 +1,13 @@
-
-<%= image_tag "icons/button_camera_main_dark.png", alt: "alttext", class: "button-camera-main-dark" %>
-
+<%= link_to new_artwork_path do %>
+  <%= image_tag "icons/button_camera_main_dark.png", alt: "alttext", class: "button-camera-main-dark" %>
+<% end %>
 
 <div class="container container-mt">
   <div class="body-large">
     <% if @artwork_archive.artist %>
       Revisit <i><%= @artwork_archive.title.titleize %></i> by <%= @artwork_archive.artist.name.titleize %>
 
+        <%= link_to artwork_path(@artwork_archive) do %>
       <div class="card-text-over-img mt-3">
         <div class="artwork-infos">
           <span class="subtitle"><%= @artwork_archive.artist.name.titleize %></span>
@@ -17,14 +18,13 @@
         <div class="image-gradient">
         </div>
 
-        <%= link_to "#" do %>
             <%= cl_image_tag @artwork_archive.photo.key  %>
-        <% end %>
 
         <div class="collection-tag">
           <h5><%= @artwork_archive.collection.name %></h5>
         </div>
       </div>
+        <% end %>
 
       <% else %>
         SKIP FOR NOW
