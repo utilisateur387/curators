@@ -26,6 +26,8 @@ require("channels")
 import "bootstrap";
 import { toggleMenu } from '../components/navbar';
 import { backArrow } from '../components/navbar';
+import { fadeAlert } from '../components/alerts';
+
 // import { wikiArtSearch } from '../components/wikiart';
 
 
@@ -38,5 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   // wikiArtSearch();
   toggleMenu();
   backArrow();
-
+  fadeAlert();
 });
