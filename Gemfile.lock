@@ -104,6 +104,9 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    httparty (0.18.1)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
@@ -127,6 +130,7 @@ GEM
     mini_portile2 (2.5.0)
     minitest (5.14.4)
     msgpack (1.4.2)
+    multi_xml (0.6.0)
     netrc (0.11.0)
     nio4r (2.5.7)
     nokogiri (1.11.1)
@@ -270,6 +274,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   font-awesome-sass
+  httparty
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)

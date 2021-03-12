@@ -21,8 +21,24 @@ class ArtworksController < ApplicationController
   end
 
   def create
-    if artwork_params["img_url"]
-      create_artwork_from_api
+    if artwork_params["tmp_artist_name"]
+      # create_artwork_from_api
+      @artwork = Artwork.new(artwork_params)
+
+      img_url = @artwork.tmp_image_url
+      file = URI.open(img_url)
+      @artwork.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+      @collection = current_user.collections.last
+      @artwork.collection = @collection
+
+      artist = Artist.find_or_create_by(name: @artwork.tmp_artist_name) # here
+      @artwork.artist = artist
+      if @artwork.save!
+        redirect_to artwork_path(@artwork)
+      else
+        render :search
+      end
     else
       @artwork = Artwork.new(artwork_params)
       if @artwork.save
@@ -43,37 +59,62 @@ class ArtworksController < ApplicationController
   end
 
   def search
-    @artwork = Artwork.new
-    @artists = Artist.order(:name)
-    @collections = current_user.collections
+    if params[:query]
+      user_input = params[:query]
+      url = "https://www.wikiart.org/en/search/#{user_input}/1?json=2"
+      response = HTTParty.get(url)
+
+      @artworks = response.map do |artwork_data|
+        Artwork.new(
+          title: artwork_data["title"],
+          completion_year: artwork_data["completitionYear"],
+          tmp_image_url: artwork_data["image"],
+          tmp_artist_name: artwork_data["artistName"]
+        )
+      end
+    end
   end
 
   private
 
   def artwork_params
-    params.require(:artwork).permit(:title, :photo, :artist_id, :completion_year, :description, :notes, :collection_id, :img_url)
-  end
-
-  def wikiart_artwork_params
-    params.require(:artwork).permit(:title, :photo, :artist_id, :completion_year, :description, :notes, :collection_id)
+    params.require(:artwork).permit(:title, :photo, :artist_id, :completion_year, :description, :notes, :collection_id, :img_url, :tmp_artist_name, :tmp_image_url)
   end
 
   def set_artwork
     @artwork = Artwork.find(params[:id])
   end
 
-  def create_artwork_from_api
-    @artwork = Artwork.new(wikiart_artwork_params)
-    img_url = artwork_params["img_url"]
-    file = URI.open(img_url)
-    @artwork.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-    @artwork.collection = Collection.find(3)
-    # raise
-    if @artwork.save
-    # raise
-     redirect_to artwork_path(@artwork)
-    else
-      raise
-    end
-  end
+  # def wikiart_artwork_params
+  #   params.require(:artwork).permit(:title, :photo, :artist_id, :completion_year, :description, :notes, :collection_id)
+  # end
+
+  # def attach_image
+  #   img_url = artwork_params["img_url"]
+  #   file = URI.open(img_url)
+  #   @artwork.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+  #   @artwork.collection = Collection.find(3)
+  #   # raise
+  #   if @artwork.save
+  #   # raise
+  #    redirect_to artwork_path(@artwork)
+  #   else
+  #     raise
+  #   end
+  # end
+
+  # def create_artwork_from_api
+  #   @artwork = Artwork.new(wikiart_artwork_params)
+  #   img_url = artwork_params["img_url"]
+  #   file = URI.open(img_url)
+  #   @artwork.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+  #   @artwork.collection = Collection.find(3)
+  #   # raise
+  #   if @artwork.save
+  #   # raise
+  #    redirect_to artwork_path(@artwork)
+  #   else
+  #     raise
+  #   end
+  # end
 end
