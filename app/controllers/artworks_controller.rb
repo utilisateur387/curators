@@ -44,6 +44,10 @@ class ArtworksController < ApplicationController
       if @artwork.save
         redirect_to artwork_path(@artwork)
       else
+        @user = current_user
+        @artists = Artist.order(:name)
+        @collections = current_user.collections
+        @my_collection = @collections.first
         render :new
       end
     end
