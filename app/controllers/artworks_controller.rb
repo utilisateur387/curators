@@ -22,18 +22,7 @@ class ArtworksController < ApplicationController
 
   def create
     if artwork_params["img_url"]
-      @artwork = Artwork.new(wikiart_artwork_params)
-      img_url = artwork_params["img_url"]
-      file = URI.open(img_url)
-      @artwork.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-      @artwork.collection = Collection.find(3)
-      # raise
-      if @artwork.save
-      # raise
-       redirect_to artwork_path(@artwork)
-      else
-        raise
-      end
+      create_artwork_from_api
     else
       @artwork = Artwork.new(artwork_params)
       if @artwork.save
@@ -71,5 +60,20 @@ class ArtworksController < ApplicationController
 
   def set_artwork
     @artwork = Artwork.find(params[:id])
+  end
+
+  def create_artwork_from_api
+    @artwork = Artwork.new(wikiart_artwork_params)
+    img_url = artwork_params["img_url"]
+    file = URI.open(img_url)
+    @artwork.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    @artwork.collection = Collection.find(3)
+    # raise
+    if @artwork.save
+    # raise
+     redirect_to artwork_path(@artwork)
+    else
+      raise
+    end
   end
 end
