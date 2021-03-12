@@ -1,70 +1,45 @@
-<div class= "container container-mt">
+<div class= "container container-form">
+  <%= simple_form_for(@artwork) do |f| %>
 
-  <div class="my-navbar bg-white">
-    <!-- Icon on the left
-    <div class="navbar-left-side">
-      <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow" %>
+  <div class="btn-wrapper">
+    <div class="buttons">
+      <a type="button" id="prevBtn" class="btn back">
+        <%= image_tag "icons/icon_back_arrow_black.png" %>
+      </a>
+      <a type="button" id="nextBtn" class="btn">Next</a>
+      <%= f.submit id: "submit-btn", class: "create", style: 'display: none;' %>
     </div>
 
-    <!-- Page Title
-    <<div class="navbar-center-element">
-      <h5>Title</h5>
-    </div>
-
-    <!-- Icon on the right
-    <div class="navbar-right-side">
-      <%= link_to "NEXT", "#", class: "icon-right"  %>
-    </div>-->
   </div>
 
-  <div id="carouselExampleControls" class="carousel">
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-
-    <div class="carousel-inner">
-      <%= simple_form_for(@artwork) do |f| %>
-
-        <%# STEP 1 PHOTO %>
-        <div class="carousel-item active">
-          <div class="step1 w-100 d-block">
-            <%= f.input :photo, as: :file %>
-          </div>
-        </div>
-
-        <%# STEP 2 INFO %>
-        <%# DISPLAY IMG %>
-        <div class="carousel-item">
-          <div class="step2 w-100 d-block">
-            <hr><%= f.input :title, placeholder: "What's the artwork's title?", input_html: {class: "artwork_input"}%>
-            <hr><%= f.association :artist, collection: @artists, placeholder: "Who's the artist?", input_html: {class: "artwork_input"} %>
-            <hr><%= f.input :completion_year, placeholder: "Add year of completion", input_html: {class: "artwork_input"} %>
-            <hr><%= f.input :description, placeholder: "Add artwork description", input_html: {class: "artwork_input"} %>
-            <hr><%= f.input :notes, placeholder: "Add personal notes", input_html: {class: "artwork_input"} %>
-          </div>
-        </div>
-
-        <%# STEP 3 COLLECTION %>
-        <div class="carousel-item">
-          <div class="step3 w-100 d-block">
-            <hr><%= f.association :collection, collection: @collections,
-              as: :radio_buttons,
-              collection_wrapper_tag: 'div',
-              collection_wrapper_class: 'category-wrapper',
-              item_wrapper_class: 'category-item',
-              label_method: lambda { |collection| render "collections/collection_label", collection: collection },
-              input_html: {class: 'select-collection'} %>
-              <%= f.submit class: "button" %>
-          </div>
-        </div>
-      </div>
+    <%# STEP 1 PHOTO %>
+    <div class="tab pic-tab">
+      <%= f.input :photo, as: :file %>
+      <%= link_to "Find an artwork", search_artworks_path  %>
     </div>
+
+    <%# STEP 2 INFO %>
+    <div class="tab">
+      <%# DISPLAY IMG %>
+      <hr><%= f.input :title, placeholder: "What's the artwork's title?", input_html: {class: "artwork_input"}%>
+      <hr><%= f.association :artist, collection: @artists, placeholder: "Who's the artist?", input_html: {class: "artwork_input"} %>
+      <hr><%= f.input :completion_year, placeholder: "Add year of completion", input_html: {class: "artwork_input"} %>
+      <hr><%= f.input :description, placeholder: "Add artwork description", input_html: {class: "artwork_input"} %>
+      <hr><%= f.input :notes, placeholder: "Add personal notes", input_html: {class: "artwork_input"} %>
+    </div>
+
+    <%# STEP 3 COLLECTION %>
+    <div class="tab">
+      <%# DISPLAY IMG %>
+      <%= f.association :collection, collection: @collections,
+        as: :radio_buttons,
+        collection_wrapper_tag: 'div',
+        collection_wrapper_class: 'category-wrapper',
+        item_wrapper_class: 'category-item',
+        label_method: lambda { |collection| render "collections/collection_label", collection: collection },
+        input_html: {class: 'select-collection'} %>
+    </div>
+
+
   <% end %>
 </div>
-
-

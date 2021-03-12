@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import { toggleMenu } from '../components/navbar';
 import { backArrow } from '../components/navbar';
+import { createForm } from '../components/form';
 // import { wikiArtSearch } from '../components/wikiart';
 
 
@@ -38,5 +39,6 @@ document.addEventListener('turbolinks:load', () => {
   // wikiArtSearch();
   toggleMenu();
   backArrow();
+  createForm();
 
 });
