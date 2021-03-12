@@ -1,0 +1,128 @@
+<%= render 'shared/navbars/navbar-burger-title' %>
+
+<div class="container container-mt">
+
+  <form action="#" id="search-form">
+    <input type="text" id="input">
+    <input type="submit" value="Search">
+  </form>
+
+  <div class="container">
+    <div class="row" id="result">
+<!--
+      <div class="col-sm-12 col-md-4">
+        <div class="search-card">
+          <img src="https://uploads3.wikiart.org/images/rembrandt/emperor-akbar-and-his-son-the-future-eperor-djah%C3%A2ngir-1656.jpg!Large.jpg" alt="">
+          <h5>Artist</h5>
+          <h5>Title</h5>
+          <h5>Year</h5>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-4">
+        <div class="search-card">
+          <img src="https://uploads3.wikiart.org/images/rembrandt/emperor-akbar-and-his-son-the-future-eperor-djah%C3%A2ngir-1656.jpg!Large.jpg" alt="">
+          <h5>Artist</h5>
+          <h5>Title</h5>
+          <h5>Year</h5>
+        </div>
+      </div>
+ -->
+    </div>
+  </div>
+
+
+
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div id="artwork" class="col-sm-12 col-md-6">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  console.log('hello');
+
+  const searchForm = document.getElementById('search-form');
+  const userInput = document.getElementById('input');
+  const result = document.getElementById('result');
+  const image = document.getElementById('image');
+  const artwork = document.getElementById('artwork');
+
+  searchForm.addEventListener('submit', (event) => {
+    console.log(userInput.value);
+    console.log("test");
+    event.preventDefault();
+    const input = `${userInput.value}`
+    const baseUrl = `https://www.wikiart.org/en/search/${input}/1?json=2`
+    const complementaryUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${userInput.value}`
+    result.innerHTML = "";
+    result.classList.remove('deactivated');
+    fetch(baseUrl).then((response) =>
+      response.json())
+      .then((data) => {
+        console.log(data[0].title);
+        data.forEach((entry) => {
+          const title = entry.title;
+          const artistName = entry.artistName;
+          const year = entry.completitionYear;
+          const imageUrl = entry.image;
+
+          result.insertAdjacentHTML('beforeend',
+            `
+            <div class="col-sm-12 col-md-4">
+              <div class="search-card">
+                <img src="${imageUrl}" alt="">
+                <h5 class="artist">${artistName}</h5>
+                <h5 class ="title">${title}</h5>
+                <h5 class ="year">${year}</h5>
+              </div>
+            </div>
+
+            `);
+          result.insertAdjacentHTML('beforeend',
+            `
+
+            <%= simple_form_for(@artwork) do |f| %>
+              <%= f.hidden_field :img_url, value: '${imageUrl}' %>
+              <%= f.hidden_field :title, value: '${title}' %>
+              <%= f.hidden_field :artist, value: '${artistName}' %>
+              <%= f.hidden_field :completion_year, value: '${year}' %>
+              <%= f.submit class: "button" %>
+             <% end %>
+            `
+
+          );
+        });
+
+      // const cards = document.querySelectorAll('.search-card');
+      // console.log(cards);
+      // cards.forEach((card) => {
+      //   console.log("here!");
+      //   card.addEventListener('click', (event) => {
+      //     console.log(event.currentTarget.childNodes);
+      //     console.log("click");
+      //     const resultImageURL = event.currentTarget.childNodes[1].currentSrc;
+      //     const resultArtist = event.currentTarget.childNodes[3].innerHTML;
+      //     const resultTitle = event.currentTarget.childNodes[5].innerHTML;
+      //     const resultYear = event.currentTarget.childNodes[7].innerHTML;
+
+      //     result.classList.add('deactivated');
+      //     result.innerHTML = "";
+      //     artwork.innerHTML = "";
+      //     artwork.insertAdjacentHTML('afterbegin',
+      //       `
+      //         <img src="${resultImageURL}" alt="">
+      //         <h5 class="artist">${resultArtist}</h5>
+      //         <h5 class ="title">${resultTitle}</h5>
+      //         <h5 class ="year">${resultYear}</h5>
+      //       `)
+      //   });
+      // })
+
+    });
+  });
+</script>
