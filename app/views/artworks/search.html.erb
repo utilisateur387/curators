@@ -6,13 +6,15 @@
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Find a movie"
+      placeholder: "Find an artwork"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Search", class: "button button-block mt-3 mb-5" %>
   <% end %>
 
   <% if @artworks %>
+    <p class="body-large mt-3"><%= @artworks.count %> Result(s)</p>
     <% @artworks.each do |artwork| %>
+
     <div class="search-card">
       <%= image_tag artwork.tmp_image_url %>
 
@@ -26,11 +28,14 @@
         <%= f.hidden_field :completion_year, value: artwork.completion_year %>
         <%= f.hidden_field :tmp_artist_name, value: artwork.tmp_artist_name %>
         <%= f.hidden_field :tmp_image_url, value: artwork.tmp_image_url %>
-        <%= f.submit %>
+        <%= f.submit class: 'button' %>
       <% end %>
 
     </div>
     <% end %>
   <% end %>
+    <% if params[:query] && @artworks.empty? %>
+      <p class="body-large mt-3">Sorry, we couldn't find anything matching your input...</p>
+      <% end %>
 
 </div>
