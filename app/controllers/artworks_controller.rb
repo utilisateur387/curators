@@ -61,7 +61,7 @@ class ArtworksController < ApplicationController
   def search
     if params[:query]
       user_input = params[:query]
-      url = "https://www.wikiart.org/en/search/#{user_input}/1?json=2"
+      url = "https://www.wikiart.org/en/search/#{user_input}/1?json=2".gsub(" ", "-")
       response = HTTParty.get(url)
 
       @artworks = response.map do |artwork_data|
