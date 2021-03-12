@@ -9,7 +9,7 @@
 
   <div class="container">
     <div class="row" id="result">
-<!--
+      <!--
       <div class="col-sm-12 col-md-4">
         <div class="search-card">
           <img src="https://uploads3.wikiart.org/images/rembrandt/emperor-akbar-and-his-son-the-future-eperor-djah%C3%A2ngir-1656.jpg!Large.jpg" alt="">
@@ -27,12 +27,9 @@
           <h5>Year</h5>
         </div>
       </div>
- -->
+      -->
     </div>
   </div>
-
-
-
 
   <div class="container">
     <div class="row justify-content-center">
@@ -44,8 +41,6 @@
 </div>
 
 <script>
-  console.log('hello');
-
   const searchForm = document.getElementById('search-form');
   const userInput = document.getElementById('input');
   const result = document.getElementById('result');
@@ -53,8 +48,7 @@
   const artwork = document.getElementById('artwork');
 
   searchForm.addEventListener('submit', (event) => {
-    console.log(userInput.value);
-    console.log("test");
+    // console.log(userInput.value);
     event.preventDefault();
     const input = `${userInput.value}`
     const baseUrl = `https://www.wikiart.org/en/search/${input}/1?json=2`
@@ -81,11 +75,9 @@
                 <h5 class ="year">${year}</h5>
               </div>
             </div>
-
             `);
           result.insertAdjacentHTML('beforeend',
             `
-
             <%= simple_form_for(@artwork) do |f| %>
               <%= f.hidden_field :img_url, value: '${imageUrl}' %>
               <%= f.hidden_field :title, value: '${title}' %>
@@ -94,7 +86,6 @@
               <%= f.submit class: "button" %>
              <% end %>
             `
-
           );
         });
 
