@@ -8,7 +8,7 @@
 
 <div class="container container-mt">
   <div class="body-large">
-    <% if @artwork_archive.artist %>
+    <% if @artwork_archive&.artist %>
       <div class="text-center">
         Revisit <i><%= @artwork_archive.title.titleize %></i> by <%= @artwork_archive.artist.name.titleize %>
       </div>
