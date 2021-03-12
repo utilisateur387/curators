@@ -6,4 +6,6 @@ class Artwork < ApplicationRecord
   has_one_attached :photo
 
   validates :photo, presence: true
+
+  attr_accessor :tmp_image_url, :tmp_artist_name
 end

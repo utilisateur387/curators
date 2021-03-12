@@ -14,13 +14,14 @@ class CollectionsController < ApplicationController
 
   def new
     @collection = Collection.new
+    @user = current_user
   end
 
   def create
-    collection = Collection.new(collection_params)
-    collection.owner = current_user
-    if collection.save!
-      redirect_to collections_path
+    @collection = Collection.new(collection_params)
+    @collection.user = current_user
+    if @collection.save
+        redirect_to collection_path(@collection)
     else
       render :new
     end

@@ -3,14 +3,14 @@
 <%= render 'shared/profile' %>
 
 
-<div class="tabs body-small">
+<div class="tabs body-small max-z-index">
   <div class="tab opacity-low">
     <%= link_to user_collections_path(@user) do  %>
       My collections
     <% end %>
   </div>
 
-  <div class="tab">
+  <div class="tab max-z-index">
     <%= link_to user_artworks_path(@user) do  %>
       All artworks
     <% end %>
@@ -19,7 +19,7 @@
 
 
 <div class="container mt-5">
-    <% @artworks.each_slice(2) do |artwork| %>
+    <% @artworks.order("created_at desc").each_slice(2) do |artwork| %>
       <div class="cards-duo">
         <div class="cards-duo-imgs">
           <div class="single-img">

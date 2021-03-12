@@ -27,7 +27,8 @@ import "bootstrap";
 import { toggleMenu } from '../components/navbar';
 import { backArrow } from '../components/navbar';
 import { createForm } from '../components/form';
-// import { wikiArtSearch } from '../components/wikiart';
+import { fadeAlert } from '../components/alerts';
+
 
 
 // Internal imports, e.g:
@@ -40,5 +41,6 @@ document.addEventListener('turbolinks:load', () => {
   toggleMenu();
   backArrow();
   createForm();
+  fadeAlert();
 
 });

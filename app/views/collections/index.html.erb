@@ -3,13 +3,13 @@
 <%= render 'shared/profile' %>
 
 
-<div class="tabs body-small">
+<div class="tabs body-small max-z-index">
   <div class="tab">
     <%= link_to user_collections_path(@user) do  %>
       My collections
     <% end %>
   </div>
-  <div class="tab opacity-low">
+  <div class="tab opacity-low max-z-index">
     <%= link_to user_artworks_path(@user) do  %>
       All artworks
     <% end %>
@@ -18,7 +18,7 @@
 
 
 <div class="collection-container container d-flex flex-wrap">
-  <% @collections.each do |collection| %>
+  <% @collections.order("created_at desc").each do |collection| %>
     <div class="cards-triple">
       <div class="cards-triple-imgs">
         <%= link_to collection_path(collection) do %>
@@ -37,10 +37,12 @@
       </div>
 
       <div class="cards-triple-infos">
-        <div class="single-collection-infos">
-          <h4><%= collection.name %></h4>
-          <p class="mid-gray body-small"><%= collection.artworks.count %> artworks</p>
-        </div>
+        <%= link_to collection_path(collection) do %>
+          <div class="single-collection-infos">
+            <h4><%= collection.name %></h4>
+            <p class="mid-gray body-small"><%= collection.artworks.count %> artworks</p>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>

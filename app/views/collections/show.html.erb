@@ -38,7 +38,8 @@
 
 
 <div class="container container-mt">
-    <% @artworks.each_slice(2) do |artwork| %>
+  <% if @collection.artworks.count >= 1 %>
+    <% @artworks.order("created_at desc").each_slice(2) do |artwork| %>
       <div class="cards-duo">
         <div class="cards-duo-imgs">
           <div class="single-img">
@@ -79,9 +80,11 @@
             </div>
           <% end %>
 
-          </div>
         </div>
-      <% end %>
-
+      </div>
+    <% end %>
+  <% else %>
+    <h3 class="text-center">No artworks yet</h3>
+  <% end %>
 </div>
 

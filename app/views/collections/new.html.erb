@@ -4,12 +4,13 @@
   </div>
 
   <div class="form-inputs mt-5 mb-5 ">	
-    <%= simple_form_for(@collection) do |f| %>
+    <%= simple_form_for([@collection]) do |f| %>
       <%= f.input :name,
                   label:"Name", 
-                  placeholder: 'Add collection name'%>    <div class="mt-5 mb-5">
-      <%= f.button :submit, "Create collection", class: "button button-block" %>
-    </div>
+                  placeholder: 'Add collection name'%>    
+      <div class="mt-5 mb-5">
+        <%= f.button :submit, "Create collection", class: "button button-block" %>
+      </div>
     <% end %>
   </div>
 
