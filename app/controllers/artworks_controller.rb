@@ -28,7 +28,9 @@ class ArtworksController < ApplicationController
       img_url = @artwork.tmp_image_url
       file = URI.open(img_url)
       @artwork.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-      @artwork.collection = Collection.find(3)
+
+      @collection = current_user.collections.last
+      @artwork.collection = @collection
 
       artist = Artist.find_or_create_by(name: @artwork.tmp_artist_name) # here
       @artwork.artist = artist
