@@ -18,7 +18,7 @@
 
 
 <div class="collection-container container d-flex flex-wrap">
-  <% @collections.each do |collection| %>
+  <% @collections.order("created_at desc").each do |collection| %>
     <div class="cards-triple">
       <div class="cards-triple-imgs">
         <%= link_to collection_path(collection) do %>
