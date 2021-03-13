@@ -8,18 +8,22 @@ function showTab(n) {
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
     document.getElementById("initialArrow").style.display = "flex";
+    console.log("1");
 
   } else {
     document.getElementById("prevBtn").style.display = "flex";
+    document.getElementById("nextBtn").style.removeProperty('display');
+    console.log("2")
   }
   if (n == (tab.length - 1)) {
     // document.getElementById("nextBtn").innerHTML = "Submit";
     document.getElementById("nextBtn").style.display = 'none';
     document.getElementById('submit-btn').style.removeProperty('display');
+    console.log("3")
   } else {
     document.getElementById('submit-btn').style.display = 'none';
-    document.getElementById("nextBtn").style.removeProperty('display');
     document.getElementById("nextBtn").innerHTML = "Next";
+    console.log("4")
   }
 }
 
@@ -46,7 +50,6 @@ const fileUpload = () => {
     // Grabbing Elements and Storing in Variables
     const defaultFile = document.getElementById("artwork_photo");
     const customBtn = document.getElementById("customBtn");
-    // const customBtn = document.getElementById("artwork_photo");
     const customSpace = document.getElementById("custom-space");
     customBtn.addEventListener("click", function () {
       defaultFile.click();
@@ -54,14 +57,6 @@ const fileUpload = () => {
 
     // File Upload
     defaultFile.addEventListener("change", (event) => {
-      //  Format Selected File Text
-      event.preventDefault();
-      if (defaultFile.value) {
-        customSpace.innerHTML =
-          defaultFile.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1] + "🔥";
-      } else {
-        customSpace.innerHTML = "No File, Selected!😭";
-      }
 
       // Image Preview
       const files = defaultFile.files[0]; //files[0] - For getting first file
@@ -77,7 +72,7 @@ const fileUpload = () => {
         fileReader.addEventListener("load", function () {
           // convert image to base64 encoded string
           preview_img.setAttribute("src", this.result);
-          console.log(this.result);
+          // console.log(this.result);
         });
         fileReader.readAsDataURL(files);
       }
@@ -112,10 +107,7 @@ const createForm = () => {
 
     showTab(currentTab);
 
-
     fileUpload()
-
-
 
   }
 }

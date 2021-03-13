@@ -3,7 +3,7 @@
   <%= simple_form_for(@artwork) do |f| %>
 
     <!-- NAVBAR (INSIDE THE FORM TO CONTAIN THE SUBMIT BUTTON) -->
-    <div class="my-navbar bg-white", style="margin-left: -12px;">
+    <div class="my-navbar bg-white", style="margin-left: -24px;">
 
       <!-- Icon on the left -->
       <div class="navbar-left-side" >
@@ -18,9 +18,9 @@
 
       <!-- Icon on the right -->
        <div class="navbar-right-side">
-          <%= link_to "", id: "nextBtn" do %>
+          <%= link_to "", id: "nextBtn", style: "display: none;" do %>
           <% end %>
-          <%= f.submit value: "Create", id: "submit-btn", class: "create", style: 'display: none;' %>
+          <%= f.submit value: "Create", id: "submit-btn", class: "create", style: 'display: none; margin-right: 32px; padding: 2px 0; margin-top: -1px' %>
        </div>
 
          <!-- Menu overlay fullscreen -->
@@ -41,26 +41,26 @@
 
     <%# STEP 1 PHOTO %>
     <div class="tab pic-tab">
-      <% #= f.input :photo, as: :file, class: "button" %>
-      <%= link_to "Find an artwork", search_artworks_path, class: "button"  %>
 
 
 
-
-      <!-- Container Markup -->
-      <div class="container">
         <!-- Input Markup -->
         <!-- <input type="file" id="default-file" hidden="hidden" /> -->
 
         <!-- Button Markup -->
         <%= f.input :photo, as: :file %>
-        <button id="customBtn" type="button" class="button button-block" >
-          CHOOSE FILE
+        <button id="customBtn" type="button" class="button button-block button-new-artwork mb-4" >
+          <%= image_tag "icons/icon_camera_outline", alt: "alttext" %>
+          <div class="mt-2">CHOOSE FILE</div>
         </button>
 
+      <% #= f.input :photo, as: :file, class: "button" %>
+      <%= link_to search_artworks_path, class: "button button-block button-new-artwork", style: "margin-top: -6px" do %>
+        <%= image_tag "icons/icon_search", alt: "alttext" %>
+        <div>Find an artwork</div>
+      <% end %>
         <!-- Choose File TEXT Markup -->
-        <span id="custom-space"> <strong> No</strong> File, Selected!😭</span>
-      </div>
+        <!-- <span id="custom-space"> <strong> No</strong> File, Selected!😭</span> -->
 
 
 
