@@ -8,22 +8,18 @@ function showTab(n) {
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
     document.getElementById("initialArrow").style.display = "flex";
-    console.log("1");
 
   } else {
     document.getElementById("prevBtn").style.display = "flex";
     document.getElementById("nextBtn").style.removeProperty('display');
-    console.log("2")
   }
   if (n == (tab.length - 1)) {
     // document.getElementById("nextBtn").innerHTML = "Submit";
     document.getElementById("nextBtn").style.display = 'none';
     document.getElementById('submit-btn').style.removeProperty('display');
-    console.log("3")
   } else {
     document.getElementById('submit-btn').style.display = 'none';
     document.getElementById("nextBtn").innerHTML = "Next";
-    console.log("4")
   }
 }
 
