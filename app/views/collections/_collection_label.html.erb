@@ -1,6 +1,6 @@
 <div class="select-collection">
   <% if collection.artworks.empty? %>
-    <%= image_tag "img-gray-square", alt: "alttext", class: "collection-thumbnail" %>
+    <%= image_tag "https://i.ibb.co/LrCTmMr/img-gray-square.png", alt: "alttext", class: "collection-thumbnail" %>
     <span class="body-medium"><%= collection.name %></span>
   <% else %>
     <%= cl_image_tag collection.artworks.first.photo.key, alt: "alttext", class: "collection-thumbnail" %>
