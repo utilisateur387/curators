@@ -7,6 +7,8 @@ function showTab(n) {
   // ... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
+    document.getElementById("initialArrow").style.display = "flex";
+
   } else {
     document.getElementById("prevBtn").style.display = "flex";
   }
@@ -22,6 +24,7 @@ function showTab(n) {
 }
 
 function nextPrev(n) {
+  document.getElementById("initialArrow").style.display = "none";
   // This function will figure out which tab to display
   let tab = document.getElementsByClassName("tab");
   // Hide the current tab:
@@ -43,6 +46,7 @@ const createForm = () => {
 
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
+  const initialArrow = document.getElementById('initialArrow');
 
   if (prevBtn && nextBtn) {
     prevBtn.addEventListener('click', (event) => {
