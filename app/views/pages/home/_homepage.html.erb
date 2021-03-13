@@ -36,6 +36,8 @@
 </div>
 
 
+<!-- MY COLLECTIONS SLIDER -->
+
 <div class="my-collections">
   <div class="gradient">
   </div>
@@ -44,48 +46,40 @@
     My collections
   </div>
 
-
   <div class="slider">
-
-      <div class="collection-container d-flex ml-2">
-        <% @collections.order("created_at desc").each do |collection| %>
-          <div class="cards-triple">
-            <div class="cards-triple-imgs">
-              <%= link_to collection_path(collection) do %>
-                <div class="img-triple img-triple-margin">
-                  <% if collection.artworks[0] %>
-                    <div class="image img-one" style="background-image: url('<%= cl_image_path collection.artworks[0].photo.key %>');"></div>
-                  <% end %>
-                  <% if collection.artworks[1] %>
-                    <div class="image img-two" style="background-image: url('<%= cl_image_path collection.artworks[1].photo.key %>');"></div>
-                  <% end %>
-                  <% if collection.artworks[2] %>
-                    <div class="image img-three" style="background-image: url('<%= cl_image_path collection.artworks[2].photo.key %>');"></div>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-
-            <div class="cards-triple-infos">
-              <%= link_to collection_path(collection) do %>
-                <div class="single-collection-infos">
-                  <h4><%= collection.name %></h4>
-                  <p class="mid-gray body-small"><%= collection.artworks.count %> artworks</p>
-                </div>
-              <% end %>
-            </div>
+    <div class="collection-container d-flex ml-2">
+      <% @collections.order("created_at desc").each do |collection| %>
+        <div class="cards-triple">
+          <div class="cards-triple-imgs">
+            <%= link_to collection_path(collection) do %>
+              <div class="img-triple img-triple-margin">
+                <% if collection.artworks[0] %>
+                  <div class="image img-one" style="background-image: url('<%= cl_image_path collection.artworks[0].photo.key %>');"></div>
+                <% end %>
+                <% if collection.artworks[1] %>
+                  <div class="image img-two" style="background-image: url('<%= cl_image_path collection.artworks[1].photo.key %>');"></div>
+                <% end %>
+                <% if collection.artworks[2] %>
+                  <div class="image img-three" style="background-image: url('<%= cl_image_path collection.artworks[2].photo.key %>');"></div>
+                <% end %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-      </div>
 
-
-
-
-
-
-    <!-- Donec vitae turpis. Suspendisse porttitor. Mauris aliquam purus vitae tellus. Morbi metus diam, tempus ac, cursus ut, ultricies quis, nulla. Praesent nec justo. In lobortis. Donec nec lectus a neque laoreet rhoncus. Quisque in risus nec wisi lacinia ullamcorper. In placerat. Proin facilisis sollicitudin libero. Integer eget neque et pede placerat aliquet. Aliquam purus nulla, pulvinar ut, facilisis quis, sodales sed, magna. Curabitur nulla lectus, rutrum id, bibendum ut, sagittis eget, diam. Sed porta dolor eget est. Integer hendrerit orci. In hac habitasse platea dictumst. -->
-  </div>
+          <div class="cards-triple-infos">
+            <%= link_to collection_path(collection) do %>
+              <div class="single-collection-infos">
+                <h4><%= collection.name %></h4>
+                <p class="mid-gray body-small"><%= collection.artworks.count %> artworks</p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+ </div>
 </div>
+
 
 <!-- LATEST POSTS FROM THE COMMUNITY -->
 

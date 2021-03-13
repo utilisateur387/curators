@@ -1,12 +1,48 @@
+<div class="my-navbar bg-white opacity-low">
+
+    <!-- Icon on the left -->
+    <div class="navbar-left-side">
+      <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow-new-artwork" %>
+    </div>
+
+    <!-- Page Title -->
+    <div class="navbar-center-element">
+      <h5>New artwork</h5>
+    </div>
+
+    <!-- Icon on the right -->
+     <div class="navbar-right-side">
+        <%= link_to id: "nextBtn", class: "icon-right" do %>
+          NEXT
+        <% end %>
+     </div>
+
+       <!-- Menu overlay fullscreen -->
+    <div id="myNav" class="overlay">
+    <%= link_to "javascript:void(0)", class: "closebtn" do %>
+      <%= image_tag "icons/icon_cross.png", class: "closebtn cross", id: "cross" %>
+    <% end %>
+
+    <div class="overlay-content">
+      <h1 class="mb-3"><a href="#">Home</a></h1>
+      <h1 class="mb-3"><a href="#">Explore</a></h1>
+      <h1><a href="#">My profile</a></h1>
+    </div>
+  </div>
+</div>
+
+
 <div class= "container container-form">
   <%= simple_form_for(@artwork) do |f| %>
 
   <div class="btn-wrapper">
     <div class="buttons">
-      <a type="button" id="prevBtn" class="btn back">
-        <%= image_tag "icons/icon_back_arrow_black.png" %>
-      </a>
-      <a type="button" id="nextBtn" class="btn">Next</a>
+      <!-- <a type="button" id="prevBtn" class="btn back"> -->
+        <%= link_to "", class: "back-arrow", id: "prevBtn" do  %>
+          <%= image_tag "icons/icon_back_arrow_black.png" %>
+        <% end %>
+      <!-- </a> -->
+      <!-- <a type="button" id="nextBtn" class="btn">Next</a> -->
       <%= f.submit id: "submit-btn", class: "create", style: 'display: none;' %>
     </div>
 
@@ -21,7 +57,7 @@
     <%# STEP 2 INFO %>
     <div class="tab">
       <%# DISPLAY IMG %>
-      <hr><%= f.input :title, placeholder: "What's the artwork's title?", input_html: {class: "artwork_input"}%>
+      <hr><%= f.input :title, placeholder: "What's the title?", input_html: {class: "artwork_input"}%>
       <hr><%= f.association :artist, collection: @artists, placeholder: "Who's the artist?", input_html: {class: "artwork_input"} %>
       <hr><%= f.input :completion_year, placeholder: "Add year of completion", input_html: {class: "artwork_input"} %>
       <hr><%= f.input :description, placeholder: "Add artwork description", input_html: {class: "artwork_input"} %>
