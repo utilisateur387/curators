@@ -50,13 +50,13 @@
         <!-- Button Markup -->
         <%= f.input :photo, as: :file %>
         <button id="customBtn" type="button" class="button button-block button-new-artwork mb-4" >
-          <% #= image_tag "icons/icon_camera_outline", alt: "alttext" %>
+          <%= image_tag "icons/icon_camera_outline", alt: "alttext" %>
           <div class="mt-2">CHOOSE FILE</div>
         </button>
 
       <% #= f.input :photo, as: :file, class: "button" %>
       <%= link_to search_artworks_path, class: "button button-block button-new-artwork", style: "margin-top: -6px" do %>
-        <% #= image_tag "icons/icon_search", alt: "alttext" %>
+        <%= image_tag "icons/icon_search", alt: "alttext" %>
         <div>Find an artwork</div>
       <% end %>
         <!-- Choose File TEXT Markup -->
