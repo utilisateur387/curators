@@ -1,0 +1,9 @@
+.notification {
+  width: 85%;
+  position: fixed;
+  top: 16px;
+  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
+  color: $off-black;
+}

@@ -37,6 +37,7 @@ class ArtworksController < ApplicationController
       @artwork.artist = artist
       if @artwork.save!
         redirect_to artwork_path(@artwork)
+        flash[:notification] = "Added to #{@artwork.collection.name}"
       else
         render :search
       end
@@ -46,6 +47,7 @@ class ArtworksController < ApplicationController
       # @artwork = Artwork.new(artwork_params)
       if @artwork.save
         redirect_to artwork_path(@artwork)
+        flash[:notification] = "Added to #{@artwork.collection.name}"
       else
         @user = current_user
         @artists = Artist.order(:name)

@@ -54,10 +54,12 @@
         label_method: lambda { |collection| render "collections/collection_label", collection: collection },
         input_html: {class: 'select-collection'} %>
 
-            <%= link_to "Delete",
-            artwork_path(@artwork), class: "supprimer",
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+      <div class="pb-3">
+        <%= link_to "Delete",
+        artwork_path(@artwork), class: "button button-block mb-5",
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+      </div>
 
 
   <% end %>
