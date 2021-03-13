@@ -1,7 +1,8 @@
 require "open-uri"
 
 class ArtworksController < ApplicationController
-  before_action :set_artwork, only: [ :show ]
+  before_action :set_artwork, only: [ :show, :edit, :update, :destroy ]
+
   def index
     @user = User.find(params[:user_id])
     @number_of_collections = @user.collections.count
@@ -21,9 +22,9 @@ class ArtworksController < ApplicationController
   end
 
   def create
+    # Create artwork from the database search
+    @artwork = Artwork.new(artwork_params)
     if artwork_params["tmp_artist_name"]
-      # create_artwork_from_api
-      @artwork = Artwork.new(artwork_params)
 
       img_url = @artwork.tmp_image_url
       file = URI.open(img_url)
@@ -39,8 +40,10 @@ class ArtworksController < ApplicationController
       else
         render :search
       end
+
+    # Create artwork from new_artwork page
     else
-      @artwork = Artwork.new(artwork_params)
+      # @artwork = Artwork.new(artwork_params)
       if @artwork.save
         redirect_to artwork_path(@artwork)
       else
@@ -54,12 +57,23 @@ class ArtworksController < ApplicationController
   end
 
   def edit
+    @collections = current_user.collections
+    @artists = Artist.order(:name)
   end
 
   def update
+    @artwork.update(artwork_params)
+    if @artwork.save
+      redirect_to artwork_path(@artwork)
+    else
+      render :create
+    end
   end
 
   def destroy
+    @artwork.destroy
+
+    redirect_to collection_path(@artwork.collection)
   end
 
   def search

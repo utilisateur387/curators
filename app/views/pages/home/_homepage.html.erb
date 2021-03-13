@@ -61,11 +61,11 @@
                 <% if collection.artworks[1] %>
                   <div class="image img-two" style="background-image: url('<%= cl_image_path collection.artworks[1].photo.key %>');"></div>
                 <% else %>
-                  <div class="image img-two" style="background-image: url('https://i.ibb.co/LrCTmMr/img-gray-square.png');"></div>                <% end %>
+                  <div class="image img-two opacity-low" style="background-image: url('https://i.ibb.co/LrCTmMr/img-gray-square.png');"></div>                <% end %>
                 <% if collection.artworks[2] %>
                   <div class="image img-three" style="background-image: url('<%= cl_image_path collection.artworks[2].photo.key %>');"></div>
                 <% else %>
-                  <div class="image img-three" style="background-image: url('https://i.ibb.co/LrCTmMr/img-gray-square.png');"></div>                <% end %>
+                  <div class="image img-three opacity-low" style="background-image: url('https://i.ibb.co/LrCTmMr/img-gray-square.png');"></div>                <% end %>
               </div>
             <% end %>
           </div>

@@ -75,21 +75,13 @@
       <p class="body-medium">Enim urna sagittis, at varius. Sed tristique in proin rutrum mauris nunc dui. At nec est massa consectetur nec. Blandit lacinia lorem enim ut. Ipsum, justo eu facilisis ac dui elit. Dui porttitor viverra scelerisque suspendisse amet. Fames elementum ut consequat amet. Lobortis scelerisque ornare ut faucibus. Ut nulla odio gravida nibh. </p>
     </div>
 
-    <!-- <button onclick="goBack()">Go Back</button> -->
 
-<!--     <script>
-      function goBack() {
-        window.history.back();
-      }
-    </script> -->
+    <% if @artwork.user == current_user %>
+      <%= link_to edit_artwork_path(@artwork), class: "button button-dark-gray mt-4" do  %>
+        Edit
+      <% end %>
+    <% end %>
 
-<!--     <script>
-      const my_arrow = document.getElementById("my_arrow");
-      my_arrow.addEventListener('click', (event) => {
-        window.history.back();
-        // my_arrow.style.display = 'none';
-      });
-    </script> -->
   </div>
 </body>
 
