@@ -8,7 +8,7 @@
 
 <div class="container container-mt">
   <div class="body-large">
-    <% if @artwork_archive&.artist %>
+    <% if @artwork_archive.artist %>
       <div class="text-center">
         Revisit <i><%= @artwork_archive.title.titleize %></i> by <%= @artwork_archive.artist.name.titleize %>
       </div>
@@ -36,10 +36,54 @@
 </div>
 
 
+<!-- MY COLLECTIONS SLIDER -->
+
+<div class="my-collections">
+  <div class="gradient">
+  </div>
+
+  <div class="body-large text-center mb-3">
+    My collections
+  </div>
+
+  <div class="slider">
+    <div class="collection-container d-flex ml-2">
+      <% @collections.order("created_at desc").each do |collection| %>
+        <div class="cards-triple">
+          <div class="cards-triple-imgs">
+            <%= link_to collection_path(collection) do %>
+              <div class="img-triple img-triple-margin">
+                <% if collection.artworks[0] %>
+                  <div class="image img-one" style="background-image: url('<%= cl_image_path collection.artworks[0].photo.key %>');"></div>
+                <% end %>
+                <% if collection.artworks[1] %>
+                  <div class="image img-two" style="background-image: url('<%= cl_image_path collection.artworks[1].photo.key %>');"></div>
+                <% end %>
+                <% if collection.artworks[2] %>
+                  <div class="image img-three" style="background-image: url('<%= cl_image_path collection.artworks[2].photo.key %>');"></div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="cards-triple-infos">
+            <%= link_to collection_path(collection) do %>
+              <div class="single-collection-infos">
+                <h4><%= collection.name %></h4>
+                <p class="mid-gray body-small"><%= collection.artworks.count %> artworks</p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+ </div>
+</div>
+
 
 <!-- LATEST POSTS FROM THE COMMUNITY -->
 
-<div class="container container-mt pb-5">
+<div class="container pb-5">
 
   <div class="body-large mb-4 text-center">
     Latest posts from the community

@@ -1,4 +1,9 @@
 <div class="select-collection">
-  <%= cl_image_tag collection.artworks.first.photo.key, alt: "alttext", class: "collection-thumbnail" %>
-  <span class="body-medium"><%= collection.name %></span>
+  <% if collection.artworks.empty? %>
+    <%= image_tag "img-gray-square", alt: "alttext", class: "collection-thumbnail" %>
+    <span class="body-medium"><%= collection.name %></span>
+  <% else %>
+    <%= cl_image_tag collection.artworks.first.photo.key, alt: "alttext", class: "collection-thumbnail" %>
+    <span class="body-medium"><%= collection.name %></span>
+  <% end %>
 </div>

@@ -7,21 +7,28 @@ function showTab(n) {
   // ... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
+    document.getElementById("initialArrow").style.display = "flex";
+    console.log("1");
+
   } else {
     document.getElementById("prevBtn").style.display = "flex";
+    document.getElementById("nextBtn").style.removeProperty('display');
+    console.log("2")
   }
   if (n == (tab.length - 1)) {
     // document.getElementById("nextBtn").innerHTML = "Submit";
     document.getElementById("nextBtn").style.display = 'none';
     document.getElementById('submit-btn').style.removeProperty('display');
+    console.log("3")
   } else {
     document.getElementById('submit-btn').style.display = 'none';
-    document.getElementById("nextBtn").style.removeProperty('display');
     document.getElementById("nextBtn").innerHTML = "Next";
+    console.log("4")
   }
 }
 
 function nextPrev(n) {
+  document.getElementById("initialArrow").style.display = "none";
   // This function will figure out which tab to display
   let tab = document.getElementsByClassName("tab");
   // Hide the current tab:
@@ -38,11 +45,55 @@ function nextPrev(n) {
   showTab(currentTab);
 }
 
+const fileUpload = () => {
+
+    // Grabbing Elements and Storing in Variables
+    const defaultFile = document.getElementById("artwork_photo");
+    const customBtn = document.getElementById("customBtn");
+    const customSpace = document.getElementById("custom-space");
+    customBtn.addEventListener("click", function () {
+      defaultFile.click();
+    });
+
+    // File Upload
+    defaultFile.addEventListener("change", (event) => {
+
+      // Image Preview
+      const files = defaultFile.files[0]; //files[0] - For getting first file
+      //   console.log(files);
+
+      if (files) {
+        // Showing Image and Hiding "Image Preview" Text
+        preview_img.style.display = "block";
+        preview_text.style.display = "none";
+        //Read File
+        const fileReader = new FileReader();
+
+        fileReader.addEventListener("load", function () {
+          // convert image to base64 encoded string
+          preview_img.setAttribute("src", this.result);
+          // console.log(this.result);
+        });
+        fileReader.readAsDataURL(files);
+      }
+    });
+}
+
 const createForm = () => {
   currentTab = 0;
 
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
+  const initialArrow = document.getElementById('initialArrow');
+  const inputFile = document.getElementById("artwork_photo");
+
+
+  if (inputFile) {
+    inputFile.addEventListener('change', (event) => {
+      console.log("Here!");
+      nextPrev(1)
+    });
+  }
 
   if (prevBtn && nextBtn) {
     prevBtn.addEventListener('click', (event) => {
@@ -55,6 +106,9 @@ const createForm = () => {
     });
 
     showTab(currentTab);
+
+    fileUpload()
+
   }
 }
 

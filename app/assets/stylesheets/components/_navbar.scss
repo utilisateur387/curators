@@ -25,6 +25,8 @@
   position: fixed;
   right: 0;
   top: 20px;
+  font-size: 14px;
+  line-height: 0.6em;
 }
 
 .navbar-left-side {
@@ -45,6 +47,12 @@
 }
 
 .back-arrow {
+  width: 8px;
+  margin-top: 6px;
+  margin-left: $body-padding;
+}
+
+.back-arrow-new-artwork {
   width: 8px;
   margin-top: 6px;
   margin-left: $body-padding;
