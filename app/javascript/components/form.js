@@ -41,12 +41,64 @@ function nextPrev(n) {
   showTab(currentTab);
 }
 
+const fileUpload = () => {
+
+    // Grabbing Elements and Storing in Variables
+    const defaultFile = document.getElementById("artwork_photo");
+    const customBtn = document.getElementById("customBtn");
+    // const customBtn = document.getElementById("artwork_photo");
+    const customSpace = document.getElementById("custom-space");
+    customBtn.addEventListener("click", function () {
+      defaultFile.click();
+    });
+
+    // File Upload
+    defaultFile.addEventListener("change", (event) => {
+      //  Format Selected File Text
+      event.preventDefault();
+      if (defaultFile.value) {
+        customSpace.innerHTML =
+          defaultFile.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1] + "🔥";
+      } else {
+        customSpace.innerHTML = "No File, Selected!😭";
+      }
+
+      // Image Preview
+      const files = defaultFile.files[0]; //files[0] - For getting first file
+      //   console.log(files);
+
+      if (files) {
+        // Showing Image and Hiding "Image Preview" Text
+        preview_img.style.display = "block";
+        preview_text.style.display = "none";
+        //Read File
+        const fileReader = new FileReader();
+
+        fileReader.addEventListener("load", function () {
+          // convert image to base64 encoded string
+          preview_img.setAttribute("src", this.result);
+          console.log(this.result);
+        });
+        fileReader.readAsDataURL(files);
+      }
+    });
+}
+
 const createForm = () => {
   currentTab = 0;
 
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const initialArrow = document.getElementById('initialArrow');
+  const inputFile = document.getElementById("artwork_photo");
+
+
+  if (inputFile) {
+    inputFile.addEventListener('change', (event) => {
+      console.log("Here!");
+      nextPrev(1)
+    });
+  }
 
   if (prevBtn && nextBtn) {
     prevBtn.addEventListener('click', (event) => {
@@ -59,6 +111,12 @@ const createForm = () => {
     });
 
     showTab(currentTab);
+
+
+    fileUpload()
+
+
+
   }
 }
 
