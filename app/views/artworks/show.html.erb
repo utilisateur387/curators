@@ -44,7 +44,7 @@
 
 <body class="body-artwork-show white">
   <div class="container">
-    <% if @artwork.location %>
+    <% if @artwork.location && @artwork.location.length > 0 %>
       <span class="body-xs"><i class="fas fa-map-marker-alt mr-1"></i> <%= @artwork.location %></span>
     <% end %>
 
@@ -58,7 +58,11 @@
       <% else %>
         <p class="subtitle mb-1">Unknown artist</p>
       <% end %>
-      <h2> <%= @artwork.title.titleize %></h2>
+      <% if @artwork.title && @artwork.title.length > 0 %>
+        <h2><%= @artwork.title.titleize %></h2>
+      <% else %>
+        <h2>Unknown title</h2>
+      <% end %>
       <% if @artwork.completion_year %>
         <p class="subtitle"> <%= @artwork.completion_year %></p>
       <% end %>

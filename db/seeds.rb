@@ -11,23 +11,24 @@ def replace_chars(artist_name)
   new_title = new_title.gsub(/[ÔÖÒÓØŌÕ]/, "O")
   new_title = new_title.gsub(/[èéêëēėęě]/, "e")
   new_title = new_title.gsub(/[ÈÉÊËĒĖĘ]/, "E")
-  new_title = new_title.gsub(/[îïíīįì]/, "i")
+  new_title = new_title.gsub(/[îïíīįìı]/, "i")
   new_title = new_title.gsub(/[ÎÏÍĪĮÌ]/, "i")
   new_title = new_title.gsub(/[śš]/, "s")
-  new_title = new_title.gsub(/[ŚŠ]/, "S")
+  new_title = new_title.gsub(/[ŚŠȘ]/, "S")
   new_title = new_title.gsub(/[çćč]/, "c")
   new_title = new_title.gsub(/[ÇĆČ]/, "C")
-  new_title = new_title.gsub(/[ÿ]/, "y")
+  new_title = new_title.gsub(/[ÿý]/, "y")
   new_title = new_title.gsub(/[Ÿ]/, "Y")
   new_title = new_title.gsub(/[ûüùúūů]/, "u")
   new_title = new_title.gsub(/[ÛÜÙÚŪ]/, "U")
   new_title = new_title.gsub(/[žźż]/, "z")
   new_title = new_title.gsub(/[ŽŹŻ]/, "Z")
-  new_title = new_title.gsub(/[ñń]/, "n")
+  new_title = new_title.gsub(/[ñńņň]/, "n")
   new_title = new_title.gsub(/[ÑŃ]/, "N")
   new_title = new_title.gsub(/[ł]/, "l")
   new_title = new_title.gsub(/[Ł]/, "L")
   new_title = new_title.gsub(/\s\(.+\)/, "")
+  new_title = new_title.gsub(/[Þ]/, "th")
   new_title
 end
 
@@ -52,7 +53,7 @@ def scrap_wiki
 
       if bio && bio.include?("may refer to")
         puts "SKIP: May refer to..."
-      elsif bio.empty?
+      elsif bio.nil?
         puts "SKIP: Empty bio"
       else
         artist = Artist.new(name: full_name, bio: bio, url: "http://wikipedia.org#{link}")
