@@ -19,7 +19,7 @@ html_doc.css('.div-col').css('li').each_with_index do |element, index|
 
   title = element.element_children.first.attribute('title').text.strip
   puts title
-  new_title = title.gsub(/[àáâãäå]/, "a")
+  new_title = title.gsub(/[àáâãäåā]/, "a")
   new_title = new_title.gsub(/[ÀÁÂÄÆÃÅĀ]/, "A")
   new_title = new_title.gsub(/[ôöòóøōõ]/, "o")
   new_title = new_title.gsub(/[ÔÖÒÓØŌÕ]/, "O")
@@ -39,8 +39,8 @@ html_doc.css('.div-col').css('li').each_with_index do |element, index|
   new_title = new_title.gsub(/[ŽŹŻ]/, "Z")
   new_title = new_title.gsub(/[ñń]/, "n")
   new_title = new_title.gsub(/[ÑŃ]/, "N")
-  # full_name = new_title.split.each { |word| word.capitalize! }.join(" ")
-  # puts full_name
+
+
   link = element.element_children.first.attribute('href')
 
   url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=#{new_title}"
