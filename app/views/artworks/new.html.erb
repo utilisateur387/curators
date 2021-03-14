@@ -51,14 +51,14 @@
         <%= f.input :photo, as: :file %>
         <button id="customBtn" type="button" class="button button-block button-new-artwork mb-4" >
           <% #= image_tag "icons/icon_camera_outline_2", alt: "alttext" %>
-          <%= image_tag "https://i.ibb.co/CJtVy0c/icon-camera-outline.png", alt: "alttext" %>
-          <div class="mt-2">CHOOSE FILE</div>
+          <%= image_tag "https://i.ibb.co/CJtVy0c/icon-camera-outline.png", alt: "alttext", class: "mt-2" %>
+          <div class="mt-2">CAMERA</div>
         </button>
 
       <% #= f.input :photo, as: :file, class: "button" %>
       <%= link_to search_artworks_path, class: "button button-block button-new-artwork", style: "margin-top: -6px" do %>
         <%= image_tag "https://i.ibb.co/K5B4ZvC/icon-search.png", alt: "alttext" %>
-        <div>Find an artwork</div>
+        <div class="mb-2">Find an artwork</div>
       <% end %>
         <!-- Choose File TEXT Markup -->
         <!-- <span id="custom-space"> <strong> No</strong> File, Selected!😭</span> -->
