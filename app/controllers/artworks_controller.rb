@@ -10,6 +10,7 @@ class ArtworksController < ApplicationController
   end
 
   def show
+    # raise
   end
 
   def new
@@ -98,7 +99,7 @@ class ArtworksController < ApplicationController
   private
 
   def artwork_params
-    params.require(:artwork).permit(:title, :photo, :artist_id, :completion_year, :description, :notes, :collection_id, :img_url, :tmp_artist_name, :tmp_image_url)
+    params.require(:artwork).permit(:title, :photo, :artist_id, :completion_year, :description, :location, :notes, :collection_id, :img_url, :tmp_artist_name, :tmp_image_url)
   end
 
   def set_artwork

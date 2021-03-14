@@ -44,8 +44,8 @@
 
 <body class="body-artwork-show white">
   <div class="container">
-    <% if @artwork.location == true %>
-      <span class="body-xs"><i class="fas fa-map-marker-alt mr-1"></i> Location <%= @artwork.location %></span>
+    <% if @artwork.location %>
+      <span class="body-xs"><i class="fas fa-map-marker-alt mr-1"></i> <%= @artwork.location %></span>
     <% end %>
 
     <div class="img-show">

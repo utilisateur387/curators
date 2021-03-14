@@ -103,9 +103,11 @@
           <% end %>
         </div>
 
-        <div class="body-xs">
-          <i class="fas fa-map-marker-alt mr-1" style="font-size: 12px"></i> Location
-        </div>
+        <% if artwork.location && artwork.location.length > 0 %>
+          <div class="body-xs">
+            <i class="fas fa-map-marker-alt mr-1" style="font-size: 12px"></i> <%= artwork.location %>
+          </div>
+        <% end %>
       </div>
 
       <%= link_to artwork_path(artwork) do %>
