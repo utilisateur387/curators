@@ -82,6 +82,11 @@
       <% end %>
     <% end %>
 
+      <%= link_to "Delete",
+      artwork_path(@artwork), class: "button button-dark-gray mb-5",
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+
   </div>
 </body>
 

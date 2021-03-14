@@ -44,40 +44,46 @@
     <%= submit_tag "Search", class: "button button-block mt-3 mb-5" %>
   <% end %>
 
+
   <% if @artworks %>
     <p class="body-large mt-3"><%= @artworks.count %> Result(s) for « <%= params[:query] %> » </p>
     <% @artworks.each do |artwork| %>
 
-    <div class="search-card">
-      <%= image_tag artwork.tmp_image_url %>
+      <div class="search-card">
+        <%= image_tag artwork.tmp_image_url %>
 
-      <div class="infos-button">
-        <div>
-          <p class="subtitle"><%= artwork.tmp_artist_name %></p>
-          <h4><%= artwork.title %></h4>
-          <p class="subtitle"><%= artwork.completion_year %></p>
+        <div class="infos-button">
+          <div>
+            <p class="subtitle"><%= artwork.tmp_artist_name %></p>
+            <h4><%= artwork.title %></h4>
+            <p class="subtitle"><%= artwork.completion_year %></p>
+          </div>
+
+          <div>
+            <%= simple_form_for(artwork) do |f| %>
+              <%= f.hidden_field :title, value: artwork.title %>
+              <%= f.hidden_field :artist, value: artwork.tmp_artist_name %>
+              <%= f.hidden_field :completion_year, value: artwork.completion_year %>
+              <%= f.hidden_field :tmp_artist_name, value: artwork.tmp_artist_name %>
+              <%= f.hidden_field :tmp_image_url, value: artwork.tmp_image_url %>
+              <%= f.submit "Select", class: 'button' %>
+            <% end %>
+
+          </div>
         </div>
 
-        <div>
-          <%= simple_form_for(artwork) do |f| %>
-            <%= f.hidden_field :title, value: artwork.title %>
-            <%= f.hidden_field :artist, value: artwork.tmp_artist_name %>
-            <%= f.hidden_field :completion_year, value: artwork.completion_year %>
-            <%= f.hidden_field :tmp_artist_name, value: artwork.tmp_artist_name %>
-            <%= f.hidden_field :tmp_image_url, value: artwork.tmp_image_url %>
-            <%= f.submit "Select", class: 'button' %>
-          <% end %>
+        <hr class="card-line">
 
-        </div>
       </div>
-
-      <hr class="card-line">
-
-    </div>
     <% end %>
-  <% end %>
-    <% if params[:query] && @artworks.empty? %>
-      <p class="body-large mt-3">Sorry, we couldn't find anything matching your input...</p>
-      <% end %>
 
+  <% end %>
+
+  <% if params[:query] && @artworks.empty? %>
+    <p class="body-large mt-3">Sorry, we couldn't find anything matching your input...</p>
+  <% end %>
+</div>
+
+<div class="illustration">
+  <%= image_tag "https://i.ibb.co/wzz2hrt/illustration-lady.png", alt: "alttext" %>
 </div>

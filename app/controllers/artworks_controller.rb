@@ -22,8 +22,9 @@ class ArtworksController < ApplicationController
   end
 
   def create
-    # Create artwork from the database search
     @artwork = Artwork.new(artwork_params)
+
+    # Create artwork from the database search
     if artwork_params["tmp_artist_name"]
 
       img_url = @artwork.tmp_image_url
@@ -44,7 +45,6 @@ class ArtworksController < ApplicationController
 
     # Create artwork from new_artwork page
     else
-      # @artwork = Artwork.new(artwork_params)
       if @artwork.save
         redirect_to artwork_path(@artwork)
         flash[:notification] = "Added to #{@artwork.collection.name}"
@@ -75,7 +75,7 @@ class ArtworksController < ApplicationController
   def destroy
     @artwork.destroy
 
-    redirect_to collection_path(@artwork.collection)
+    redirect_to user_collections_path(current_user)
   end
 
   def search

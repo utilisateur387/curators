@@ -29,3 +29,13 @@
   border-radius: 10px;
   margin-bottom: 32px;
 }
+
+.illustration {
+  object-fit: cover;
+  opacity: 0.15;
+  position: fixed;
+
+  img {
+    width: 100%;
+  }
+}
