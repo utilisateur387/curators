@@ -45,6 +45,8 @@
         <% @artists.each do |artist| %>
           <% if artist == @artwork.artist %>
             <option selected="selected"><%= artist.name %></option>
+          <% elsif artist == nil %>
+            <option></option>
           <% else %>
             <option value=<%= artist.name.gsub(" ", "/") %>><%= artist.name %></option>
           <% end %>
