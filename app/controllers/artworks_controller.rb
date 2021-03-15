@@ -23,8 +23,10 @@ class ArtworksController < ApplicationController
   end
 
   def create
+    # raise
     @artwork = Artwork.new(artwork_params)
-
+    # artist = Artist.find_or_create_by(name: params[:artist].split("/").join(" "))
+    # raise
     # Create artwork from the database search
     if artwork_params["tmp_artist_name"]
 
@@ -46,6 +48,8 @@ class ArtworksController < ApplicationController
 
     # Create artwork from new_artwork page
     else
+      artist = Artist.find_or_create_by(name: params[:artist].split("/").join(" "))
+      @artwork.artist = artist
       if @artwork.save
         redirect_to artwork_path(@artwork)
         flash[:notification] = "Added to #{@artwork.collection.name}"
@@ -99,7 +103,7 @@ class ArtworksController < ApplicationController
   private
 
   def artwork_params
-    params.require(:artwork).permit(:title, :photo, :artist_id, :completion_year, :description, :location, :notes, :collection_id, :img_url, :tmp_artist_name, :tmp_image_url)
+    params.require(:artwork).permit(:title, :photo, :artist, :artist_id, :completion_year, :description, :location, :notes, :collection_id, :img_url, :tmp_artist_name, :tmp_image_url)
   end
 
   def set_artwork
@@ -139,3 +143,6 @@ class ArtworksController < ApplicationController
   #   end
   # end
 end
+
+
+

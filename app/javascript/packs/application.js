@@ -28,6 +28,7 @@ import { toggleMenu } from '../components/navbar';
 import { backArrow } from '../components/navbar';
 import { createForm } from '../components/form';
 import { fadeAlert } from '../components/alerts';
+import { initSelect2 } from '../components/init_select2';
 
 
 
@@ -42,5 +43,5 @@ document.addEventListener('turbolinks:load', () => {
   backArrow();
   createForm();
   fadeAlert();
-
+  initSelect2();
 });
