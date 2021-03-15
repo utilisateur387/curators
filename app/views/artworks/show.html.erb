@@ -74,25 +74,29 @@
       <% end %>
     </div>
 
-    <div class="text-block">
-      <h4>About the artist: <%= @artwork.artist.name %> </h4>
-      <p class="body-medium"> <%= @artwork.artist.bio %> </p>
-      <%= link_to @artwork.artist.url, target: "blank" do %>
-        <p class="body-medium">Read more</p>
-      <% end %>
-    </div>
-
-
-    <% if @artwork.user == current_user %>
-      <%= link_to edit_artwork_path(@artwork), class: "button button-dark-gray mt-4" do  %>
-        Edit
-      <% end %>
+    <% if @artwork.artist %>
+      <div class="text-block">
+        <h4>About the artist: <%= @artwork.artist.name %> </h4>
+        <p class="body-medium"> <%= @artwork.artist.bio %> </p>
+        <%= link_to @artwork.artist.url, target: "blank" do %>
+          <p class="body-medium">Read more</p>
+        <% end %>
+      </div>
     <% end %>
+
+
+    <div class="mt-2">
+      <% if @artwork.user == current_user %>
+        <%= link_to edit_artwork_path(@artwork), class: "button button-dark-gray mt-4" do  %>
+          Edit
+        <% end %>
+      <% end %>
 
       <%= link_to "Delete",
       artwork_path(@artwork), class: "button button-dark-gray mb-5",
       method: :delete,
       data: { confirm: "Are you sure?" } %>
+    </div>
 
   </div>
 </body>
