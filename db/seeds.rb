@@ -42,8 +42,8 @@ end
 
 def scrap_wiki
     puts "Start"
-  alphabet = ("A".."Z").to_a
-  alphabet.each do |letter|
+    alphabet = ("A".."Z").to_a
+    alphabet.each do |letter|
     url = "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_%22#{letter}%22"
 
     html_file = open(url).read
