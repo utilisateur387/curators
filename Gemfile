@@ -38,6 +38,8 @@ gem 'simple_form'
 
 gem 'cloudinary', '~> 1.16.0'
 
+gem 'google-cloud-vision', '~> 1.1'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

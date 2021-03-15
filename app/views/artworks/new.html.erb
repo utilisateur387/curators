@@ -63,9 +63,6 @@
         <!-- Choose File TEXT Markup -->
         <!-- <span id="custom-space"> <strong> No</strong> File, Selected!😭</span> -->
 
-
-
-
     </div>
 
     <%# STEP 2 INFO %>
@@ -78,6 +75,14 @@
           <img src="" id="preview_img" class="preview_img" />
           <span id="preview_text" class="preview_text">Image Preview</span>
         </div>
+      </div>
+
+
+      <!-- Scan Cartel Button -->
+       <%= simple_form_for() do |f| %>
+      <div>
+        <%= f.input :photo, as: :file %>
+          <button id="customBtnCartel" type="button" class="button text-center mb-5" >Scan cartel</button>
       </div>
 
       <%= f.input :title, placeholder: "What's the title?", input_html: {class: "artwork_input"}%>

@@ -46,7 +46,13 @@ const fileUpload = () => {
     // Grabbing Elements and Storing in Variables
     const defaultFile = document.getElementById("artwork_photo");
     const customBtn = document.getElementById("customBtn");
+    const customBtnCartel = document.getElementById("customBtnCartel");
     const customSpace = document.getElementById("custom-space");
+    customBtnCartel.addEventListener("click", function () {
+      console.log("1");
+      defaultFile.click();
+      console.log("2");
+    });
     customBtn.addEventListener("click", function () {
       defaultFile.click();
     });
