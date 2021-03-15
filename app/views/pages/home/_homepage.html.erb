@@ -49,7 +49,7 @@
   <div class="slider">
     <div class="collection-container d-flex ml-2">
       <% @collections.order("created_at desc").each do |collection| %>
-        <div class="cards-triple">
+        <div class="cards-triple mr-3">
           <div class="cards-triple-imgs">
             <%= link_to collection_path(collection) do %>
               <div class="img-triple img-triple-margin">
