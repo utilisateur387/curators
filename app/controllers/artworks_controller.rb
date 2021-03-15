@@ -49,6 +49,7 @@ class ArtworksController < ApplicationController
     # Create artwork from new_artwork page
     else
       artist = Artist.find_or_create_by(name: params[:artist].split("/").join(" "))
+      # artist = Artist.find_by("LOWER(name) = ?", params[:artist].split("/").join(" ").downcase)
       @artwork.artist = artist
       if @artwork.save
         redirect_to artwork_path(@artwork)
@@ -76,7 +77,7 @@ class ArtworksController < ApplicationController
     if @artwork.save
       redirect_to artwork_path(@artwork)
     else
-      render :create
+      render :edit
     end
   end
 

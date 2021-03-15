@@ -8,7 +8,7 @@
 
 <div class="container container-mt">
   <div class="body-large">
-    <% if @artwork_archive.artist %>
+    <% if @artwork_archive && @artwork_archive.artist %>
       <div class="text-center">
         Revisit <i><%= @artwork_archive.title.titleize %></i> by <%= @artwork_archive.artist.name.titleize %>
       </div>
@@ -39,8 +39,8 @@
 <!-- MY COLLECTIONS SLIDER -->
 
 <div class="my-collections">
-  <div class="gradient">
-  </div>
+<!--   <div class="gradient">
+  </div> -->
 
   <div class="body-large text-center mb-3">
     My collections
