@@ -82,9 +82,8 @@
 
       <%= f.input :title, placeholder: "What's the title?", input_html: {class: "artwork_input"}%>
 
+      <hr><label for="artist" class="body-xs">Artist</label><br>
       <select class="select2" name="artist">
-        <option value="AL">Alabama</option>
-
         <% @artists.each do |artist| %>
           <option value=<%= artist.name.gsub(" ", "/") %>><%= artist.name %></option>
         <% end %>
