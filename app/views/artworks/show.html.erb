@@ -86,11 +86,11 @@
 
 
     <div class="mt-2">
-      <% if @artwork.user == current_user %>
+      <%# if @artwork.user == current_user %>
         <%= link_to edit_artwork_path(@artwork), class: "button button-dark-gray mt-4" do  %>
           Edit
         <% end %>
-      <% end %>
+      <%# end %>
 
       <%= link_to "Delete",
       artwork_path(@artwork), class: "button button-dark-gray mb-5",
