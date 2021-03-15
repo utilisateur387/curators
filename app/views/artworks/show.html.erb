@@ -75,8 +75,11 @@
     </div>
 
     <div class="text-block">
-      <h4>About the artist</h4>
-      <p class="body-medium">Enim urna sagittis, at varius. Sed tristique in proin rutrum mauris nunc dui. At nec est massa consectetur nec. Blandit lacinia lorem enim ut. Ipsum, justo eu facilisis ac dui elit. Dui porttitor viverra scelerisque suspendisse amet. Fames elementum ut consequat amet. Lobortis scelerisque ornare ut faucibus. Ut nulla odio gravida nibh. </p>
+      <h4>About the artist: <%= @artwork.artist.name %> </h4>
+      <p class="body-medium"> <%= @artwork.artist.bio %> </p>
+      <%= link_to @artwork.artist.url, target: "blank" do %>
+        <p class="body-medium">Read more</p>
+      <% end %>
     </div>
 
 

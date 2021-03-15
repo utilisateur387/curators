@@ -4,4 +4,7 @@ class TestController < ApplicationController
   def components
     @artwork = Artwork.new
   end
+
+  def autocomplete
+  end
 end

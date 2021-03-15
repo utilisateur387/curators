@@ -81,7 +81,15 @@
       </div>
 
       <%= f.input :title, placeholder: "What's the title?", input_html: {class: "artwork_input"}%>
-      <hr><%= f.association :artist, collection: @artists, placeholder: "Who's the artist?", input_html: {class: "artwork_input"} %>
+
+      <select class="select2" name="artist">
+        <option value="AL">Alabama</option>
+
+        <% @artists.each do |artist| %>
+          <option value=<%= artist.name.gsub(" ", "/") %>><%= artist.name %></option>
+        <% end %>
+      </select>
+
       <hr><%= f.input :completion_year, placeholder: "Add year of completion", input_html: {class: "artwork_input"} %>
       <hr><%= f.input :description, placeholder: "Add artwork description", input_html: {class: "artwork_input"} %>
       <hr><%= f.input :location, placeholder: "Where did you see it?", input_html: {class: "artwork_input"} %>

@@ -3,6 +3,14 @@ require 'nokogiri'
 require 'httparty'
 
 # url = "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_%22A%22"
+
+Artwork.all.each do |artwork|
+  artwork.artist = nil
+  artwork.save!
+end
+
+Artist.destroy_all
+
 def replace_chars(artist_name)
   new_title = artist_name.gsub(/[àáâãäåāă]/, "a")
   new_title = new_title.gsub(/[ÀÁÂÄÆÃÅĀ]/, "A")
@@ -34,9 +42,9 @@ end
 
 def scrap_wiki
     puts "Start"
-  # alphabet = ("A".."Z").to_a
-  # alphabet.each do |letter|
-    url = "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_%22A%22"
+  alphabet = ("A".."Z").to_a
+  alphabet.each do |letter|
+    url = "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_%22#{letter}%22"
 
     html_file = open(url).read
     html_doc = Nokogiri::HTML(html_file)
@@ -57,14 +65,14 @@ def scrap_wiki
         puts "SKIP: Empty bio"
       else
         artist = Artist.new(name: full_name, bio: bio, url: "http://wikipedia.org#{link}")
-        # artist.save!
+        artist.save!
         puts artist.name
         puts artist.bio
         puts artist.url
       end
 
     end
-  # end
+  end
   puts "End"
 end
 
