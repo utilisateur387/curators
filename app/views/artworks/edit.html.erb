@@ -1,57 +1,63 @@
-<div class= "container container-form container-mt">
 
   <%= simple_form_for(@artwork) do |f| %>
 
     <!-- NAVBAR (INSIDE THE FORM TO CONTAIN THE SUBMIT BUTTON) -->
-    <div class="my-navbar bg-white", style="margin-left: -24px;">
+    <div class="my-navbar bg-white">
+      <div class="container navbar-container">
 
-      <!-- Icon on the left -->
-      <div class="navbar-left-side" >
-        <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow", id: "initialArrow" %>
-      </div>
+        <!-- Icon on the left -->
+        <div class="navbar-left-side" >
+          <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow", id: "initialArrow" %>
+        </div>
 
-      <!-- Page Title -->
-      <div class="navbar-center-element">
-        <h5>Edit artwork</h5>
-      </div>
+        <!-- Page Title -->
+        <div class="navbar-center-element">
+          <h5>Edit artwork</h5>
+        </div>
 
-      <!-- Icon on the right -->
-       <div class="navbar-right-side">
-          <% #= link_to "", id: "nextBtn", style: "display: none;" do %>
-          <% # end %>
-          <%= f.submit value: "Update", id: "submit", class: "nav-cta", style: 'margin-right: 32px; padding: 6px 0; margin-top: -3px' %>
-       </div>
+        <!-- Icon on the right -->
+         <div class="navbar-right-side">
+            <% #= link_to "", id: "nextBtn", style: "display: none;" do %>
+            <% # end %>
+  <!-- <div class= "container container-form container-mt"> -->
+          <div class="form-cta">
+            <%= f.submit value: "Update", id: "submit", class: "nav-cta" %>
+          </div>
+  <!-- </div> -->
+        </div>
 
-         <!-- Menu overlay fullscreen -->
-      <div id="myNav" class="overlay">
-        <%= link_to "javascript:void(0)", class: "closebtn" do %>
-          <%= image_tag "icons/icon_cross.png", class: "closebtn cross", id: "cross" %>
-        <% end %>
+           <!-- Menu overlay fullscreen -->
+        <div id="myNav" class="overlay">
+          <%= link_to "javascript:void(0)", class: "closebtn" do %>
+            <%= image_tag "icons/icon_cross.png", class: "closebtn cross", id: "cross" %>
+          <% end %>
 
-        <div class="overlay-content">
-          <h1 class="mb-3"><a href="#">Home</a></h1>
-          <h1 class="mb-3"><a href="#">Explore</a></h1>
-          <h1><a href="#">My profile</a></h1>
+          <div class="overlay-content">
+            <h1 class="mb-3"><a href="#">Home</a></h1>
+            <h1 class="mb-3"><a href="#">Explore</a></h1>
+            <h1><a href="#">My profile</a></h1>
+          </div>
         </div>
       </div>
     </div>
 
+<div class= "container container-form container-mt">
 
+        <%= f.input :title, placeholder: "What's the title?", input_html: {class: "artwork_input"}%>
 
-      <%= f.input :title, placeholder: "What's the title?", input_html: {class: "artwork_input"}%>
-
-      <hr><label for="artist" class="body-xs">Artist</label><br>
-      <select class="select2" name="artist">
-        <% @artists.each do |artist| %>
-          <% if artist == @artwork.artist %>
-            <option selected="selected"><%= artist.name %></option>
-          <% elsif artist == nil %>
-            <option></option>
-          <% else %>
-            <option value=<%= artist.name.gsub(" ", "/") %>><%= artist.name %></option>
+      <div class="container-select2">
+        <hr><label for="artist" class="body-xs">Artist</label><br>
+        <select class="select2" name="artist">
+              <option></option>
+          <% @artists.each do |artist| %>
+            <% if artist == @artwork.artist %>
+              <option selected="selected"><%= artist.name %></option>
+            <% else %>
+              <option value=<%= artist.name.gsub(" ", "/") %>><%= artist.name %></option>
+            <% end %>
           <% end %>
-        <% end %>
-      </select>
+        </select>
+      </div>
 
       <hr><%= f.input :completion_year, placeholder: "Add year of completion", input_html: {class: "artwork_input"} %>
       <hr><%= f.input :description, placeholder: "Add artwork description", input_html: {class: "artwork_input"} %>

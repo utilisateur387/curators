@@ -1,15 +1,21 @@
 .my-navbar {
   padding: 0;
+  // border: solid 1px !important;
   height: 52px;
-  width: 100%;
-  display: flex;
+  width: 100vw;
+  // display: flex;
   position: fixed;
   top: 0;
-  justify-content: center;
+  // justify-content: space-between;
   z-index: 50;
 
   h5 {
     margin-top: 16px;
+  }
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -22,21 +28,28 @@
 }
 
 .navbar-right-side {
-  position: fixed;
-  right: 0;
-  top: 20px;
+  // position: fixed;
+  // right: 0;
+  // top: 20px;
   font-size: 14px;
   line-height: 0.6em;
+  margin-top: 20px;
 }
 
 .navbar-left-side {
-  position: fixed;
-  left: 0;
-  top: 10px;
+  // position: fixed;
+  // left: 0;
+  // top: 10px;
+  margin-top: 10px;
 }
 
 .navbar-center-element {
   position: fixed;
+  width: 100vw;
+  z-index: -10;
+  left: 0;
+  top: 0;
+  text-align: center;
 }
 
 .empty {
@@ -48,14 +61,14 @@
 
 .back-arrow {
   width: 8px;
-  margin-top: 6px;
-  margin-left: $body-padding;
+  // margin-top: 16px;
+  // margin-left: $body-padding;
 }
 
 .back-arrow-new-artwork {
   width: 8px;
-  margin-top: 6px;
-  margin-left: $body-padding;
+  // margin-top: 16px;
+  // margin-left: $body-padding;
 }
 
 .heart {
@@ -64,9 +77,9 @@
   margin-left: $body-padding;
 }
 
-.icon-right {
-  margin-right: $body-padding;
-}
+// .icon-right {
+//   margin-right: $body-padding;
+// }
 
 .burger {
   width: $body-padding;
@@ -151,5 +164,9 @@
 .nav-cta {
   background-color: $transparent;
   border: 0px;
+  margin-top: -2px;
+  padding-top: 2px;
+  padding-bottom: 4px;
+
 }
 
