@@ -86,5 +86,13 @@
   <% else %>
     <h3 class="text-center">No artworks yet</h3>
   <% end %>
+
+  <%= link_to "Delete #{@collection.name}",
+            collections_path(@collection), class: "button button-dark-gray mb-5",
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+
+
 </div>
+
 
