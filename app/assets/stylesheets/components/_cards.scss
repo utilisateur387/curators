@@ -83,7 +83,7 @@
 .cards-triple {
   height: 144px;
   width: calc(50% - 8px);
-  margin-bottom: 64px;
+  margin-bottom: 80px;
 
   .cards-triple-imgs {
     align-items: center;
@@ -98,8 +98,8 @@
 
       .image {
         position: absolute;
-        width: 130px;
-        height: 130px;
+        width: 150px;
+        height: 150px;
         border-radius: 4px;
       }
 
@@ -112,7 +112,7 @@
         z-index: 1;
         left: 10px;
         top: 5px;
-        height: 120px;
+        height: 140px;
         background-size: cover;
       }
 
@@ -120,7 +120,7 @@
         z-index: 0;
         left: 20px;
         top: 10px;
-        height: 110px;
+        height: 130px;
         background-size: cover;
       }
     }
@@ -130,7 +130,7 @@
     display: flex;
     z-index: 999;
     justify-content: space-between;
-    margin-top: 92px;
+    margin-top: 110px;
     z-index: -3;
 
     .single-collection-infos {
