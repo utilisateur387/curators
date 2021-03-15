@@ -43,7 +43,11 @@
       <hr><label for="artist" class="body-xs">Artist</label><br>
       <select class="select2" name="artist">
         <% @artists.each do |artist| %>
-          <option value=<%= artist.name.gsub(" ", "/") %>><%= artist.name %></option>
+          <% if artist == @artwork.artist %>
+            <option selected="selected"><%= artist.name %></option>
+          <% else %>
+            <option value=<%= artist.name.gsub(" ", "/") %>><%= artist.name %></option>
+          <% end %>
         <% end %>
       </select>
 
