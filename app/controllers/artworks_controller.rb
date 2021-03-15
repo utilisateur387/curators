@@ -70,6 +70,9 @@ class ArtworksController < ApplicationController
 
   def update
     @artwork.update(artwork_params)
+    artist = Artist.find_or_create_by(name: params[:artist].split("/").join(" "))
+    @artwork.artist = artist
+
     if @artwork.save
       redirect_to artwork_path(@artwork)
     else
