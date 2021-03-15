@@ -34,6 +34,10 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
+    set_collection
+    @collection.destroy
+
+    redirect_to collection_path
   end
 
   private
