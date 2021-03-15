@@ -24,11 +24,12 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import "cropperjs"
 import { toggleMenu } from '../components/navbar';
 import { backArrow } from '../components/navbar';
 import { createForm } from '../components/form';
 import { fadeAlert } from '../components/alerts';
-
+import { cropping } from '../components/cropping';
 
 
 // Internal imports, e.g:
@@ -42,5 +43,5 @@ document.addEventListener('turbolinks:load', () => {
   backArrow();
   createForm();
   fadeAlert();
-
+  cropping();
 });
