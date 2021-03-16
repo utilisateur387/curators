@@ -1,4 +1,4 @@
 class Favorite < ApplicationRecord
-  belongs to :user
-  belongs to :artwork
+  belongs_to :user
+  belongs_to :artwork
 end
