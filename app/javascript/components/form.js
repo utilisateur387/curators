@@ -79,6 +79,18 @@ const fileUpload = () => {
             autoCropArea: 1,
             cropBoxMovable: false
           });
+          const save = document.querySelector('.save');
+
+          save.addEventListener('click',(e)=>{
+            e.preventDefault();
+            // get result to data uri
+            let imgSrc = cropper.getCroppedCanvas().toDataURL();
+            preview_img.setAttribute("src", imgSrc);
+            let cropped_image_field = document.getElementById('cropped_image');
+            cropped_image_field.setAttribute("value", imgSrc);
+            console.log(cropped_image_field);
+
+          });
         });
         fileReader.readAsDataURL(files);
       }
@@ -93,22 +105,6 @@ const createForm = () => {
   const initialArrow = document.getElementById('initialArrow');
   const inputFile = document.getElementById("artwork_photo");
 
-  const save = document.querySelector('.save');
-  const img_w = document.querySelector('.img-w');
-  const cropped = document.querySelector('.cropped');
-  const cropper = '';
-  save.addEventListener('click',(e)=>{
-    e.preventDefault();
-    // get result to data uri
-    let imgSrc = cropper.getCroppedCanvas({
-      width: img_w.value // input value
-    }).toDataURL();
-    // remove hide class of img
-    cropped.classList.remove('hide');
-    img_result.classList.remove('hide');
-    // show image cropped
-    cropped.src = imgSrc;
-  });
 
 
 

@@ -37,6 +37,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 
 gem 'cloudinary', '~> 1.16.0'
+gem 'active_storage_base64'
 
 group :development, :test do
   gem 'pry-byebug'
