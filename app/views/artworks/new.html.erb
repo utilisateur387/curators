@@ -85,12 +85,12 @@
 
 
       <!-- Scan Cartel Button -->
-      <div>
-        <button id="customBtnCartel" type="button" class="button button-block button-new-artwork mb-4" >
-          <div class="mt-2">Scan cartel</div>
+      <div class="mb-4">
+        <button id="customBtnCartel" type="button" class="button" >
+          <div>Scan cartel</div>
+          <input type="file" accept="image/*" capture="camera" id="cartel_photo" />
         </button>
       </div>
-          <input type="file" accept="image/*" capture="camera" class="btn btn-primary" id="cartel_photo" />
 
       <%= f.input :title, placeholder: "What's the title?", input_html: {class: "artwork_input"}%>
       <hr><%= f.association :artist, collection: @artists, placeholder: "Who's the artist?", input_html: {class: "artwork_input"} %>

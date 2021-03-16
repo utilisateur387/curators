@@ -35,8 +35,12 @@ const cartelScan = () => {
       console.log(data);
 
       let title = document.querySelector('#artwork_title');
+      let artist = document.querySelector("#artwork_artist_id");
+      let year = document.querySelector("#artwork_completion_year");
 
-      title.value = data['annotations'][0];
+      title.value = data['annotations'][1];
+      year.value = data['annotations'][2];
+      artist.value = data['annotations'][0];
 
 
       // ["Nature morte / Still life",
