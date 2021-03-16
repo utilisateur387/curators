@@ -19,11 +19,17 @@ class ArtworksController < ApplicationController
     @artists = Artist.order(:name)
     @collections = current_user.collections
     @my_collection = @collections.first
+
     # raise
   end
 
   def create
-    # @artwork = Artwork.new(artwork_params)
+    if params[:cropped_image] != ""
+      @artwork = Artwork.new(artwork_params_with_cropped_image)
+      @artwork.photo.attach(data: params[:cropped_image])
+    else
+      @artwork = Artwork.new(artwork_params)
+    end
 
     # Create artwork from the database search
     if artwork_params["tmp_artist_name"]
@@ -109,6 +115,10 @@ class ArtworksController < ApplicationController
 
   def artwork_params
     params.require(:artwork).permit(:title, :photo, :artist, :artist_id, :completion_year, :description, :location, :notes, :collection_id, :img_url, :tmp_artist_name, :tmp_image_url)
+  end
+
+  def artwork_params_with_cropped_image
+    params.require(:artwork).permit(:title, :artist_id, :completion_year, :description, :location, :notes, :collection_id, :img_url, :tmp_artist_name, :tmp_image_url)
   end
 
   def set_artwork

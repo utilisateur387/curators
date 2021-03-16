@@ -1,3 +1,5 @@
+import Cropper from 'cropperjs';
+
 var currentTab;
 
 function showTab(n) {
@@ -42,7 +44,7 @@ function nextPrev(n) {
 }
 
 const fileUpload = () => {
-
+  let cropper = "";
     // Grabbing Elements and Storing in Variables
     const defaultFile = document.getElementById("artwork_photo");
     const customBtn = document.getElementById("customBtn");
@@ -62,13 +64,33 @@ const fileUpload = () => {
         // Showing Image and Hiding "Image Preview" Text
         preview_img.style.display = "block";
         preview_text.style.display = "none";
+        cropping_img.style.display = "block";
+        cropping_text.style.display = "none";
         //Read File
         const fileReader = new FileReader();
 
         fileReader.addEventListener("load", function () {
           // convert image to base64 encoded string
           preview_img.setAttribute("src", this.result);
+          cropping_img.setAttribute("src", this.result);
           // console.log(this.result);
+          cropper = new Cropper(cropping_img, {
+            viewMode: 1,
+            autoCropArea: 1,
+            cropBoxMovable: false
+          });
+          const save = document.getElementById('nextBtn');
+
+          save.addEventListener('click',(e)=>{
+            e.preventDefault();
+            // get result to data uri
+            let imgSrc = cropper.getCroppedCanvas().toDataURL();
+            preview_img.setAttribute("src", imgSrc);
+            let cropped_image_field = document.getElementById('cropped_image');
+            cropped_image_field.setAttribute("value", imgSrc);
+            console.log(cropped_image_field);
+
+          });
         });
         fileReader.readAsDataURL(files);
       }
@@ -82,6 +104,10 @@ const createForm = () => {
   const nextBtn = document.getElementById('nextBtn');
   const initialArrow = document.getElementById('initialArrow');
   const inputFile = document.getElementById("artwork_photo");
+
+
+
+
 
 
   if (inputFile) {
