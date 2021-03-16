@@ -48,7 +48,13 @@ const fileUpload = () => {
     // Grabbing Elements and Storing in Variables
     const defaultFile = document.getElementById("artwork_photo");
     const customBtn = document.getElementById("customBtn");
+    // const customBtnCartel = document.getElementById("customBtnCartel");
     const customSpace = document.getElementById("custom-space");
+    // customBtnCartel.addEventListener("click", function () {
+    //   console.log("1");
+    //   defaultFile.click();
+    //   console.log("2");
+    // });
     customBtn.addEventListener("click", function () {
       defaultFile.click();
     });
@@ -58,7 +64,7 @@ const fileUpload = () => {
 
       // Image Preview
       const files = defaultFile.files[0]; //files[0] - For getting first file
-      //   console.log(files);
+      // console.log(files);
 
       if (files) {
         // Showing Image and Hiding "Image Preview" Text

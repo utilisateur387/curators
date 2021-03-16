@@ -112,6 +112,16 @@
           </div>
         </div>
 
+      <!-- Scan Cartel Button -->
+      <div class="mb-4">
+        <button id="customBtnCartel" type="button" class="button" >
+          <div>Scan cartel</div>
+          <input type="file" accept="image/*" capture="camera" id="cartel_photo" />
+        </button>
+      </div>
+
+        
+        
         <%= f.input :title, placeholder: "What's the title?", input_html: {class: "artwork_input"}%>
 
         <hr><label for="artist" class="body-xs">Artist</label><br>
@@ -127,6 +137,13 @@
         <hr><%= f.input :notes, placeholder: "Add personal notes", input_html: {class: "artwork_input"} %>
       </div>
     </div>
+
+
+
+
+
+
+
 
     <%# STEP 3 COLLECTION %>
     <div class="container">
@@ -144,4 +161,12 @@
     </div>
 
   <% end %>
+  
+  <%# STEP 4 CARTEL FORM %>
+   <!--<div>
+    <%= form_tag cartel_scans_path, multipart: true, method: :post do %>
+      <label for="image">File to Upload</label> <%= file_field_tag :image %>
+      <%= submit_tag %>
+    <% end %>
+  </div> -->
 </div>
