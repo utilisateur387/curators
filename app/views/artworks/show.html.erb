@@ -75,7 +75,9 @@
 
 
       <%= link_to favorites_path(:artwork_id => @artwork.id), remote: true, method: :post do  %>
-        <p class="body-large" style="color:white"><i class="far fa-heart"></i></p>
+        <div class="heart-container">
+          <p class="body-medium" style="color:white"><i class="far fa-heart"></i></p>
+        </div>
       <% end %>
 
         <!-- <i class="far fa-heart"></i> -->
@@ -83,7 +85,9 @@
         <%= link_to favorite_path(@artwork_favorite.first),
         remote: true,
         method: :delete do %>
-          <p class="body-large" style="color:white"><i class="fas fa-heart"></i></p>
+          <div class="heart-container">
+            <p class="body-medium" style="color:white"><i class="fas fa-heart"></i></p>
+          </div>
         <% end %>
       <% end %>
     <% end %>
