@@ -54,8 +54,11 @@
         </div>
 
         <% if artwork.location && artwork.location.length > 0 %>
-          <div class="body-xs">
-            <i class="fas fa-map-marker-alt mr-1" style="font-size: 12px"></i> <%= artwork.location %>
+          <div class="body-xs location">
+            <p class="location-string">
+              <i class="fas fa-map-marker-alt mr-1" style="font-size: 12px"></i>
+              <%= artwork.location %>
+            </p>
           </div>
         <% end %>
       </div>

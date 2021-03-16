@@ -29,7 +29,7 @@ class ArtworksController < ApplicationController
     if artwork_params["tmp_artist_name"]
       @artwork = Artwork.new(wikiart_artwork_params)
       img_url = @artwork.tmp_image_url
-      file = URI.open(img_url)
+      file = URI.open(URI.escape(img_url))
       @artwork.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
       @collection = current_user.collections.last
