@@ -79,7 +79,7 @@ const fileUpload = () => {
             autoCropArea: 1,
             cropBoxMovable: false
           });
-          const save = document.querySelector('.save');
+          const save = document.getElementById('nextBtn');
 
           save.addEventListener('click',(e)=>{
             e.preventDefault();
