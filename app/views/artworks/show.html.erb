@@ -70,6 +70,28 @@
       <% end %>
     </div>
 
+    <% if @artwork.user != current_user %>
+      <% if @artwork.favorites.where(user: current_user).count < 1 %>
+
+
+      <%= link_to favorites_path(:artwork_id => @artwork.id), remote: true, method: :post do  %>
+        <div class="heart-container">
+          <p class="body-medium" style="color:white"><i class="far fa-heart"></i></p>
+        </div>
+      <% end %>
+
+        <!-- <i class="far fa-heart"></i> -->
+      <% else %>
+        <%= link_to favorite_path(@artwork_favorite.first),
+        remote: true,
+        method: :delete do %>
+          <div class="heart-container">
+            <p class="body-medium" style="color:white"><i class="fas fa-heart"></i></p>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+
     <div class="collection-tag">
       <%= link_to collection_path(@artwork.collection) do %>
       <h5><%= @artwork.collection.name %></h5>
@@ -88,11 +110,11 @@
 
 
     <div class="mt-3">
-      <%# if @artwork.user == current_user %>
+      <% if @artwork.user == current_user %>
         <%= link_to edit_artwork_path(@artwork), class: "button button-dark-gray mt-4" do  %>
           Edit
         <% end %>
-      <%# end %>
+      <% end %>
 
       <%= link_to "Delete",
       artwork_path(@artwork), class: "button button-dark-gray mb-5",

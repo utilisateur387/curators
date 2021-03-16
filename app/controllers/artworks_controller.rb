@@ -1,7 +1,7 @@
 require "open-uri"
 
 class ArtworksController < ApplicationController
-  before_action :set_artwork, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_artwork, only: [ :show, :edit, :update, :destroy, :show ]
 
   def index
     @user = User.find(params[:user_id])
@@ -10,7 +10,8 @@ class ArtworksController < ApplicationController
   end
 
   def show
-    # raise
+    @favorite = Favorite.new
+    @artwork_favorite = @artwork.favorites.where(user: current_user)
   end
 
   def new
@@ -122,6 +123,7 @@ class ArtworksController < ApplicationController
   def wikiart_artwork_params
     params.require(:artwork).permit(:title, :photo, :artist_id, :completion_year, :description, :location, :notes, :collection_id, :img_url, :tmp_artist_name, :tmp_image_url)
   end
+
 
   def build_new_artwork
     if params[:cropped_image] != ""

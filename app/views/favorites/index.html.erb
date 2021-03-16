@@ -1,0 +1,89 @@
+<div class="my-navbar bg-white">
+  <div class="container navbar-container">
+    <!-- Icon on the left -->
+    <div class="navbar-left-side">
+      <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow" %>
+    </div>
+
+    <!-- Page Title -->
+    <div class="navbar-center-element">
+      <h5>Favorites</h5>
+    </div>
+
+    <!-- Icon on the right -->
+    <div class="navbar-right-side">
+      <div class="burger icon-right" id="burger" >
+      </div>
+    </div>
+
+    <!-- Menu overlay fullscreen -->
+    <div id="myNav" class="overlay">
+    <%= link_to "javascript:void(0)", class: "closebtn" do %>
+      <%= image_tag "icons/icon_cross.png", class: "closebtn cross", id: "cross" %>
+    <% end %>
+
+      <div class="overlay-content">
+        <h1 class="mb-3"> <%= link_to "Home", root_path %> </h1>
+        <h1 class="mb-3"> <%= link_to "Explore", explore_artworks_path %> </h1>
+        <h1> <%= link_to "My profile", user_collections_path(current_user) %> </h1>
+        <hr>
+        <h1> <%= link_to "Sign out", destroy_user_session_path, method: :delete %> </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container container-mt">
+  <% if @favorites.count >= 1 %>
+    <% # @artworks.order("created_at desc").each_slice(2) do |artwork| %>
+    <% @artworks.each_slice(2) do |artwork| %>
+      <div class="cards-duo">
+        <div class="cards-duo-imgs">
+          <div class="single-img">
+            <%= link_to artwork_path(artwork[0]) do %>
+              <%= cl_image_tag artwork[0].photo.key %>
+            <% end %>
+          </div>
+
+          <% if artwork[1] %>
+            <div class="single-img">
+              <%= link_to artwork_path(artwork[1]) do %>
+                <%= cl_image_tag artwork[1].photo.key %>
+              <% end %>
+            </div>
+         <% end %>
+        </div>
+
+        <div class="cards-duo-infos">
+          <div class="single-artwork-infos">
+            <% if artwork[0].artist %>
+              <p class="subtitle"><%= artwork[0].artist.name %></p>
+            <% else %>
+              <p class="subtitle">Unknown artist</p>
+            <% end %>
+            <h4><%= artwork[0].title.titleize %></h4>
+            <p class="subtitle"><%= artwork[0].completion_year %></p>
+          </div>
+
+          <% if artwork[1] %>
+            <div class="single-artwork-infos">
+              <% if artwork[1].artist %>
+                <p class="subtitle"><%= artwork[1].artist.name %></p>
+              <% else %>
+                <p class="subtitle">Unknown artist</p>
+              <% end %>
+              <h4><%= artwork[1].title.titleize %></h4>
+              <p class="subtitle"><%= artwork[1].completion_year %></p>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h3 class="text-center">No favorites yet</h3>
+  <% end %>
+
+
+</div>
