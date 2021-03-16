@@ -37,7 +37,7 @@ class CollectionsController < ApplicationController
     set_collection
     @collection.destroy
 
-    redirect_to collection_path
+    redirect_to user_collections_path(current_user)
   end
 
   private
