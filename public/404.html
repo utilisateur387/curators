@@ -4,88 +4,80 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap');
+    /* $font-weight: 300;
+    body-font: "Helvetica Neue", "Helvetica", "sans-serif";
+    headers-font: "Cormorant Garamond", "Helvetica", "sans-serif";
+    */
+  
+  
+    p {
+      font-family: "Helvetica Neue", "Helvetica", "sans-serif";
+      line-height: 1.2em;
+    }
 
-  @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap');
-  /* $font-weight: 300;
-  body-font: "Helvetica Neue", "Helvetica", "sans-serif";
-  headers-font: "Cormorant Garamond", "Helvetica", "sans-serif";
-  */
+    h1 {
+      font-family: "Helvetica Neue", "Helvetica", "sans-serif";
+      font-size: 38px;
+    }
+  
+    .body-landing {
+      background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('The_Scream.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+  
+    .landing {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: white;
+      margin-top: 50px;
+    }
+  
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  
+    
+    .button {
+      font-size: 14px;
+      font-weight: $font-weight;
+      font-family: "Helvetica Neue", "Helvetica", "sans-serif";
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      background-color: $light-gray;
+      padding: 15px 26px;
+      display: inline-block;
+      border-radius: 30px;
+      color: black;
+      text-align: center;
+      border: 0px;
+    }
 
-
-  .p {
-    font-family: "Helvetica Neue", "Helvetica", "sans-serif";
-  }
-
-  img {
-    width: 100vh;
-    border-radius: 2px;
-    min-height: 276px;
-    background-size: cover;
-    background-image: url("The_Scream.jpeg");
-  }
-
-  .container {
-  margin-top: 0px;
-  }
-
-  .body-landing {
-    background-image: url('The_Scream.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
-
-  .landing {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    color: white;
-    margin-top: 150px;
-  }
-
-  a {
-    color: white;
-    display:none;
-  }
-
-  .button {
-    font-size: 14px;
-    font-weight: $font-weight;
-    font-family: "Helvetica Neue", "Helvetica", "sans-serif";
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    background-color: $light-gray;
-    padding: 15px 26px;
-    display: inline-block;
-    border-radius: 30px;
-    color: black;
-    text-align: center;
-    border: 0px;
-  }
-
-  .button-dark {
-    background-color: rgb(33,33,33);
-    border: none;
-    color: white;
-  }
-
-  }
-  </style>
-</head>
-
-<body class="body-landing">
-  <div class="landing">
-    <div class="container">
-      <h1 class="button button-dark">The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+    .button-stroke-white {
+      background-color: rgba(0,0,0,0);
+      border: solid 1px white;
+      color: white;
+    }
+  
+    </style>
+  </head>
+  
+  <body class="body-landing">
+    <div class="landing">
+      <div>
+        <h1 >The page you were looking for doesn't exist.</h1>
+        <p>You may have mistyped the address or the page may have moved.</p>
+        <a href="https://www.curators.gallery", class="button button-stroke-white">Back to homepage</a>
+      </div>
     </div>
-  </div>
-  <div>
-    <a href="https://www.curators.gallery">Return</a>
-  </div>
-</body>
-</html>
+  </body>
+  </html>
+
