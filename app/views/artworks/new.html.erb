@@ -40,28 +40,64 @@
 
 
     <%# STEP 1 PHOTO %>
+   <div class="container">
+    <div class="tab pic-tab">
 
-    <div class="container">
-      <div class="tab pic-tab">
 
-          <!-- Button Markup -->
-          <%= f.input :photo, as: :file %>
-          <button id="customBtn" type="button" class="button button-block button-new-artwork mb-4" >
-            <% #= image_tag "icons/icon_camera_outline_2", alt: "alttext" %>
-            <%= image_tag "https://i.ibb.co/CJtVy0c/icon-camera-outline.png", alt: "alttext", class: "mt-2" %>
-            <div class="mt-2">CAMERA</div>
-          </button>
 
-        <% #= f.input :photo, as: :file, class: "button" %>
-        <%= link_to search_artworks_path, class: "button button-block button-new-artwork", style: "margin-top: -6px" do %>
-          <%= image_tag "https://i.ibb.co/K5B4ZvC/icon-search.png", alt: "alttext" %>
-          <div class="mb-2">Find an artwork</div>
-        <% end %>
-          <!-- Choose File TEXT Markup -->
-          <!-- <span id="custom-space"> <strong> No</strong> File, Selected!😭</span> -->
-      </div>
+        <!-- Input Markup -->
+        <!-- <input type="file" id="default-file" hidden="hidden" /> -->
 
+        <!-- Button Markup -->
+        <%= f.input :photo, as: :file %>
+        <button id="customBtn" type="button" class="button button-block button-new-artwork mb-4" >
+          <% #= image_tag "icons/icon_camera_outline_2", alt: "alttext" %>
+          <%= image_tag "https://i.ibb.co/CJtVy0c/icon-camera-outline.png", alt: "alttext", class: "mt-2" %>
+          <div class="mt-2">CAMERA</div>
+        </button>
+        <%= hidden_field_tag 'cropped_image' %>
+
+      <% #= f.input :photo, as: :file, class: "button" %>
+      <%= link_to search_artworks_path, class: "button button-block button-new-artwork", style: "margin-top: -6px" do %>
+        <%= image_tag "https://i.ibb.co/K5B4ZvC/icon-search.png", alt: "alttext" %>
+        <div class="mb-2">Find an artwork</div>
+      <% end %>
+        <!-- Choose File TEXT Markup -->
+        <!-- <span id="custom-space"> <strong> No</strong> File, Selected!😭</span> -->
     </div>
+  </div>
+
+    <%# Step Cropping %>
+      <div class="tab">
+        <main class="page">
+          <!-- input file -->
+          <div class="box">
+            <div id="preview">
+              <img src="" id="cropping_img" class="preview_img" />
+              <span id="cropping_text" class="preview_text">Image Cropping</span>
+            </div>
+          </div>
+              <!-- leftbox -->
+          <div class="box-2">
+            <div class="result"></div>
+          </div>
+          <!--rightbox-->
+          <div class="box-2 img-result hide">
+            <!-- result of crop -->
+            <img class="cropped" src="" alt="">
+          </div>
+          <!-- input file -->
+          <div class="box">
+            <div class="options hide">
+              <label> Width</label>
+              <input type="number" class="img-w" value="300" min="100" max="1200" />
+            </div>
+            <!-- save btn -->
+            <!-- <button class="btn save hide">Save</button>> -->
+          </div>
+
+        </main>
+      </div>
 
     <%# STEP 2 INFO %>
     <div class="container">
@@ -76,6 +112,16 @@
           </div>
         </div>
 
+      <!-- Scan Cartel Button -->
+      <div class="mb-4">
+        <button id="customBtnCartel" type="button" class="button" >
+          <div>Scan cartel</div>
+          <input type="file" accept="image/*" capture="camera" id="cartel_photo" />
+        </button>
+      </div>
+
+        
+        
         <%= f.input :title, placeholder: "What's the title?", input_html: {class: "artwork_input"}%>
 
         <hr><label for="artist" class="body-xs">Artist</label><br>
@@ -91,6 +137,13 @@
         <hr><%= f.input :notes, placeholder: "Add personal notes", input_html: {class: "artwork_input"} %>
       </div>
     </div>
+
+
+
+
+
+
+
 
     <%# STEP 3 COLLECTION %>
     <div class="container">
@@ -108,4 +161,12 @@
     </div>
 
   <% end %>
+  
+  <%# STEP 4 CARTEL FORM %>
+   <!--<div>
+    <%= form_tag cartel_scans_path, multipart: true, method: :post do %>
+      <label for="image">File to Upload</label> <%= file_field_tag :image %>
+      <%= submit_tag %>
+    <% end %>
+  </div> -->
 </div>

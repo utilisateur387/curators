@@ -20,12 +20,11 @@ class ArtworksController < ApplicationController
     @artists = Artist.order(:name)
     @collections = current_user.collections
     @my_collection = @collections.first
+
     # raise
   end
 
   def create
-    # @artwork = Artwork.new(artwork_params)
-
     # Create artwork from the database search
     if artwork_params["tmp_artist_name"]
       @artwork = Artwork.new(wikiart_artwork_params)
@@ -47,7 +46,8 @@ class ArtworksController < ApplicationController
 
     # Create artwork from new_artwork page
     else
-      @artwork = Artwork.new(artwork_params)
+      # Build a new artwork either with cropped image or not
+      build_new_artwork
       artist = Artist.find_or_create_by(name: params[:artist].split("/").join(" "))
       # artist = Artist.find_by("LOWER(name) = ?", params[:artist].split("/").join(" ").downcase)
       @artwork.artist = artist
@@ -112,6 +112,10 @@ class ArtworksController < ApplicationController
     params.require(:artwork).permit(:title, :photo, :artist, :artist_id, :completion_year, :description, :location, :notes, :collection_id, :img_url, :tmp_artist_name, :tmp_image_url)
   end
 
+  def artwork_params_with_cropped_image
+    params.require(:artwork).permit(:title, :artist_id, :completion_year, :description, :location, :notes, :collection_id, :img_url, :tmp_artist_name, :tmp_image_url)
+  end
+
   def set_artwork
     @artwork = Artwork.find(params[:id])
   end
@@ -119,6 +123,45 @@ class ArtworksController < ApplicationController
   def wikiart_artwork_params
     params.require(:artwork).permit(:title, :photo, :artist_id, :completion_year, :description, :location, :notes, :collection_id, :img_url, :tmp_artist_name, :tmp_image_url)
   end
+
+
+  def build_new_artwork
+    if params[:cropped_image] != ""
+      @artwork = Artwork.new(artwork_params_with_cropped_image)
+      @artwork.photo.attach(data: params[:cropped_image])
+    else
+      @artwork = Artwork.new(artwork_params)
+    end
+  end
+
+  # def attach_image
+  #   img_url = artwork_params["img_url"]
+  #   file = URI.open(img_url)
+  #   @artwork.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+  #   @artwork.collection = Collection.find(3)
+  #   # raise
+  #   if @artwork.save
+  #   # raise
+  #    redirect_to artwork_path(@artwork)
+  #   else
+  #     raise
+  #   end
+  # end
+
+  # def create_artwork_from_api
+  #   @artwork = Artwork.new(wikiart_artwork_params)
+  #   img_url = artwork_params["img_url"]
+  #   file = URI.open(img_url)
+  #   @artwork.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+  #   @artwork.collection = Collection.find(3)
+  #   # raise
+  #   if @artwork.save
+  #   # raise
+  #    redirect_to artwork_path(@artwork)
+  #   else
+  #     raise
+  #   end
+  # end
 end
 
 
