@@ -23,13 +23,11 @@ class ArtworksController < ApplicationController
   end
 
   def create
-    # raise
-    @artwork = Artwork.new(artwork_params)
-    # artist = Artist.find_or_create_by(name: params[:artist].split("/").join(" "))
-    # raise
+    # @artwork = Artwork.new(artwork_params)
+
     # Create artwork from the database search
     if artwork_params["tmp_artist_name"]
-
+      @artwork = Artwork.new(wikiart_artwork_params)
       img_url = @artwork.tmp_image_url
       file = URI.open(img_url)
       @artwork.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
@@ -48,6 +46,7 @@ class ArtworksController < ApplicationController
 
     # Create artwork from new_artwork page
     else
+      @artwork = Artwork.new(artwork_params)
       artist = Artist.find_or_create_by(name: params[:artist].split("/").join(" "))
       # artist = Artist.find_by("LOWER(name) = ?", params[:artist].split("/").join(" ").downcase)
       @artwork.artist = artist
@@ -88,7 +87,9 @@ class ArtworksController < ApplicationController
   end
 
   def search
-    if params[:query]
+    if params[:query] == ""
+      redirect_to search_artworks_path
+    elsif params[:query]
       user_input = params[:query]
       url = "https://www.wikiart.org/en/search/#{user_input}/1?json=2".gsub(" ", "-")
       response = HTTParty.get(url)
@@ -114,9 +115,9 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.find(params[:id])
   end
 
-  # def wikiart_artwork_params
-  #   params.require(:artwork).permit(:title, :photo, :artist_id, :completion_year, :description, :notes, :collection_id)
-  # end
+  def wikiart_artwork_params
+    params.require(:artwork).permit(:title, :photo, :artist_id, :completion_year, :description, :location, :notes, :collection_id, :img_url, :tmp_artist_name, :tmp_image_url)
+  end
 
   # def attach_image
   #   img_url = artwork_params["img_url"]
