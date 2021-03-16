@@ -27,6 +27,7 @@ import "bootstrap";
 import { toggleMenu } from '../components/navbar';
 import { backArrow } from '../components/navbar';
 import { createForm } from '../components/form';
+import { cartelScan } from '../components/cartel_scan';
 import { fadeAlert } from '../components/alerts';
 
 
@@ -37,7 +38,8 @@ import { fadeAlert } from '../components/alerts';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  // wikiArtSearch();
+  // wikiArtSearch();();
+  cartelScan();
   toggleMenu();
   backArrow();
   createForm();

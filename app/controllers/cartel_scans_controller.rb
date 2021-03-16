@@ -2,10 +2,11 @@ class CartelScansController < ApplicationController
   def create
     image       = params[:image]
     client      = Google::Cloud::Vision.image_annotator
-    response    = client.text_detection image: image
+    response    = client.text_detection image: image.tempfile
     annotations = response.responses.first.text_annotations.first.description.split("\n")
 
-    return render json: { html: render_to_string(partial: 'result', locals: { annotations: annotations }) }
+    return render json: { annotations: annotations }
+    # return render json: { html: render_to_string(partial: 'result', locals: { annotations: annotations }) }
   end
 end
 

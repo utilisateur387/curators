@@ -78,12 +78,19 @@
       </div>
 
 
+
+
+
+
+
+
       <!-- Scan Cartel Button -->
-       <%= simple_form_for() do |f| %>
       <div>
-        <%= f.input :photo, as: :file %>
-          <button id="customBtnCartel" type="button" class="button text-center mb-5" >Scan cartel</button>
+        <button id="customBtnCartel" type="button" class="button button-block button-new-artwork mb-4" >
+          <div class="mt-2">Scan cartel</div>
+        </button>
       </div>
+          <input type="file" accept="image/*" capture="camera" class="btn btn-primary" id="cartel_photo" />
 
       <%= f.input :title, placeholder: "What's the title?", input_html: {class: "artwork_input"}%>
       <hr><%= f.association :artist, collection: @artists, placeholder: "Who's the artist?", input_html: {class: "artwork_input"} %>
@@ -92,6 +99,13 @@
       <hr><%= f.input :location, placeholder: "Where did you see it?", input_html: {class: "artwork_input"} %>
       <hr><%= f.input :notes, placeholder: "Add personal notes", input_html: {class: "artwork_input"} %>
     </div>
+
+
+
+
+
+
+
 
     <%# STEP 3 COLLECTION %>
     <div class="tab">
@@ -108,4 +122,12 @@
 
 
   <% end %>
+  
+  <%# STEP 4 CARTEL FORM %>
+   <!--<div>
+    <%= form_tag cartel_scans_path, multipart: true, method: :post do %>
+      <label for="image">File to Upload</label> <%= file_field_tag :image %>
+      <%= submit_tag %>
+    <% end %>
+  </div> -->
 </div>
