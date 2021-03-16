@@ -1,45 +1,46 @@
-<div class= "container container-form pt-5">
+<div class= "container-form pt-5">
 
   <%= simple_form_for(@artwork) do |f| %>
 
     <!-- NAVBAR (INSIDE THE FORM TO CONTAIN THE SUBMIT BUTTON) -->
-    <div class="my-navbar bg-white", style="margin-left: -24px;">
-
-      <!-- Icon on the left -->
-      <div class="navbar-left-side" >
-        <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow", id: "initialArrow" %>
-        <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow-new-artwork", id: "prevBtn", style: "top: 14px" %>
-      </div>
-
-      <!-- Page Title -->
-      <div class="navbar-center-element">
-        <h5>New artwork</h5>
-      </div>
-
-      <!-- Icon on the right -->
-       <div class="navbar-right-side">
-          <%= link_to "", id: "nextBtn", style: "display: none;" do %>
-          <% end %>
-          <%= f.submit value: "Create", id: "submit-btn", class: "create", style: 'display: none; margin-right: 32px; padding: 2px 0; margin-top: -1px' %>
-       </div>
-
-         <!-- Menu overlay fullscreen -->
-      <div id="myNav" class="overlay">
-        <%= link_to "javascript:void(0)", class: "closebtn" do %>
-          <%= image_tag "icons/icon_cross.png", class: "closebtn cross", id: "cross" %>
-        <% end %>
-
-        <div class="overlay-content">
-          <h1 class="mb-3"><a href="#">Home</a></h1>
-          <h1 class="mb-3"><a href="#">Explore</a></h1>
-          <h1><a href="#">My profile</a></h1>
+    <div class="my-navbar bg-white" >
+      <div class="container navbar-container">
+        <!-- Icon on the left -->
+        <div class="navbar-left-side" style="margin-top: 20px" >
+          <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow", id: "initialArrow" %>
+          <%= image_tag "icons/icon_back_arrow_black.png", class: "back-arrow-new-artwork", id: "prevBtn", style: "top: 14px" %>
         </div>
-      </div>
-    </div>
 
+        <!-- Page Title -->
+        <div class="navbar-center-element">
+          <h5>New artwork</h5>
+        </div>
+
+        <!-- Icon on the right -->
+         <div class="navbar-right-side">
+            <%= link_to "", id: "nextBtn", style: "display: none;" do %>
+            <% end %>
+            <%= f.submit value: "Create", id: "submit-btn", class: "create", style: 'display: none; padding: 2px 0; margin-top: -1px' %>
+         </div>
+      </div>
+
+           <!-- Menu overlay fullscreen -->
+        <div id="myNav" class="overlay">
+          <%= link_to "javascript:void(0)", class: "closebtn" do %>
+            <%= image_tag "icons/icon_cross.png", class: "closebtn cross", id: "cross" %>
+          <% end %>
+
+          <div class="overlay-content">
+            <h1 class="mb-3"><a href="#">Home</a></h1>
+            <h1 class="mb-3"><a href="#">Explore</a></h1>
+            <h1><a href="#">My profile</a></h1>
+          </div>
+        </div>
+     </div>
 
 
     <%# STEP 1 PHOTO %>
+   <div class="container">
     <div class="tab pic-tab">
 
 
@@ -64,6 +65,7 @@
         <!-- Choose File TEXT Markup -->
         <!-- <span id="custom-space"> <strong> No</strong> File, Selected!😭</span> -->
     </div>
+  </div>
 
     <%# Step Cropping %>
       <div class="tab">
@@ -96,39 +98,50 @@
 
         </main>
       </div>
-      <%# STEP 2 INFO %>
-    <div class="tab">
-      <%# DISPLAY IMG %>
 
-      <!-- Image Preview Markup -->
-      <div class="preview-holder">
-        <div id="preview">
-          <img src="" id="preview_img" class="preview_img" />
-          <span id="preview_text" class="preview_text">Image Preview</span>
+    <%# STEP 2 INFO %>
+    <div class="container">
+      <div class="tab">
+        <%# DISPLAY IMG %>
+
+        <!-- Image Preview Markup -->
+        <div class="preview-holder">
+          <div id="preview">
+            <img src="" id="preview_img" class="preview_img" />
+            <span id="preview_text" class="preview_text">Image Preview</span>
+          </div>
         </div>
-      </div>
 
-      <%= f.input :title, placeholder: "What's the title?", input_html: {class: "artwork_input"}%>
-      <hr><%= f.association :artist, collection: @artists, placeholder: "Who's the artist?", input_html: {class: "artwork_input"} %>
-      <hr><%= f.input :completion_year, placeholder: "Add year of completion", input_html: {class: "artwork_input"} %>
-      <hr><%= f.input :description, placeholder: "Add artwork description", input_html: {class: "artwork_input"} %>
-      <hr><%= f.input :location, placeholder: "Where did you see it?", input_html: {class: "artwork_input"} %>
-      <hr><%= f.input :notes, placeholder: "Add personal notes", input_html: {class: "artwork_input"} %>
+        <%= f.input :title, placeholder: "What's the title?", input_html: {class: "artwork_input"}%>
+
+        <hr><label for="artist" class="body-xs">Artist</label><br>
+        <select class="select2" name="artist">
+          <% @artists.each do |artist| %>
+            <option value=<%= artist.name.gsub(" ", "/") %>><%= artist.name %></option>
+          <% end %>
+        </select>
+
+        <hr><%= f.input :completion_year, placeholder: "Add year of completion", input_html: {class: "artwork_input"} %>
+        <hr><%= f.input :description, placeholder: "Add artwork description", input_html: {class: "artwork_input"} %>
+        <hr><%= f.input :location, placeholder: "Where did you see it?", input_html: {class: "artwork_input"} %>
+        <hr><%= f.input :notes, placeholder: "Add personal notes", input_html: {class: "artwork_input"} %>
+      </div>
     </div>
 
     <%# STEP 3 COLLECTION %>
-    <div class="tab">
-      <%# DISPLAY IMG %>
-      <%= f.association :collection, collection: @collections,
-        label: "Please select a collection",
-        as: :radio_buttons,
-        collection_wrapper_tag: 'div',
-        collection_wrapper_class: 'category-wrapper',
-        item_wrapper_class: 'category-item',
-        label_method: lambda { |collection| render "collections/collection_label", collection: collection },
-        input_html: {class: 'select-collection'} %>
+    <div class="container">
+      <div class="tab">
+        <%# DISPLAY IMG %>
+        <%= f.association :collection, collection: @collections,
+          label: "Please select a collection",
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper',
+          item_wrapper_class: 'category-item',
+          label_method: lambda { |collection| render "collections/collection_label", collection: collection },
+          input_html: {class: 'select-collection'} %>
+      </div>
     </div>
-
 
   <% end %>
 </div>
