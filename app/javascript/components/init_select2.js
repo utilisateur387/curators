@@ -5,12 +5,9 @@ import 'select2';
 const initSelect2 = () => {
   $('.select2').select2({
     tags: true,
-    placeholder: "Select an artist", allowClear: true
-  }); // (~ document.querySelectorAll)
-
-  // $(".js-example-tags").select2({
-  //   tags: true
-  // });
+    placeholder: "Select an artist",
+    allowClear: true
+  });
 };
 
 export { initSelect2 };
