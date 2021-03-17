@@ -1,5 +1,6 @@
 meta_product_name: "Curators"
 meta_title: "Curators - The social network for art enthusiasts"
 meta_description: "Relevant description"
-meta_image: "https://i.ibb.co/C5S9VTw/og-image.png" # should exist in `app/assets/images/`
+meta_image: "app/assets/images/og-image.png" # should exist in `app/assets/images/`
+# meta_image: "https://i.ibb.co/C5S9VTw/og-image.png" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
