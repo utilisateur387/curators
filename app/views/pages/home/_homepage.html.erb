@@ -102,7 +102,7 @@
   </div>
 
   <% @artworks.first(3).each do |artwork| %>
-    <div class="card-explore">
+    <div class="card-explore aos-init" data-aos-duration="300" data-aos-easing="ease-out" data-aos="fade-up">
       <div class="explore-top-infos">
         <div class="d-flex">
           <%= cl_image_tag artwork.user.photo.key, alt: "alttext" %>
