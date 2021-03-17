@@ -92,6 +92,11 @@
             method: :delete,
             data: { confirm: "Are you sure?" } %>
 
+ <% if @collection.user == current_user %>
+        <%= link_to edit_collection_path(@collection), class: "button button-dark-gray mt-4" do  %>
+          Edit
+        <% end %>
+      <% end %>
 
 </div>
 
