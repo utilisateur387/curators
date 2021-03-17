@@ -79,24 +79,31 @@ const fileUpload = () => {
           // convert image to base64 encoded string
           preview_img.setAttribute("src", this.result);
           cropping_img.setAttribute("src", this.result);
-          // console.log(this.result);
-          cropper = new Cropper(cropping_img, {
-            viewMode: 1,
-            autoCropArea: 1,
-            cropBoxMovable: false
-          });
-          const save = document.getElementById('nextBtn');
 
-          save.addEventListener('click',(e)=>{
-            e.preventDefault();
-            // get result to data uri
-            let imgSrc = cropper.getCroppedCanvas().toDataURL();
-            preview_img.setAttribute("src", imgSrc);
-            let cropped_image_field = document.getElementById('cropped_image');
-            cropped_image_field.setAttribute("value", imgSrc);
-            // console.log(cropped_image_field);
+          // ///////////
 
-          });
+          // // console.log(this.result);
+          // cropper = new Cropper(cropping_img, {
+          //   viewMode: 1,
+          //   autoCropArea: 1,
+          //   cropBoxMovable: false
+          // });
+          // const save = document.getElementById('nextBtn');
+
+          // save.addEventListener('click',(e)=>{
+          //   e.preventDefault();
+          //   // get result to data uri
+          //   let imgSrc = cropper.getCroppedCanvas().toDataURL();
+          //   preview_img.setAttribute("src", imgSrc);
+          //   let cropped_image_field = document.getElementById('cropped_image');
+          //   cropped_image_field.setAttribute("value", imgSrc);
+          //   // console.log(cropped_image_field);
+
+          // });
+
+          // /////////
+
+
         });
         fileReader.readAsDataURL(files);
       }
@@ -112,13 +119,8 @@ const createForm = () => {
   const inputFile = document.getElementById("artwork_photo");
 
 
-
-
-
-
   if (inputFile) {
     inputFile.addEventListener('change', (event) => {
-      console.log("Here!");
       nextPrev(1)
     });
   }
