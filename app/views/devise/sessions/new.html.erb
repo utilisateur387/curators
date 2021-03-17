@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container-sign-in mt-5">
     <h1>Curators</h1>
-    <p class="body-small">Share and discover artworks with Curators, 
+    <p class="body-small">Share and discover artworks with Curators,
     the social network for art enthusiasts.</p>
   </div>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -18,7 +18,7 @@
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     </div>
     <div class="mt-5 mb-5">
-      <%= f.button :submit, "Log in", class: "button button-block" %>
+      <%= f.submit "Log in", class: "button button-block" %>
     </div>
   <% end %>
   <div class="container container-sign-in mt-5">

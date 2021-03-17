@@ -94,7 +94,7 @@ const fileUpload = () => {
             preview_img.setAttribute("src", imgSrc);
             let cropped_image_field = document.getElementById('cropped_image');
             cropped_image_field.setAttribute("value", imgSrc);
-            console.log(cropped_image_field);
+            // console.log(cropped_image_field);
 
           });
         });
