@@ -9,7 +9,6 @@
 
 .landing {
   display: flex;
-  align-items: center;
   justify-content: center;
   background-size: cover;
   height: 100vh;
@@ -53,3 +52,22 @@
     z-index: 10;
   }
 }
+
+.location {
+  display: flex;
+  max-width: 45%;
+
+  p {
+    margin-top: 3px;
+    margin-bottom: 0rem;
+  }
+
+  .location-string {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 0px;
+  }
+}
+
+

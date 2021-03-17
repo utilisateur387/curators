@@ -20,6 +20,10 @@ Rails.application.routes.draw do
     resources :artworks, only: [ :index ]
   end
 
+  resources :cartel_scans, only: [:create]
+
   # Test file, to hide later!!!
   get '/components', to: 'test#components'
+  get '/autocomplete', to: 'test#autocomplete'
+  resources :favorites, only: [ :index, :create, :destroy ]
 end

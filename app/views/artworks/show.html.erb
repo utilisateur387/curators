@@ -5,6 +5,8 @@
 <% end %>
 
 <div class="my-navbar bg-dark white">
+    <div class="container navbar-container">
+
     <!-- Icon on the left -->
     <div class="navbar-left-side">
       <%= image_tag "icons/icon_back_arrow_white.png", class: "back-arrow", id: "my_arrow" %>
@@ -31,16 +33,16 @@
       <%= image_tag "icons/icon_cross.png", class: "closebtn cross", id: "cross" %>
     <% end %>
 
-    <div class="overlay-content">
-      <h1 class="mb-3"> <%= link_to "Home", root_path %> </h1>
-      <h1 class="mb-3"> <%= link_to "Explore", explore_artworks_path %> </h1>
-      <h1> <%= link_to "My profile", user_collections_path(current_user) %> </h1>
-      <hr>
-      <h1> <%= link_to "Sign out", destroy_user_session_path, method: :delete %> </h1>
+      <div class="overlay-content">
+        <h1 class="mb-3"> <%= link_to "Home", root_path %> </h1>
+        <h1 class="mb-3"> <%= link_to "Explore", explore_artworks_path %> </h1>
+        <h1> <%= link_to "My profile", user_collections_path(current_user) %> </h1>
+        <hr>
+        <h1> <%= link_to "Sign out", destroy_user_session_path, method: :delete %> </h1>
+      </div>
     </div>
   </div>
 </div>
-
 
 <body class="body-artwork-show white">
   <div class="container">
@@ -68,28 +70,57 @@
       <% end %>
     </div>
 
+    <% if @artwork.user != current_user %>
+      <% if @artwork.favorites.where(user: current_user).count < 1 %>
+
+
+      <%= link_to favorites_path(:artwork_id => @artwork.id), remote: true, method: :post do  %>
+        <div class="heart-container">
+          <p class="body-medium" style="color:white"><i class="far fa-heart"></i></p>
+        </div>
+      <% end %>
+
+        <!-- <i class="far fa-heart"></i> -->
+      <% else %>
+        <%= link_to favorite_path(@artwork_favorite.first),
+        remote: true,
+        method: :delete do %>
+          <div class="heart-container">
+            <p class="body-medium" style="color:white"><i class="fas fa-heart"></i></p>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+
     <div class="collection-tag">
       <%= link_to collection_path(@artwork.collection) do %>
       <h5><%= @artwork.collection.name %></h5>
       <% end %>
     </div>
 
-    <div class="text-block">
-      <h4>About the artist</h4>
-      <p class="body-medium">Enim urna sagittis, at varius. Sed tristique in proin rutrum mauris nunc dui. At nec est massa consectetur nec. Blandit lacinia lorem enim ut. Ipsum, justo eu facilisis ac dui elit. Dui porttitor viverra scelerisque suspendisse amet. Fames elementum ut consequat amet. Lobortis scelerisque ornare ut faucibus. Ut nulla odio gravida nibh. </p>
-    </div>
-
-
-    <% if @artwork.user == current_user %>
-      <%= link_to edit_artwork_path(@artwork), class: "button button-dark-gray mt-4" do  %>
-        Edit
-      <% end %>
+    <% if @artwork.artist %>
+      <div class="text-block">
+        <h4>About the artist: <%= @artwork.artist.name %> </h4>
+        <p class="body-medium"> <%= @artwork.artist.bio %> </p>
+        <%= link_to @artwork.artist.url, target: "blank" do %>
+          <p class="subtitle read-more"><i class="fas fa-arrow-right"></i> Read more</p>
+        <% end %>
+      </div>
     <% end %>
+
+
+    <div class="mt-3">
+      <% if @artwork.user == current_user %>
+        <%= link_to edit_artwork_path(@artwork), class: "button button-dark-gray mt-4" do  %>
+          Edit
+        <% end %>
+      <% end %>
 
       <%= link_to "Delete",
       artwork_path(@artwork), class: "button button-dark-gray mb-5",
       method: :delete,
       data: { confirm: "Are you sure?" } %>
+    </div>
 
   </div>
 </body>

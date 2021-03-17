@@ -8,16 +8,24 @@
 
 <div class="container container-mt">
   <div class="body-large">
-    <% if @artwork_archive.artist %>
+    <% if @artwork_archive && @artwork_archive.artist %>
       <div class="text-center">
-        Revisit <i><%= @artwork_archive.title.titleize %></i> by <%= @artwork_archive.artist.name.titleize %>
+        <% if @artwork_archive.title == "" %>
+          Revisit <i>Unknown title</i> by <%= @artwork_archive.artist.name.titleize %>
+        <% else %>
+          Revisit <i><%= @artwork_archive.title.titleize %></i> by <%= @artwork_archive.artist.name.titleize %>
+        <% end %>
       </div>
 
       <%= link_to artwork_path(@artwork_archive) do %>
         <div class="card-text-over-img mt-3">
           <div class="artwork-infos">
             <span class="subtitle"><%= @artwork_archive.artist.name.titleize %></span>
-            <h3><%= @artwork_archive.title.titleize %></h3>
+            <% if @artwork_archive.title == "" %>
+              <h3>Unknown title</h3>
+            <% else %>
+              <h3><%= @artwork_archive.title.titleize %></h3>
+            <% end %>
             <span class="subtitle"><%= @artwork_archive.completion_year %></span>
           </div>
 
@@ -39,8 +47,8 @@
 <!-- MY COLLECTIONS SLIDER -->
 
 <div class="my-collections">
-  <div class="gradient">
-  </div>
+<!--   <div class="gradient">
+  </div> -->
 
   <div class="body-large text-center mb-3">
     My collections
@@ -104,8 +112,11 @@
         </div>
 
         <% if artwork.location && artwork.location.length > 0 %>
-          <div class="body-xs">
-            <i class="fas fa-map-marker-alt mr-1" style="font-size: 12px"></i> <%= artwork.location %>
+          <div class="body-xs location">
+            <p class="location-string">
+              <i class="fas fa-map-marker-alt mr-1" style="font-size: 12px"></i>
+              <%= artwork.location %>
+            </p>
           </div>
         <% end %>
       </div>
@@ -119,7 +130,11 @@
             <% else %>
               <span class="subtitle">Unknown artist</span>
             <% end %>
-            <h3><%= artwork.title.titleize %></h3>
+            <% if artwork.title == "" %>
+              <h3>Unknown title</h3>
+            <% else %>
+              <h3><%= artwork.title.titleize %></h3>
+            <% end %>
             <span class="subtitle"><%= artwork.completion_year %></span>
           </div>
 

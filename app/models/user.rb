@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :collections
   has_many :artworks, through: :collections
+  has_many :favorites
 
   has_one_attached :photo
 

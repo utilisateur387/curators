@@ -7,10 +7,7 @@
 
     <!-- Page Title -->
     <div class="navbar-center-element">
-      <div class="title-username">
-        <h5><%= @collection.name %> </h5>
-        <h6><%= @collection.user.username %> </h6>
-      </div>
+      <h5>Favorites</h5>
     </div>
 
     <!-- Icon on the right -->
@@ -38,8 +35,9 @@
 
 
 <div class="container container-mt">
-  <% if @collection.artworks.count >= 1 %>
-    <% @artworks.order("created_at desc").each_slice(2) do |artwork| %>
+  <% if @favorites.count >= 1 %>
+    <% # @artworks.order("created_at desc").each_slice(2) do |artwork| %>
+    <% @artworks.each_slice(2) do |artwork| %>
       <div class="cards-duo">
         <div class="cards-duo-imgs">
           <div class="single-img">
@@ -84,20 +82,8 @@
       </div>
     <% end %>
   <% else %>
-    <h3 class="text-center">No artworks yet</h3>
+    <h3 class="text-center">No favorites yet</h3>
   <% end %>
 
-  <%= link_to "Delete #{@collection.name}",
-            collection_path(@collection), class: "button button-dark-gray mb-5",
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-
- <% if @collection.user == current_user %>
-        <%= link_to edit_collection_path(@collection), class: "button button-dark-gray mt-4" do  %>
-          Edit
-        <% end %>
-      <% end %>
 
 </div>
-
-

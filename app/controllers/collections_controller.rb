@@ -28,12 +28,21 @@ class CollectionsController < ApplicationController
   end
 
   def edit
+    set_collection
   end
 
   def update
+    set_collection
+    @collection.update(collection_params)
+
+    redirect_to user_collections_path(current_user)
   end
 
   def destroy
+    set_collection
+    @collection.destroy
+
+    redirect_to user_collections_path(current_user)
   end
 
   private
