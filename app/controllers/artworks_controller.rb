@@ -42,12 +42,10 @@ class ArtworksController < ApplicationController
         render :search
       end
 
-    # Create artwork from new_artwork page
     else
       # Build a new artwork either with cropped image or not
       build_new_artwork
       artist = Artist.find_or_create_by(name: params[:artist].split("/").join(" "))
-      # artist = Artist.find_by("LOWER(name) = ?", params[:artist].split("/").join(" ").downcase)
       @artwork.artist = artist
       if @artwork.save
         redirect_to artwork_path(@artwork)
@@ -123,13 +121,13 @@ class ArtworksController < ApplicationController
   end
 
   def build_new_artwork
-    if params[:cropped_image] != ""
-      @artwork = Artwork.new(artwork_params_with_cropped_image)
-      @artwork.photo.attach(data: params[:cropped_image])
-      raise
-    else
+    # if params[:cropped_image] != ""
+    #   @artwork = Artwork.new(artwork_params_with_cropped_image)
+    #   @artwork.photo.attach(data: params[:cropped_image])
+    #   raise
+    # else
       @artwork = Artwork.new(artwork_params)
-    end
+    # end
   end
 end
 
