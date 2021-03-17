@@ -1,6 +1,6 @@
 const scrollReveal = () => {
-  ScrollReveal().reveal('.card-text-over-img', { delay: 180 });
-  ScrollReveal().reveal('.explore-top-infos', { delay: 230 });
+  ScrollReveal().reveal('.card-text-over-img', { delay: 140 });
+  ScrollReveal().reveal('.explore-top-infos', { delay: 190 });
 };
 
 export { scrollReveal };
