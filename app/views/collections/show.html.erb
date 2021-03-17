@@ -87,16 +87,16 @@
     <h3 class="text-center">No artworks yet</h3>
   <% end %>
 
-  <%= link_to "Delete #{@collection.name}",
-            collection_path(@collection), class: "button button-dark-gray mb-5",
+ <% if @collection.user == current_user %>
+    <%= link_to edit_collection_path(@collection), class: "button mt-4" do  %>
+      Edit collection
+    <% end %>
+
+    <%= link_to "Delete",
+            collection_path(@collection), class: "button mb-5",
             method: :delete,
             data: { confirm: "Are you sure?" } %>
-
- <% if @collection.user == current_user %>
-        <%= link_to edit_collection_path(@collection), class: "button button-dark-gray mt-4" do  %>
-          Edit
-        <% end %>
-      <% end %>
+  <% end %>
 
 </div>
 
