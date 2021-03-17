@@ -1,14 +1,20 @@
 <!-- NAVBAR -->
 
 <div class="my-navbar bg-white">
-  <div class="container navbar-container">
+    <div class="container navbar-container">
+
     <!-- Icon on the left -->
     <div class="navbar-left-side">
+      <% #=  image_tag "icons/icon_back_arrow_black.png", class: "back-arrow", id: "my_arrow" %>
     </div>
 
     <!-- Page Title -->
     <div class="navbar-center-element">
-      <h5>Explore</h5>
+      <%= link_to "#" do %>
+        <h5>
+          Explore
+        </h5>
+      <% end %>
     </div>
 
     <!-- Icon on the right -->
@@ -23,15 +29,15 @@
       <%= image_tag "icons/icon_cross.png", class: "closebtn cross", id: "cross" %>
     <% end %>
 
-    <div class="overlay-content">
-      <h1 class="mb-3"> <%= link_to "Home", root_path %> </h1>
-      <h1 class="mb-3"> <%= link_to "Explore", explore_artworks_path %> </h1>
-      <h1> <%= link_to "My profile", user_collections_path(current_user) %> </h1>
-      <hr>
-      <h1> <%= link_to "Sign out", destroy_user_session_path, method: :delete %> </h1>
+      <div class="overlay-content">
+        <h1 class="mb-3"> <%= link_to "Home", root_path %> </h1>
+        <h1 class="mb-3"> <%= link_to "Explore", explore_artworks_path %> </h1>
+        <h1> <%= link_to "My profile", user_collections_path(current_user) %> </h1>
+        <hr>
+        <h1> <%= link_to "Sign out", destroy_user_session_path, method: :delete %> </h1>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 <!-- MAIN SECTION -->

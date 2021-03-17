@@ -116,12 +116,12 @@
         <%= link_to edit_artwork_path(@artwork), class: "button button-dark-gray mt-4" do  %>
           Edit
         <% end %>
-      <% end %>
 
-      <%= link_to "Delete",
-      artwork_path(@artwork), class: "button button-dark-gray mb-5",
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
+        <%= link_to "Delete",
+        artwork_path(@artwork), class: "button button-dark-gray mb-3",
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+      <% end %>
     </div>
 
   </div>
