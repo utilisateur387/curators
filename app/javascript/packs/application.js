@@ -7,7 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-
+require("packs/aos")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -28,8 +28,6 @@ import { toggleMenu } from '../components/navbar';
 import { backArrow } from '../components/navbar';
 import { createForm } from '../components/form';
 import { fadeAlert } from '../components/alerts';
-
-
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
