@@ -27,3 +27,19 @@
 .read-more {
   color: white;
 }
+
+
+
+.body-artwork-show {
+    animation: fadeInAnimation2 ease 0s;
+    // animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation2 {
+    100% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
