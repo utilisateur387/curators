@@ -44,64 +44,62 @@ function nextPrev(n) {
 }
 
 const fileUpload = () => {
-  let cropper = "";
-    // Grabbing Elements and Storing in Variables
-    const defaultFile = document.getElementById("artwork_photo");
-    const customBtn = document.getElementById("customBtn");
-    const customSpace = document.getElementById("custom-space");
-    customBtn.addEventListener("click", function () {
-      defaultFile.click();
+  var cropper;
+  // Grabbing Elements and Storing in Variables
+  const defaultFile       = document.getElementById("artwork_photo");
+  const customBtn         = document.getElementById("customBtn");
+  const customSpace       = document.getElementById("custom-space");
+  const previewImg        = document.getElementById('preview_img');
+  const previewText       = document.getElementById('preview_text');
+  const croppingImg       = document.getElementById('cropping_img');
+  const croppingText      = document.getElementById('cropping_text');
+  const croppedImageInput = document.getElementById('cropped_image');
+
+
+  customBtn.addEventListener("click", function () {
+    defaultFile.click();
+  });
+
+  // READ FILE
+  var fileReader = new FileReader();
+
+  fileReader.addEventListener("load", function () {
+    // convert image to base64 encoded string
+    previewImg.setAttribute("src", this.result);
+    croppingImg.setAttribute("src", this.result);
+
+    cropper = new Cropper(croppingImg, {
+      viewMode:       1,
+      autoCropArea:   1,
+      cropBoxMovable: false
     });
+  });
 
-    // File Upload
-    defaultFile.addEventListener("change", (event) => {
+  // File Upload
+  defaultFile.addEventListener("change", (event) => {
+    // Image Preview
+    const files = defaultFile.files[0]; //files[0] - For getting first file
+    // console.log(files);
+    if (files) {
+      // Showing Image and Hiding "Image Preview" Text
+      previewImg.style.display   = "block";
+      previewText.style.display  = "none";
+      croppingImg.style.display  = "block";
+      croppingText.style.display = "none";
 
-      // Image Preview
-      const files = defaultFile.files[0]; //files[0] - For getting first file
-      // console.log(files);
-
-      if (files) {
-        // Showing Image and Hiding "Image Preview" Text
-        preview_img.style.display = "block";
-        preview_text.style.display = "none";
-        cropping_img.style.display = "block";
-        cropping_text.style.display = "none";
-        //Read File
-        const fileReader = new FileReader();
-
-        fileReader.addEventListener("load", function () {
-          // convert image to base64 encoded string
-          preview_img.setAttribute("src", this.result);
-          cropping_img.setAttribute("src", this.result);
-
-          // ///////////
-
-          // console.log(this.result);
-          cropper = new Cropper(cropping_img, {
-            viewMode: 1,
-            autoCropArea: 1,
-            cropBoxMovable: false
-          });
-          const save = document.getElementById('nextBtn');
-
-          save.addEventListener('click',(e)=>{
-            e.preventDefault();
-            // get result to data uri
-            let imgSrc = cropper.getCroppedCanvas({ maxWidth: 1023, }).toDataURL();
-            preview_img.setAttribute("src", imgSrc);
-            let cropped_image_field = document.getElementById('cropped_image');
-            cropped_image_field.setAttribute("value", imgSrc);
-            // console.log(cropped_image_field);
-
-          });
-
-          // /////////
+      fileReader.readAsDataURL(files);
+    }
+  });
 
 
-        });
-        fileReader.readAsDataURL(files);
-      }
-    });
+  const save = document.getElementById('nextBtn');
+  save.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    let imgSrc = cropper.getCroppedCanvas({ maxWidth: 1023, }).toDataURL();
+    previewImg.setAttribute("src", imgSrc);
+    croppedImageInput.setAttribute("value", imgSrc);
+  });
 }
 
 const createForm = () => {
@@ -131,7 +129,7 @@ const createForm = () => {
 
     showTab(currentTab);
 
-    fileUpload()
+    fileUpload();
 
   }
 }

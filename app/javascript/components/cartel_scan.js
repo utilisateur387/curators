@@ -31,7 +31,6 @@ const cartelScan = () => {
       })
       .then(response => response.json())
       .then((data) => {
-        console.log("HEEEEEY");
         console.log(data);
         let dataDescription = data['annotations'].slice(3);
         console.log(dataDescription);
