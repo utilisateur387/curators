@@ -31,6 +31,7 @@ const cartelScan = () => {
       })
       .then(response => response.json())
       .then((data) => {
+        console.log("HEEEEEY");
         console.log(data);
 
         let title = document.querySelector('#artwork_title');
