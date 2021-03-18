@@ -14,7 +14,7 @@
 
     <!-- Page Title -->
     <div class="navbar-center-element">
-      <%= link_to user_collections_path(@artwork.user) do %>
+      <%= link_to user_collections_path(@artwork.user), class: "white" do %>
         <h5 class="white">
           <%= @artwork.user.username %>
         </h5>

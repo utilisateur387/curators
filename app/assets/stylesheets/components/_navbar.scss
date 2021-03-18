@@ -34,6 +34,7 @@
   font-size: 14px;
   line-height: 0.6em;
   margin-top: 23px;
+  z-index: 10;
 }
 
 .navbar-left-side {
@@ -41,12 +42,13 @@
   // left: 0;
   // top: 10px;
   margin-top: 14px;
+  z-index: 10;
 }
 
 .navbar-center-element {
   position: fixed;
   width: 100vw;
-  z-index: -10;
+  // z-index: -10;
   left: 0;
   top: 0;
   text-align: center;
@@ -114,6 +116,7 @@
   background-color: rgba(255,255,255, 0.95);
   overflow-x: hidden;
   transition: 0.3s;
+  z-index: 20;
 }
 
 .overlay-content {

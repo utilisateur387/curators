@@ -10,7 +10,9 @@
     <div class="navbar-center-element">
       <div class="title-username">
         <h5><%= @collection.name %> </h5>
-        <h6><%= @collection.user.username %> </h6>
+        <%= link_to user_collections_path(@collection.user) do %>
+          <h6><%= @collection.user.username %> </h6>
+        <% end %>
       </div>
     </div>
 
