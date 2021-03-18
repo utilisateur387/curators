@@ -37,6 +37,10 @@
   }
 }
 
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
 .my-collections {
   background-color: $light-gray;
   padding-top: 52px;
