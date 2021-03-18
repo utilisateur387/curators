@@ -79,6 +79,9 @@ const fileUpload = () => {
           // convert image to base64 encoded string
           preview_img.setAttribute("src", this.result);
           cropping_img.setAttribute("src", this.result);
+
+          // ///////////
+
           // console.log(this.result);
           cropper = new Cropper(cropping_img, {
             viewMode: 1,
@@ -97,6 +100,10 @@ const fileUpload = () => {
             // console.log(cropped_image_field);
 
           });
+
+          // /////////
+
+
         });
         fileReader.readAsDataURL(files);
       }
@@ -112,13 +119,8 @@ const createForm = () => {
   const inputFile = document.getElementById("artwork_photo");
 
 
-
-
-
-
   if (inputFile) {
     inputFile.addEventListener('change', (event) => {
-      console.log("Here!");
       nextPrev(1)
     });
   }

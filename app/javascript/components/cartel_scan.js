@@ -17,7 +17,7 @@ const cartelScan = () => {
   if (defaultFile) {
     defaultFile.addEventListener("change", (event) => {
       let files = defaultFile.files[0]; //files[0] - For getting first file
-      
+
       const img = new File([files], "cartel.png", {
         type: 'image/png'
       });
@@ -36,10 +36,14 @@ const cartelScan = () => {
         let title = document.querySelector('#artwork_title');
         let artist = document.querySelector("#artwork_artist_id");
         let year = document.querySelector("#artwork_completion_year");
+        let description = document.querySelector("#artwork_description");
 
         title.value = data['annotations'][1];
+        description.value = data['annotations'][3];
         year.value = data['annotations'][2];
         artist.value = data['annotations'][0];
+        console.log('hello')
+        console.log(description.value)
       });
     });
   };
