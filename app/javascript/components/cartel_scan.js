@@ -35,13 +35,13 @@ const cartelScan = () => {
         console.log(data);
 
         let title = document.querySelector('#artwork_title');
-        let artist = document.querySelector("#artwork_artist_id");
+        // let artist = document.querySelector("#artwork_artist_id");
         let year = document.querySelector("#artwork_completion_year");
         let description = document.querySelector("#artwork_description");
 
         title.value = data['annotations'][1];
         year.value = data['annotations'][2];
-        artist.value = data['annotations'][0];
+        // artist.value = data['annotations'][0];
         description.innerHTML = `${data['annotations'][3]} + ${data['annotations'][4]} + ${data['annotations'][5]} + ${data['annotations'][6]} + ${data['annotations'][7]} + ${data['annotations'][8]}`;
 
       });
