@@ -2,6 +2,10 @@
 
 <%= render 'shared/profile' %>
 
+<!-- NEW ARTWORK ICON -->
+<%= link_to new_artwork_path do %>
+  <%= image_tag "icons/icon_plus_black.png", alt: "alttext", class: "button-camera-main-dark" %>
+<% end %>
 
 <div class="tabs body-small max-z-index">
   <div class="tab">
@@ -17,7 +21,7 @@
 </div>
 
 
-<div class="collection-container container d-flex flex-wrap">
+<div class="collection-container container d-flex flex-wrap pb-5">
   <% @collections.order("created_at desc").each do |collection| %>
     <div class="cards-triple">
       <div class="cards-triple-imgs">
