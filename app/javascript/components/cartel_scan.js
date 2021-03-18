@@ -1,7 +1,7 @@
+import { href } from "@rails/ujs";
 import { fetchWithToken } from "../utils/fetch_with_token";
 
 const cartelScan = () => {
-
   // Grabbing Elements and Storing in Variables
   const defaultFile = document.getElementById("cartel_photo");
   // console.log(defaultFile)
@@ -33,16 +33,20 @@ const cartelScan = () => {
       .then((data) => {
         console.log("HEEEEEY");
         console.log(data);
+        let dataDescription = data['annotations'].slice(3);
+        console.log(dataDescription);
+        let scanDescription = dataDescription.join('\n')
+        console.log(scanDescription);
 
         let title = document.querySelector('#artwork_title');
-        let artist = document.querySelector("#artwork_artist_id");
         let year = document.querySelector("#artwork_completion_year");
         let description = document.querySelector("#artwork_description");
+        let artist = document.querySelector("#artwork_artist_id");
 
         title.value = data['annotations'][1];
         year.value = data['annotations'][2];
+        description.innerHTML = scanDescription;
         artist.value = data['annotations'][0];
-        description.innerHTML = `${data['annotations'][3]} + ${data['annotations'][4]} + ${data['annotations'][5]} + ${data['annotations'][6]} + ${data['annotations'][7]} + ${data['annotations'][8]}`;
 
       });
     });
