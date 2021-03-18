@@ -107,9 +107,16 @@
         <p class="body-medium artist-bio"> <%= @artwork.artist.bio %> </p>
         <% if @artwork.artist.url %>
           <%= link_to @artwork.artist.url, target: "blank" do %>
-            <p class="subtitle read-more"><i class="fas fa-arrow-right"></i> Read more</p>
+            <p class="subtitle read-more pt-2"><i class="fas fa-arrow-right"></i> Read more</p>
           <% end %>
         <% end %>
+      </div>
+    <% end %>
+
+    <% if @artwork.description && @artwork.description != "" %>
+      <div class="text-block mt-5 mb-4">
+        <h4>Description</h4>
+        <p class="body-medium"> <%= @artwork.description %> </p>
       </div>
     <% end %>
 

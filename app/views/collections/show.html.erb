@@ -1,3 +1,4 @@
+<!-- NAVBAR -->
 <div class="my-navbar bg-white">
   <div class="container navbar-container">
     <!-- Icon on the left -->
@@ -37,7 +38,7 @@
   </div>
 </div>
 
-
+<!-- CONTENT -->
 <div class="container container-mt">
   <% if @collection.artworks.count >= 1 %>
     <% @artworks.order("created_at desc").each_slice(2) do |artwork| %>
@@ -100,5 +101,4 @@
   <% end %>
 
 </div>
-
 
