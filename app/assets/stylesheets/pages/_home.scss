@@ -37,10 +37,14 @@
   }
 }
 
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
 .my-collections {
   background-color: $light-gray;
   padding-top: 52px;
-  padding-bottom: 52px;
+  padding-bottom: 32px;
   margin-top: 48px;
   margin-bottom: 66px;
 
@@ -71,4 +75,11 @@
   }
 }
 
+.artist-bio {
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 20; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
 

@@ -44,7 +44,6 @@ const cartelScan = () => {
         artist.value = data['annotations'][0];
         description.innerHTML = `${data['annotations'][3]} + ${data['annotations'][4]} + ${data['annotations'][5]} + ${data['annotations'][6]} + ${data['annotations'][7]} + ${data['annotations'][8]}`;
 
-
       });
     });
   };

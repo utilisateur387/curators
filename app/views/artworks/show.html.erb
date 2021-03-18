@@ -100,10 +100,10 @@
       <% end %>
     </div>
 
-    <% if @artwork.artist %>
+    <% if @artwork.artist && @artwork.artist.bio %>
       <div class="text-block">
         <h4>About the artist: <%= @artwork.artist.name %> </h4>
-        <p class="body-medium"> <%= @artwork.artist.bio %> </p>
+        <p class="body-medium artist-bio"> <%= @artwork.artist.bio %> </p>
         <% if @artwork.artist.url %>
           <%= link_to @artwork.artist.url, target: "blank" do %>
             <p class="subtitle read-more"><i class="fas fa-arrow-right"></i> Read more</p>
