@@ -38,13 +38,13 @@ import { scrollReveal } from '../components/scroll_reveal';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
+  scrollReveal();
   toggleMenu();
   cartelScan();
   backArrow();
   createForm();
   fadeAlert();
   initSelect2();
-  scrollReveal();
 
   // initAos();
 });
