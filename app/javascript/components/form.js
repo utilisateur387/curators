@@ -93,7 +93,7 @@ const fileUpload = () => {
           save.addEventListener('click',(e)=>{
             e.preventDefault();
             // get result to data uri
-            let imgSrc = cropper.getCroppedCanvas().toDataURL();
+            let imgSrc = cropper.getCroppedCanvas({ maxWidth: 1023, }).toDataURL();
             preview_img.setAttribute("src", imgSrc);
             let cropped_image_field = document.getElementById('cropped_image');
             cropped_image_field.setAttribute("value", imgSrc);
