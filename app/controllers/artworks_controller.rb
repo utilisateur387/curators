@@ -121,13 +121,12 @@ class ArtworksController < ApplicationController
   end
 
   def build_new_artwork
-    # if params[:cropped_image] != ""
-    #   @artwork = Artwork.new(artwork_params_with_cropped_image)
-    #   @artwork.photo.attach(data: params[:cropped_image])
-    #   raise
-    # else
+    if params[:cropped_image] != ""
+      @artwork = Artwork.new(artwork_params_with_cropped_image)
+      @artwork.photo.attach(data: params[:cropped_image])
+    else
       @artwork = Artwork.new(artwork_params)
-    # end
+    end
   end
 end
 

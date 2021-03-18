@@ -42,10 +42,9 @@ const cartelScan = () => {
         title.value = data['annotations'][1];
         year.value = data['annotations'][2];
         artist.value = data['annotations'][0];
-        console.log('test');
         description.innerHTML = `${data['annotations'][3]} + ${data['annotations'][4]} + ${data['annotations'][5]} + ${data['annotations'][6]} + ${data['annotations'][7]} + ${data['annotations'][8]}`;
-        console.log('hello');
-        console.log(description.value);
+
+
       });
     });
   };
