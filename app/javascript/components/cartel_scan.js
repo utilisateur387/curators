@@ -31,6 +31,7 @@ const cartelScan = () => {
       })
       .then(response => response.json())
       .then((data) => {
+        console.log("HEEEEEY");
         console.log(data);
 
         let title = document.querySelector('#artwork_title');
@@ -42,8 +43,6 @@ const cartelScan = () => {
         description.value = data['annotations'][3];
         year.value = data['annotations'][2];
         artist.value = data['annotations'][0];
-        console.log('hello')
-        console.log(description.value)
       });
     });
   };
