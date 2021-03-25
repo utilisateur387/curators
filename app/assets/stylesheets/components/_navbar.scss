@@ -90,6 +90,10 @@
   background-repeat: no-repeat;
   height: 8px;
   margin-top: 2px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .burger-white {
