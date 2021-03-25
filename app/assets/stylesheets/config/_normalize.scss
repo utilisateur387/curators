@@ -80,4 +80,8 @@ body, .body-large, h5{
       margin: 0 auto;
     }
   }
+
+  body {
+    overflow-y: hidden;
+  }
 }
