@@ -58,3 +58,26 @@ body, .body-large, h5{
         opacity: 1;
     }
 }
+
+.responsive {
+  height: 100vh;
+  width: 100vw;
+  background-color: $off-white;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  display: none;
+}
+
+@media screen and (min-width: 480px) {
+  .responsive {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    & h1 {
+      padding: 32px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+}
