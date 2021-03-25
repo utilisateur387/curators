@@ -30,7 +30,7 @@ class ArtworksController < ApplicationController
       file = URI.open(URI.escape(img_url))
       @artwork.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-      # @collection = current_user.collections.last
+      @collection = current_user.collections.last
       @artwork.collection = @collection
 
       artist = Artist.find_or_create_by(name: @artwork.tmp_artist_name) # here
