@@ -74,7 +74,8 @@ body, .body-large, h5{
     display: flex;
     align-items: center;
     text-align: center;
-    & h1 {
+
+    h1 {
       padding: 32px;
       max-width: 600px;
       margin: 0 auto;
