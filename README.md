@@ -1,1 +1,2 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+## Curators
+Curators is an web application that enables user's to manage their virtual collections by uploading photos, scanning art plates or searching through an artwork database.
